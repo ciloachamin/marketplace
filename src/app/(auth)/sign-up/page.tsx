@@ -14,9 +14,9 @@ import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 
 import {
-  AuthCredentialsValidator,
-  TAuthCredentialsValidator,
-} from '@/lib/validators/account-credentials-validator'
+  UserCredentialsValidator,
+  TUserCredentialsValidator,
+} from '@/lib/validators/user-create'
 import { trpc } from '@/trpc/client'
 import { toast } from 'sonner'
 import { ZodError } from 'zod'
@@ -27,8 +27,8 @@ const Page = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<TAuthCredentialsValidator>({
-    resolver: zodResolver(AuthCredentialsValidator),
+  } = useForm<TUserCredentialsValidator>({
+    resolver: zodResolver(UserCredentialsValidator),
   })
 
   const router = useRouter()
@@ -65,13 +65,17 @@ const Page = () => {
   const onSubmit = ({
     email,
     password,
-  }: TAuthCredentialsValidator) => {
-    mutate({ email, password })
+    firstName,
+    lastName,
+    phone,
+
+  }: TUserCredentialsValidator) => {
+    mutate({ email, password, firstName, lastName, phone})
   }
 
   return (
     <>
-      <div className='container relative flex pt-20 flex-col items-center justify-center lg:px-0'>
+      <div className='container relative flex  flex-col items-center justify-center p-20 lg:px-0'>
         <div className='mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]'>
           <div className='flex flex-col items-center space-y-2 text-center'>
             <Icons.logo className='h-20 w-20' />
@@ -98,10 +102,10 @@ const Page = () => {
                   <Input
                     {...register('email')}
                     className={cn({
-                      'focus-visible:ring-red-500':
-                        errors.email,
+                      'focus-visible:ring-red-500': errors.email,
                     })}
                     placeholder='you@example.com'
+                    maxLength={50}
                   />
                   {errors?.email && (
                     <p className='text-sm text-red-500'>
@@ -116,10 +120,10 @@ const Page = () => {
                     {...register('password')}
                     type='password'
                     className={cn({
-                      'focus-visible:ring-red-500':
-                        errors.password,
+                      'focus-visible:ring-red-500': errors.password,
                     })}
                     placeholder='Password'
+                    maxLength={50}
                   />
                   {errors?.password && (
                     <p className='text-sm text-red-500'>
@@ -128,9 +132,67 @@ const Page = () => {
                   )}
                 </div>
 
+                <div className='grid gap-1 py-2'>
+                  <Label htmlFor='firstName'>First Name</Label>
+                  <Input
+                    {...register('firstName')}
+                    className={cn({
+                      'focus-visible:ring-red-500': errors.firstName,
+                    })}
+                    placeholder='Name'
+                    maxLength={50}
+                  />
+                  {errors?.firstName && (
+                    <p className='text-sm text-red-500'>
+                      {errors.firstName.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className='grid gap-1 py-2'>
+                  <Label htmlFor='lastName'>Last Name</Label>
+                  <Input
+                    {...register('lastName')}
+                    className={cn({
+                      'focus-visible:ring-red-500': errors.lastName,
+                    })}
+                    placeholder='Last Name'
+                    maxLength={50}
+                  />
+                  {errors?.lastName && (
+                    <p className='text-sm text-red-500'>
+                      {errors.lastName.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className='grid gap-1 py-2'>
+                  <Label htmlFor='phone'>Phone</Label>
+                  <Input
+                    {...register('phone')}
+                    className={cn({
+                      'focus-visible:ring-red-500': errors.phone,
+                    })}
+                    placeholder='0955555555'
+                    maxLength={10}
+                    name="phone"
+                    onChange={(e) => {
+                      const inputValue = e.target.value;
+                      const numericValue = inputValue.replace(/[^0-9]/g, ''); // Elimina caracteres no numéricos
+                      e.target.value = numericValue;
+                    }}
+                  />
+                  {errors?.phone && (
+                    <p className='text-sm text-red-500'>
+                      {errors.phone.message}
+                    </p>
+                  )}
+                </div>
+
                 <Button>Sign up</Button>
               </div>
             </form>
+
           </div>
         </div>
       </div>

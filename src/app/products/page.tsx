@@ -1,5 +1,6 @@
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import ProductReel from '@/components/ProductReel'
+import ProductReelPremium from '@/components/ProductReelPremium'
 import { PRODUCT_CATEGORIES } from '@/config'
 
 type Param = string | string[] | undefined
@@ -23,7 +24,12 @@ const ProductsPage = ({
   )?.label
 
   return (
-    <MaxWidthWrapper>
+    <MaxWidthWrapper className='px-2.5 md:px-20'>
+      <ProductReelPremium
+        query={{ sort: 'desc', limit: 4 }}
+        href='/products?sort=recent'
+        title='Productos Populares'
+      />
       <ProductReel
         title={label ?? 'Browse high-quality assets'}
         query={{

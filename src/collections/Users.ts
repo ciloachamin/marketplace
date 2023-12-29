@@ -46,6 +46,16 @@ export const Users: CollectionConfig = {
       hasMany: true,
     },
     {
+      name: 'membership',
+      label: 'Membership',
+      admin: {
+        condition: () => false,
+      },
+      type: 'relationship',
+      relationTo: 'membership',
+      hasMany: true,
+    },
+    {
       name: 'product_files',
       label: 'Product files',
       admin: {
@@ -59,12 +69,34 @@ export const Users: CollectionConfig = {
       name: 'role',
       defaultValue: 'user',
       required: true,
-
       type: 'select',
       options: [
         { label: 'Admin', value: 'admin' },
         { label: 'User', value: 'user' },
+        { label: 'Sell', value: 'sell' },
+        { label: 'Sell Basic', value: 'sellbasic' },
+        { label: 'Sell Premium', value: 'sellpremium' },
+
       ],
+      
+    },
+     {
+      name: 'firstName',
+      label: 'First Name',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'lastName',
+      label: 'Last Name',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'phone',
+      label: 'Phone',
+      type: 'text',
+      required: true,
     },
   ],
 }

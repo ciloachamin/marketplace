@@ -1,3 +1,4 @@
+import { UserCredentialsValidator } from '../lib/validators/user-create'
 import { AuthCredentialsValidator } from '../lib/validators/account-credentials-validator'
 import { publicProcedure, router } from './trpc'
 import { getPayloadClient } from '../get-payload'
@@ -6,9 +7,9 @@ import { z } from 'zod'
 
 export const authRouter = router({
   createPayloadUser: publicProcedure
-    .input(AuthCredentialsValidator)
+    .input(UserCredentialsValidator)
     .mutation(async ({ input }) => {
-      const { email, password } = input
+      const { email, password, firstName,lastName,phone } = input
       const payload = await getPayloadClient()
 
       // check if user already exists
@@ -21,6 +22,7 @@ export const authRouter = router({
         },
       })
 
+
       if (users.length !== 0)
         throw new TRPCError({ code: 'CONFLICT' })
 
@@ -29,6 +31,9 @@ export const authRouter = router({
         data: {
           email,
           password,
+          firstName,
+          lastName,
+          phone,
           role: 'user',
         },
       })
@@ -59,9 +64,7 @@ export const authRouter = router({
     .mutation(async ({ input, ctx }) => {
       const { email, password } = input
       const { res } = ctx
-
       const payload = await getPayloadClient()
-
       try {
         await payload.login({
           collection: 'users',
@@ -74,6 +77,8 @@ export const authRouter = router({
 
         return { success: true }
       } catch (err) {
+        console.log("w")
+        console.log(err)
         throw new TRPCError({ code: 'UNAUTHORIZED' })
       }
     }),

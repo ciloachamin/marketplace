@@ -14,8 +14,8 @@ const Footer = () => {
   ]
 
   return (
-    <footer className='bg-white flex-grow-0'>
-      <MaxWidthWrapper>
+    <footer className=' flex-grow-0'>
+      <MaxWidthWrapper className='px-2.5 md:px-20'>
         <div className='border-t border-gray-200'>
           {pathsToMinimize.includes(pathname) ? null : (
             <div className='pb-8 pt-16'>
@@ -31,12 +31,12 @@ const Footer = () => {
                 <div className='absolute inset-0 overflow-hidden rounded-lg'>
                   <div
                     aria-hidden='true'
-                    className='absolute bg-zinc-50 inset-0 bg-gradient-to-br bg-opacity-90'
+                    className='absolute bg-muted inset-0 bg-gradient-to-br bg-opacity-90'
                   />
                 </div>
 
                 <div className='text-center relative mx-auto max-w-sm'>
-                  <h3 className='font-semibold text-gray-900'>
+                  <h3 className='font-semibold'>
                     Become a seller
                   </h3>
                   <p className='mt-2 text-sm text-muted-foreground'>
@@ -45,7 +45,7 @@ const Footer = () => {
                     minutes.{' '}
                     <Link
                       href='/sign-in?as=seller'
-                      className='whitespace-nowrap font-medium text-black hover:text-zinc-900'>
+                      className='whitespace-nowrap font-medium hover:text-zinc-500'>
                       Get started &rarr;
                     </Link>
                   </p>

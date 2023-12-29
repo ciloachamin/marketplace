@@ -17,7 +17,6 @@ const FALLBACK_LIMIT = 4
 
 const ProductReel = (props: ProductReelProps) => {
   const { title, subtitle, href, query } = props
-
   const { data: queryResults, isLoading } =
     trpc.getInfiniteProducts.useInfiniteQuery(
       {
@@ -42,12 +41,14 @@ const ProductReel = (props: ProductReelProps) => {
     ).fill(null)
   }
 
+  console.log('map', map) 
+
   return (
     <section className='py-12'>
       <div className='md:flex md:items-center md:justify-between mb-4'>
         <div className='max-w-2xl px-4 lg:max-w-4xl lg:px-0'>
           {title ? (
-            <h1 className='text-2xl font-bold text-gray-900 sm:text-3xl'>
+            <h1 className='text-2xl font-bold text-secondary-foreground sm:text-3xl'>
               {title}
             </h1>
           ) : null}
@@ -61,7 +62,7 @@ const ProductReel = (props: ProductReelProps) => {
         {href ? (
           <Link
             href={href}
-            className='hidden text-sm font-medium text-blue-600 hover:text-blue-500 md:block'>
+            className='hidden text-sm font-medium text-primary hover:text-green-400 md:block'>
             Shop the collection{' '}
             <span aria-hidden='true'>&rarr;</span>
           </Link>

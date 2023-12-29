@@ -21,31 +21,61 @@ import { useEffect, useState } from 'react'
 
 const Cart = () => {
   const { items } = useCart()
-  const itemCount = items.length
-
-  const [isMounted, setIsMounted] = useState<boolean>(false)
+  
+  const [itemCount, setItemCount] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
+  const [isBlinking, setIsBlinking] = useState(false);
+  const [hasUpdatedItemCount, setHasUpdatedItemCount] = useState(false);
 
   useEffect(() => {
     setIsMounted(true)
   }, [])
 
+
+  useEffect(() => {
+    if (isMounted && items.length > 0) {
+      setItemCount(items.length);
+      setIsBlinking(true);
+
+      // Desactiva la animación después de 1 segundo
+      const blinkTimeout = setTimeout(() => {
+        setIsBlinking(false);
+      }, 1000);
+
+      return () => clearTimeout(blinkTimeout);
+    }else{
+      setItemCount(0)
+    }
+  }, [isMounted, items]);
+
+
   const cartTotal = items.reduce(
-    (total, { product }) => total + product.price,
+    (total, { product, quantity }) => {
+      if (quantity !== undefined) {
+        return total + product.price * quantity;
+      }
+      return total;
+    },
     0
-  )
+  );
+
+
 
   const fee = 1
+
 
   return (
     <Sheet>
       <SheetTrigger className='group -m-2 flex items-center p-2'>
         <ShoppingCart
           aria-hidden='true'
-          className='h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500'
+          className={`h-6 w-6 flex-shrink-0 text-gray-400 ${isBlinking ? 'animate-blink text-green-500' : 'group-hover:text-gray-500'
+            }`}
         />
-        <span className='ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800'>
+        <span className={`font-medium text-gray-400  rounded-full px-2 '`}>
           {isMounted ? itemCount : 0}
         </span>
+
       </SheetTrigger>
       <SheetContent className='flex w-full flex-col pr-0 sm:max-w-lg'>
         <SheetHeader className='space-y-2.5 pr-6'>

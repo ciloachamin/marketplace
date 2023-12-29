@@ -8,6 +8,8 @@ import { PRODUCT_CATEGORIES } from '@/config'
 import { formatPrice } from '@/lib/utils'
 import Link from 'next/link'
 import PaymentStatus from '@/components/PaymentStatus'
+import WhatsAppButton from '@/components/WhatsAppButton';
+
 
 interface PageProps {
   searchParams: {
@@ -18,7 +20,8 @@ interface PageProps {
 const ThankYouPage = async ({
   searchParams,
 }: PageProps) => {
-  const orderId = searchParams.orderId
+  const orderId = searchParams.orderId;
+
   const nextCookies = cookies()
 
   const { user } = await getServerSideUser(nextCookies)
@@ -55,6 +58,19 @@ const ThankYouPage = async ({
     return total + product.price
   }, 0)
 
+  // Agrupar productos por vendedor
+  const productsBySeller: Record<string, Product[]> = {};
+  products.forEach((product) => {
+    const sellerId = typeof product.user === 'object' && product.user !== null ? product.user.id : 'unknown';
+    if (!productsBySeller[sellerId]) {
+      productsBySeller[sellerId] = [];
+    }
+    productsBySeller[sellerId].push(product);
+  });
+
+
+
+
   return (
     <main className='relative lg:min-h-full'>
       <div className='hidden lg:block h-80 overflow-hidden lg:absolute lg:h-full lg:w-1/2 lg:pr-4 xl:pr-12'>
@@ -72,7 +88,7 @@ const ThankYouPage = async ({
             <p className='text-sm font-medium text-blue-600'>
               Order successful
             </p>
-            <h1 className='mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl'>
+            <h1 className='mt-2 text-4xl font-bold tracking-tight text-secondary-foreground sm:text-5xl'>
               Thanks for ordering
             </h1>
             {order._isPaid ? (
@@ -81,7 +97,7 @@ const ThankYouPage = async ({
                 available to download below. We&apos;ve sent
                 your receipt and order details to{' '}
                 {typeof order.user !== 'string' ? (
-                  <span className='font-medium text-gray-900'>
+                  <span className='font-medium text-blue-600'>
                     {order.user.email}
                   </span>
                 ) : null}
@@ -99,86 +115,99 @@ const ThankYouPage = async ({
               <div className='text-muted-foreground'>
                 Order nr.
               </div>
-              <div className='mt-2 text-gray-900'>
+              <div className='mt-2 '>
                 {order.id}
               </div>
 
+
               <ul className='mt-6 divide-y divide-gray-200 border-t border-gray-200 text-sm font-medium text-muted-foreground'>
-                {(order.products as Product[]).map(
-                  (product) => {
-                    const label = PRODUCT_CATEGORIES.find(
-                      ({ value }) =>
-                        value === product.category
-                    )?.label
+                {/* Renderizar botón de WhatsApp para el vendedor */}
+                {Object.entries(productsBySeller).map(([sellerId, sellerProducts]) => (
+                  <div key={sellerId} className='mt-6'>
+                    <h2 className='text-lg font-medium '>
+                      Productos de {typeof sellerProducts[0]?.user === 'object' ? sellerProducts[0]?.user?.firstName : ''}{' '}
+                      {typeof sellerProducts[0]?.user === 'object' ? sellerProducts[0]?.user?.lastName : ''}
+                    </h2>
+                    <ul className='mt-2 divide-y divide-gray-200 text-sm font-medium text-muted-foreground'>
+                      {sellerProducts.map((product) => (
 
-                    const downloadUrl = (
-                      product.product_files as ProductFile
-                    ).url as string
-
-                    const { image } = product.images[0]
-
-                    return (
-                      <li
-                        key={product.id}
-                        className='flex space-x-6 py-6'>
-                        <div className='relative h-24 w-24'>
-                          {typeof image !== 'string' &&
-                          image.url ? (
-                            <Image
-                              fill
-                              src={image.url}
-                              alt={`${product.name} image`}
-                              className='flex-none rounded-md bg-gray-100 object-cover object-center'
-                            />
-                          ) : null}
-                        </div>
-
-                        <div className='flex-auto flex flex-col justify-between'>
-                          <div className='space-y-1'>
-                            <h3 className='text-gray-900'>
-                              {product.name}
-                            </h3>
-
-                            <p className='my-1'>
-                              Category: {label}
-                            </p>
+                        <li key={product.id} className='flex space-x-6 py-6'>
+                          <div className='relative h-24 w-24'>
+                            {typeof product.images[0]?.image !== 'string' &&
+                              product.images[0]?.image?.url ? (
+                              <Image
+                                fill
+                                src={product.images[0]?.image.url}
+                                alt={`${product.name} image`}
+                                className='flex-none rounded-md bg-gray-100 object-cover object-center'
+                              />
+                            ) : null}
                           </div>
+                          <div className='flex-auto flex flex-col justify-between'>
+                            <div className='space-y-1'>
+                              <h3 className='text-secondary-foreground'>{product.name}</h3>
+                              <p className='my-1'>Category: {PRODUCT_CATEGORIES.find(({ value }) => value === product.category)?.label}</p>
+                              {typeof product.user === 'object' && product.user !== null ? (
+                                <div className='mt-1 flex text-sm'>
+                                  <p className='text-muted-foreground'>
+                                    Vendedor: {product.user.firstName} {product.user.lastName}
+                                  </p>
+                                  {/* Otros detalles del usuario que desees mostrar */}
+                                </div>
+                              ) : (
+                                <p>No hay información del vendedor disponible.</p>
+                              )}
+                            </div>
+                            {order._isPaid ? (
+                              product.product_files && typeof product.product_files === 'object' ? (
+                                <a
+                                  href={typeof product.product_files === 'object' ? product.product_files?.url ?? undefined : undefined}
+                                  download={product.name}
+                                  className='text-blue-600 hover:underline underline-offset-2'
+                                >
+                                  Download asset
+                                </a>
+                              ) : (
+                                <p>No hay archivos para descargar</p>
+                              )
+                            ) : null}
 
-                          {order._isPaid ? (
-                            <a
-                              href={downloadUrl}
-                              download={product.name}
-                              className='text-blue-600 hover:underline underline-offset-2'>
-                              Download asset
-                            </a>
-                          ) : null}
-                        </div>
+                          </div>
+                          <p className='flex-none font-medium text-secondary-foreground'>
+                            {formatPrice(product.price)}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                    {/* Verificar si el vendedor tiene información antes de renderizar el botón */}
+                    {sellerProducts[0]?.user && (
+                      <WhatsAppButton
+                        phoneNumber={typeof sellerProducts[0]?.user === 'object' ? sellerProducts[0]?.user.phone : ''}
+                        message={`Hola, soy ${(user as User)?.firstName} ${(user as User)?.lastName}. He realizado una compra con el número de orden ${order.id}. Los productos que he comprado del vendedor ${(sellerProducts[0]?.user as User)?.firstName} ${(sellerProducts[0]?.user as User)?.lastName} son: ${sellerProducts.map((product) => `${product.name} (${formatPrice(product.price)})`).join(', ')}. El total de la orden con este vendedor es: ${formatPrice(sellerProducts.reduce((total, product) => total + product.price, 0))}. ¿Puedes ayudarme con alguna pregunta?`}
+                        text={`Contactar a ${(sellerProducts[0]?.user as User)?.firstName}`}
+                      />
+                    )}
 
-                        <p className='flex-none font-medium text-gray-900'>
-                          {formatPrice(product.price)}
-                        </p>
-                      </li>
-                    )
-                  }
-                )}
+                  </div>
+                ))}
               </ul>
 
               <div className='space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-muted-foreground'>
                 <div className='flex justify-between'>
                   <p>Subtotal</p>
-                  <p className='text-gray-900'>
+                  <p className='text-secondary-foreground'>
                     {formatPrice(orderTotal)}
                   </p>
                 </div>
 
                 <div className='flex justify-between'>
                   <p>Transaction Fee</p>
-                  <p className='text-gray-900'>
+                  <p className='text-secondary-foreground'>
                     {formatPrice(1)}
                   </p>
                 </div>
 
-                <div className='flex items-center justify-between border-t border-gray-200 pt-6 text-gray-900'>
+                <div className='flex items-center justify-between border-t border-gray-200 pt-6 text-secondary-foreground'>
                   <p className='text-base'>Total</p>
                   <p className='text-base'>
                     {formatPrice(orderTotal + 1)}

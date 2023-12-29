@@ -13,6 +13,7 @@ export interface Config {
     media: Media;
     product_files: ProductFile;
     orders: Order;
+    membership: Membership;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -21,8 +22,12 @@ export interface Config {
 export interface User {
   id: string;
   products?: (string | Product)[] | null;
+  membership?: (string | Membership)[] | null;
   product_files?: (string | ProductFile)[] | null;
-  role: 'admin' | 'user';
+  role: 'admin' | 'user' | 'sell' | 'sellbasic' | 'sellpremium';
+  firstName: string;
+  lastName: string;
+  phone: string;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -42,8 +47,16 @@ export interface Product {
   name: string;
   description?: string | null;
   price: number;
-  category: 'ui_kits' | 'icons';
-  product_files: string | ProductFile;
+  category:
+    | 'technology'
+    | 'food'
+    | 'fashion_and_beauty'
+    | 'services'
+    | 'sports'
+    | 'beverages'
+    | 'art_and_accessories'
+    | 'tasks';
+  product_files?: (string | null) | ProductFile;
   approvedForSale?: ('pending' | 'approved' | 'denied') | null;
   priceId?: string | null;
   stripeId?: string | null;
@@ -103,6 +116,18 @@ export interface Media {
       filename?: string | null;
     };
   };
+}
+export interface Membership {
+  id: string;
+  user?: (string | null) | User;
+  name: string;
+  active: 'pending' | 'approved' | 'denied';
+  time: number;
+  startDate: string;
+  endDate: string;
+  price: number;
+  updatedAt: string;
+  createdAt: string;
 }
 export interface Order {
   id: string;

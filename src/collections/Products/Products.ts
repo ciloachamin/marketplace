@@ -11,10 +11,19 @@ const addUser: BeforeChangeHook<Product> = async ({
   req,
   data,
 }) => {
-  const user = req.user
+  // Obtén el valor actual del campo 'user' del producto
+  const currentUser = data.user;
 
-  return { ...data, user: user.id }
-}
+  // Si el campo 'user' ya tiene un valor, no lo cambies
+  if (currentUser) {
+    return data;
+  }
+
+  // Si el campo 'user' no tiene un valor, asigna el ID del usuario que realiza la acción
+  const user = req.user;
+  return { ...data, user: user.id };
+};
+
 
 const syncUser: AfterChangeHook<Product> = async ({
   req,
@@ -175,7 +184,6 @@ export const Products: CollectionConfig = {
       name: 'product_files',
       label: 'Product file(s)',
       type: 'relationship',
-      required: true,
       relationTo: 'product_files',
       hasMany: false,
     },

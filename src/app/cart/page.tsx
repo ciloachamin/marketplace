@@ -14,11 +14,14 @@ import { useEffect, useState } from 'react'
 const Page = () => {
   const { items, removeItem } = useCart()
 
+
   const router = useRouter()
 
   const { mutate: createCheckoutSession, isLoading } =
     trpc.payment.createSession.useMutation({
       onSuccess: ({ url }) => {
+        console.log('success')
+        console.log(url)
         if (url) router.push(url)
       },
     })
@@ -31,16 +34,21 @@ const Page = () => {
   }, [])
 
   const cartTotal = items.reduce(
-    (total, { product }) => total + product.price,
+    (total, { product, quantity }) => {
+      if (quantity !== undefined) {
+        return total + product.price * quantity;
+      }
+      return total;
+    },
     0
-  )
+  );
 
   const fee = 1
-
+  
   return (
-    <div className='bg-white'>
+    <div className='px-2.5 md:px-20'>
       <div className='mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8'>
-        <h1 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
+        <h1 className='text-3xl font-bold tracking-tight text-secondary-foreground sm:text-4xl'>
           Shopping Cart
         </h1>
 
@@ -81,12 +89,14 @@ const Page = () => {
                   isMounted && items.length > 0,
               })}>
               {isMounted &&
-                items.map(({ product }) => {
+                items.map(({ product,quantity  }) => {
                   const label = PRODUCT_CATEGORIES.find(
                     (c) => c.value === product.category
                   )?.label
 
                   const { image } = product.images[0]
+
+
 
                   return (
                     <li
@@ -95,7 +105,7 @@ const Page = () => {
                       <div className='flex-shrink-0'>
                         <div className='relative h-24 w-24'>
                           {typeof image !== 'string' &&
-                          image.url ? (
+                            image.url ? (
                             <Image
                               fill
                               src={image.url}
@@ -113,7 +123,7 @@ const Page = () => {
                               <h3 className='text-sm'>
                                 <Link
                                   href={`/product/${product.id}`}
-                                  className='font-medium text-gray-700 hover:text-gray-800'>
+                                  className='font-medium text-secondary-foreground hover:text-gray-400'>
                                   {product.name}
                                 </Link>
                               </h3>
@@ -124,13 +134,32 @@ const Page = () => {
                                 Category: {label}
                               </p>
                             </div>
+                            {typeof product.user === 'object' && product.user !== null ? (
+                              <div className='mt-1 flex text-sm'>
+                              <p className='text-muted-foreground'>
+                                 Vendedor: {product.user.firstName} {product.user.lastName}
+                              </p>
+                                {/* Otros detalles del usuario que desees mostrar */}
+                              </div>
+                            ) : (
+                              <p>No hay información del vendedor disponible.</p>
+                            )}
 
-                            <p className='mt-1 text-sm font-medium text-gray-900'>
-                              {formatPrice(product.price)}
+                            <p className='mt-1 text-sm font-medium text-secondary-foreground'>
+                              Unit Price: {formatPrice(product.price)}
+                            </p>
+                          </div>
+                          <div className='mt-4 text-sm'>
+                            <p className='mt-1 text-sm font-medium text-secondary-foreground'>
+                              Quantity: {quantity}
+                            </p>
+                            <p className='mt-1 text-sm font-medium text-secondary-foreground'>
+                              Total: {formatPrice(product.price * (quantity ?? 0))}
                             </p>
                           </div>
 
                           <div className='mt-4 sm:mt-0 sm:pr-9 w-20'>
+
                             <div className='absolute right-0 top-0'>
                               <Button
                                 aria-label='remove product'
@@ -147,7 +176,7 @@ const Page = () => {
                           </div>
                         </div>
 
-                        <p className='mt-4 flex space-x-2 text-sm text-gray-700'>
+                        <p className='mt-4 flex space-x-2 text-sm text-muted-foreground'>
                           <Check className='h-5 w-5 flex-shrink-0 text-green-500' />
 
                           <span>
@@ -210,6 +239,7 @@ const Page = () => {
             <div className='mt-6'>
               <Button
                 disabled={items.length === 0 || isLoading}
+
                 onClick={() =>
                   createCheckoutSession({ productIds })
                 }

@@ -2,6 +2,7 @@ import { User } from '../payload-types'
 import { BeforeChangeHook } from 'payload/dist/collections/config/types'
 import { Access, CollectionConfig } from 'payload/types'
 
+
 const addUser: BeforeChangeHook = ({ req, data }) => {
   const user = req.user as User | null
   return { ...data, user: user?.id }
@@ -47,7 +48,7 @@ const yourOwnAndPurchased: Access = async ({ req }) => {
 
         return typeof product.product_files === 'string'
           ? product.product_files
-          : product.product_files.id
+          : product.product_files?.id ?? null
       })
     })
     .filter(Boolean)
@@ -82,6 +83,7 @@ export const ProductFiles: CollectionConfig = {
     mimeTypes: [
       'image/*',
       'font/*',
+      'application/pdf', 
       'application/postscript',
     ],
   },
@@ -94,7 +96,7 @@ export const ProductFiles: CollectionConfig = {
         condition: () => false,
       },
       hasMany: false,
-      required: true,
+      required: false,
     },
   ],
 }
