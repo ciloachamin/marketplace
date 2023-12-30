@@ -1,4 +1,5 @@
 import AddToCartButton from '@/components/AddToCartButton';
+import CarrucelProgress from '@/components/CarrucelProgress';
 import ImageSlider from '@/components/ImageSlider';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 import ProductListing from '@/components/ProductListing';
@@ -42,16 +43,25 @@ const Page = async ({ params }: PageProps) => {
     }
 
     return (
-        <MaxWidthWrapper className='px-2.5 md:px-20'>
-            <ProductUser
-                query={{ sort: 'desc' }}
-                title='Products me'
-                userId={userId}
-            />
+        <>
+            <div className=''>
+                <CarrucelProgress />
+            </div>
 
-            
+            <MaxWidthWrapper className='px-2.5 md:px-20'>
 
-        </MaxWidthWrapper>
+
+
+                <ProductUser
+                    query={{ sort: 'desc', limit: 5 }}
+                    title='Products me'
+                    userId={userId}
+                />
+
+
+
+            </MaxWidthWrapper>
+        </>
     );
 };
 

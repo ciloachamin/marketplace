@@ -20,8 +20,6 @@ const Page = () => {
   const { mutate: createCheckoutSession, isLoading } =
     trpc.payment.createSession.useMutation({
       onSuccess: ({ url }) => {
-        console.log('success')
-        console.log(url)
         if (url) router.push(url)
       },
     })

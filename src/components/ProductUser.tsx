@@ -5,6 +5,7 @@ import { Product } from '@/payload-types'
 import { trpc } from '@/trpc/client'
 import Link from 'next/link'
 import { cn, formatPrice } from '@/lib/utils'
+import ProductListing from './ProductListing';
 
 
 interface ProductReelProps {
@@ -78,37 +79,11 @@ const ProductReel = (props: ProductReelProps) => {
                 <div className='mt-6 flex items-center w-full'>
                     <div className='w-full grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-10 lg:gap-x-8'>
                         {map.map((product, i) => (
-                            <div
+                            <ProductListing
                                 key={`product-${i}`}
-                                className={`mb-4 cursor-pointer ${selectedProduct === product ? 'border-2 border-blue-500' : ''
-                                    }`}
-                                onClick={() => setSelectedProduct(product)}
-                            >
-                                {product ? (
-                                    <>
-                                        {/* Renderizar la primera imagen del array */}
-                                        {product.images.length > 0 && (
-                                            <img
-                                                src={typeof product.images[0]?.image === 'string' ? product.images[0]?.image : product.images[0]?.image?.url || undefined}
-                                                alt={product.name}
-                                                className='w-full h-40 object-cover mb-2'
-                                            />
-                                        )}
-
-
-                                        <p className='text-lg font-semibold'>{product.name}</p>
-                                        <p className='text-sm text-gray-500'>{product.description}</p>
-                                        <p className='mt-1 font-medium text-sm text-gray-900'>
-                                            {formatPrice(product.price)}
-                                        </p>
-                                    </>
-                                ) : (
-                                    <div className='animate-pulse'>
-                                        <div className='h-8 bg-gray-300 mb-2'></div>
-                                        <div className='h-4 bg-gray-300'></div>
-                                    </div>
-                                )}
-                            </div>
+                                product={product}
+                                index={i}
+                            />
                         ))}
                     </div>
                 </div>

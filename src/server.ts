@@ -113,43 +113,38 @@ const start = async () => {
 
   routers.get('/', (req, res) => {
     const request = req as PayloadRequest
-    console.log(request.user.role)
     if (request.user.role === 'admin') {
-      console.log("admin")
-
       return res.send(`Authenticated successfully as admin ${request.user.email}.`)
     }
-
-    console.log("not admin")
-
     return res.send('Not authenticated')
   })
 
   app.use('/hola', routers)
 
 
-  const searchProducts = async (
-    req: Request,
-    res: Response,
-  ) => {
+
+  const searchProducts = async (req: Request, res: Response) => {
     try {
-      // Consulta para obtener productos de usuarios con roles "sellpremium" y "sellbasic"
+      const { q, userId } = req.query;
+  
+      let whereCondition: any = { approvedForSale: { equals: 'approved' } };
+  
+      if (userId) {
+        whereCondition.user = { equals: userId };
+      }
+  
+      // Consulta para obtener productos del usuario con roles "sellpremium" y "sellbasic"
       const paginatedProducts = await payload.find({
         collection: 'products',
-        where: {
-          approvedForSale: { equals: 'approved' },
-        },
+        where: whereCondition,
       });
-  
       // Convertir PaginatedDocs a un array
       const products = paginatedProducts.docs || [];
   
       // Implementar la búsqueda por palabra clave
-      const { q } = req.query;
-  
       if (q) {
         const results = products.filter(product => {
-          // Asegúrate de que 'product.name' es una cadena
+          // Asegúrate de que 'product.name' sea una cadena
           const productName = typeof product.name === 'string' ? product.name : '';
           return productName.toLowerCase().includes(q.toString().toLowerCase());
         });
@@ -164,8 +159,7 @@ const start = async () => {
     }
   };
   
-
-  app.get('/api/search', searchProducts)
+  app.get('/api/search', searchProducts);
 
 
 

@@ -65,9 +65,6 @@ const Page = () => {
         router.refresh()
       },
       onError: (err) => {
-        console.log('err')
-        console.log(err)
-
         if (err.data?.code === 'UNAUTHORIZED') {
           toast.error('Invalid email or password.')
         }

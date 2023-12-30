@@ -65,7 +65,14 @@ const isAdminOrHasAccess =
     const user = _user as User | undefined
 
     if (!user) return false
-    if (user.role === 'admin') return true
+    if (user.role === 'admin') {
+      // Usuario administrador, permitir acceso
+      return true;
+    } else if (user.role === 'user') {
+      // Usuario con rol 'user', denegar acceso
+      return false;
+    }
+  
 
     const userProductIDs = (user.products || []).reduce<
       Array<string>

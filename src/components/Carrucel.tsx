@@ -59,9 +59,6 @@ const ImageSlider = (props: ProductReelProps) => {
     ).fill(null)
   }
 
-  console.log('map', map)
-
-
 
   return (
     <div id="container-carrucel">

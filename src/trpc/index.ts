@@ -15,7 +15,7 @@ const getProductSellerPremiumInputSchema = z.object({
 export const appRouter = router({
   auth: authRouter,
   payment: paymentRouter,
-  getProductUserId: privateProcedure
+  getProductUserId: publicProcedure
     .input(
       z.object({
         userId: z.string(),
@@ -63,7 +63,6 @@ export const appRouter = router({
         limit,
         page,
       })
-
       return {
         items,
         nextPage: hasNextPage ? nextPage : null,
@@ -170,9 +169,6 @@ getProductSellerPremium: publicProcedure
       limit,
       page,
     });
-
-    console.log('products', items);
-
     return {
       items,
       nextPage: hasNextPage ? nextPage : null,

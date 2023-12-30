@@ -93,7 +93,6 @@ export default function Search(props) {
               <div className="absolute mt-12 top-0 left-0 border w-full  dark:bg-gray-700 bg-secondary overflow-hidden rounded-lg shadow-lg z-10" ref={panelRef} {...autocomplete.getPanelProps()}>
                 {autocompleteState.collections.map((collection, index) => {
                   const { items } = collection
-                  console.log({ items })
                   return (
                     <section key={`section-${index}`}  >
                       {items.length > 0 && (

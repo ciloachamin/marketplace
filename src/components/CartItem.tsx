@@ -36,7 +36,6 @@ const CartItem = ({ product }: { product: Product }) => {
       handleQuantityChange(quantity - 1);
     }
   };
-  console.log(product.user)
 
 
   const itemTotal = quantity ? product.price * quantity : 0;
