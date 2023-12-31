@@ -27,7 +27,7 @@ export function formatPrice(
 }
 
 export function constructMetadata({
-  title = 'ESPE SHOP is the platform for university entrepreneurs',
+  title = 'ESPE SHOP',
   description = 'ESPE SHOP is a marketplace designed for university students to showcase and sell their products.',
   image = '/thumbnail.png',
   icons = '/favicon.ico',

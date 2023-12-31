@@ -34,9 +34,9 @@ const VerifyEmail = ({ token }: VerifyEmailProps) => {
   if (data?.success) {
     return (
       <div className='flex h-full flex-col items-center justify-center'>
-        <div className='relative mb-4 h-60 w-60 text-muted-foreground'>
+        <div className='relative mb-4 h-60 w-60 text-muted-foreground'>  
           <Image
-            src='/hippo-email-sent.png'
+            src='/cocodrilo-espe-carta.png'
             fill
             alt='the email was sent'
           />

@@ -29,7 +29,7 @@ export default buildConfig({
     meta: {
       titleSuffix: '- ESPE SHOP',
       favicon: '/favicon.ico',
-      ogImage: '/thumbnail.jpg',
+      ogImage: '/thumbnail.png',
     },
   },
   rateLimit: {

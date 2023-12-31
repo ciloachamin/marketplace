@@ -1,5 +1,6 @@
 'use client'
 
+import { Icons } from '@/components/Icons'
 import { Button } from '@/components/ui/button'
 import { PRODUCT_CATEGORIES } from '@/config'
 import { useCart } from '@/hooks/use-cart'
@@ -42,7 +43,7 @@ const Page = () => {
   );
 
   const fee = 1
-  
+
   return (
     <div className='px-2.5 md:px-20'>
       <div className='mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8'>
@@ -65,6 +66,7 @@ const Page = () => {
                 <div
                   aria-hidden='true'
                   className='relative mb-4 h-40 w-40 text-muted-foreground'>
+                  <Icons.logo className='h-50 w-80 ' />
                   <Image
                     src='/hippo-empty-cart.png'
                     fill
@@ -87,7 +89,7 @@ const Page = () => {
                   isMounted && items.length > 0,
               })}>
               {isMounted &&
-                items.map(({ product,quantity  }) => {
+                items.map(({ product, quantity }) => {
                   const label = PRODUCT_CATEGORIES.find(
                     (c) => c.value === product.category
                   )?.label
@@ -134,9 +136,9 @@ const Page = () => {
                             </div>
                             {typeof product.user === 'object' && product.user !== null ? (
                               <div className='mt-1 flex text-sm'>
-                              <p className='text-muted-foreground'>
-                                 Vendedor: {product.user.firstName} {product.user.lastName}
-                              </p>
+                                <p className='text-muted-foreground'>
+                                  Vendedor: {product.user.firstName} {product.user.lastName}
+                                </p>
                                 {/* Otros detalles del usuario que desees mostrar */}
                               </div>
                             ) : (

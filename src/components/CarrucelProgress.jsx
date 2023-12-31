@@ -45,7 +45,7 @@ export default function App() {
             layout="fill"
             objectFit="cover"
             loading='eager'
-            src='/thumbnail.jpg'
+            src='/thumbnail.png'
             alt='Product image'
           /></SwiperSlide>
         <SwiperSlide >

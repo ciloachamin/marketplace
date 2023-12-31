@@ -20,6 +20,7 @@ import {
 import * as React from 'react'
 
 import { format } from 'date-fns'
+import { Icons } from '../Icons'
 
 interface ReceiptEmailProps {
   email: string
@@ -47,7 +48,7 @@ export const ReceiptEmail = ({
           <Section>
             <Column>
               <Img
-                src={`${process.env.NEXT_PUBLIC_SERVER_URL}/hippo-email-sent.png`}
+                src={`${process.env.NEXT_PUBLIC_SERVER_URL}/cocodrilo-espe-carta.png`}
                 width='100'
                 height='100'
                 alt='ESPESHOP'
