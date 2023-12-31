@@ -68,7 +68,7 @@ const Page = () => {
                   className='relative mb-4 h-40 w-40 text-muted-foreground'>
                   <Icons.logo className='h-50 w-80 ' />
                   <Image
-                    src='/hippo-empty-cart.png'
+                    src='/cocodrilo-espe-carta.png'
                     fill
                     loading='eager'
                     alt='empty shopping cart espe shop'
