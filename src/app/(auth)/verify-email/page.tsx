@@ -24,7 +24,7 @@ const VerifyEmailPage = ({ searchParams }: PageProps) => {
               <Image
                 src='/hippo-email-sent.png'
                 fill
-                alt='hippo email sent image'
+                alt='ESPE SHOP email sent image'
               />
             </div>
 

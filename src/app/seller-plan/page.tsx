@@ -18,7 +18,7 @@ const SellerPlanPage = ({ }) => {
                     .
                 </h1>
                 <p className='mt-6 text-lg max-w-prose text-muted-foreground'>
-                    Welcome to EMPRE STORE. Here, we understand that great entrepreneurs like you deserve a platform provides you with the tools to succeed.
+                    Welcome to ESPE SHOP. Here, we understand that great entrepreneurs like you deserve a platform provides you with the tools to succeed.
                 </p>
             </div>
             <div className='w-full flex justify-center items-center self-center flex-col'>
@@ -63,7 +63,7 @@ const SellerPlanPage = ({ }) => {
                         'Individual product configuration',
                     ]}
                     buttonText="Get started"
-                    buttonNumber='5930967149917'
+                    buttonNumber='0998377036'
                     buttonMessage='Hola, quiero comprar el plan Empezar '
                 />
 
@@ -80,7 +80,7 @@ const SellerPlanPage = ({ }) => {
                         'Priority placement on the main platform',
                     ]}
                     buttonText="Get started"
-                    buttonNumber='5930967149917'
+                    buttonNumber='0998377036'
                     buttonMessage='Hola, quiero comprar el plan vendedor básico.'
                 />
 
@@ -99,7 +99,7 @@ const SellerPlanPage = ({ }) => {
                         
                     ]}
                     buttonText="Get started"
-                    buttonNumber='5930967149917'
+                    buttonNumber='0998377036'
                     buttonMessage='Hola, quiero comprar el plan vendedor premium. Y que implica este plan?'
                     
                 />

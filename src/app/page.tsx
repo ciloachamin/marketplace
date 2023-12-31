@@ -17,45 +17,47 @@ import { Icons } from '@/components/Icons'
 
 const perks = [
   {
-    name: 'Expert Guidance',
+    name: 'Constant Support',
     Icon: ArrowDownToLine,
     description:
-      'Receive mentorship from experienced entrepreneurs and industry experts who can provide valuable insights and guidance.',
+      'Experience unwavering support from our community and dedicated team, ensuring you have assistance at every step of your entrepreneurial journey.',
   },
   {
-    name: 'Funding Opportunities',
+    name: 'Continuous Improvements',
     Icon: ArrowDownToLine,
     description:
-      'Explore diverse funding options and grants tailored to support the unique projects and ideas of university entrepreneurs.',
+      'Benefit from regular updates and enhancements to our marketplace, ensuring it remains cutting-edge and meets your evolving needs.',
   },
   {
-    name: 'Skill Development',
+    name: 'Security Assurance',
     Icon: ArrowDownToLine,
     description:
-      'Enhance your entrepreneurial skills through specialized courses, workshops, and training programs available on our platform.',
+      'Rest easy knowing that we prioritize the security of your information, providing a safe and trustworthy environment for your transactions.',
   },
+  {
+    name: 'Marketplace Visibility',
+    Icon: ArrowDownToLine,
+    description:
+      'Increase the visibility of your products or services through featured listings, promotional campaigns, and strategic partnerships within our marketplace.',
+  },
+  
+  {
+    name: 'Cross-Promotion Opportunities',
+    Icon: ArrowDownToLine,
+    description:
+      'Explore cross-promotion opportunities with other sellers, amplifying your reach and attracting a broader audience interested in related products or services.',
+  },
+  {
+    name: 'Mobile-Friendly Interface',
+    Icon: ArrowDownToLine,
+    description:
+      'Effortlessly manage your marketplace activities on-the-go with a mobile-friendly interface, providing convenience and flexibility for busy entrepreneurs.',
+  },
+
+
 ];
 
-const qualityPromisePoints = [
-  {
-    name: 'User-Friendly Interface',
-    Icon: ArrowDownToLine,
-    description:
-      'Enjoy a seamless experience with our intuitive and user-friendly platform design.',
-  },
-  {
-    name: 'Responsive Support',
-    Icon: CheckCircle,
-    description:
-      'Our dedicated support team is ready to assist you with any questions or issues promptly.',
-  },
-  {
-    name: 'Security First',
-    Icon: Leaf,
-    description:
-      'We prioritize the security of your data and transactions to ensure a safe environment.',
-  },
-];
+
 
 
 export default function Home() {
@@ -133,18 +135,11 @@ export default function Home() {
                   </h1>
                 </div>
                 <p className="mb-6 text-base leading-7 text-gray-500 dark:text-gray-400">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                  incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit
-                  amet. labore et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit
-                  amet. amet. labore et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit
-                  amet.
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  Lorem ipsum dolor sit amet.
+                At ESPE SHOP, our commitment is to drive your business ambitions by offering an easy-to-use platform, key industry connections, and exclusive events to strengthen your network. From handmade products to unique services, ESPE SHOP is the place where student entrepreneurs can stand out and thrive.
                 </p>
-                <a href="#"
+                <a href="/seller-plan"
                   className={buttonVariants()}>
-                  Learn more
+                  Get started
                 </a>
               </div>
             </div>

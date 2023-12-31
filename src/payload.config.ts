@@ -27,7 +27,7 @@ export default buildConfig({
     user: 'users',
     bundler: webpackBundler(),
     meta: {
-      titleSuffix: '- DigitalHippo',
+      titleSuffix: '- ESPE SHOP',
       favicon: '/favicon.ico',
       ogImage: '/thumbnail.jpg',
     },
