@@ -183,7 +183,7 @@ const ThankYouPage = async ({
                     {sellerProducts[0]?.user && (
                       <WhatsAppButton
                         phoneNumber={typeof sellerProducts[0]?.user === 'object' ? sellerProducts[0]?.user.phone : ''}
-                        message={`Hola, soy ${(user as User)?.firstName} ${(user as User)?.lastName}. He realizado una compra con el número de orden ${order.id}. Los productos que he comprado del vendedor ${(sellerProducts[0]?.user as User)?.firstName} ${(sellerProducts[0]?.user as User)?.lastName} son: ${sellerProducts.map((product) => `${product.name} (${formatPrice(product.price)})`).join(', ')}. El total de la orden con este vendedor es: ${formatPrice(sellerProducts.reduce((total, product) => total + product.price, 0))}. ¿Puedes ayudarme con alguna pregunta?`}
+                        message={`Hola, soy ${(user as User)?.firstName} ${(user as User)?.lastName}. He realizado una compra con el número de orden ${order.id}. Los productos que he comprado del vendedor ${(sellerProducts[0]?.user as User)?.firstName} ${(sellerProducts[0]?.user as User)?.lastName} son: ${sellerProducts.map((product) => `${product.name} (${formatPrice(product.price)})`).join(', ')}. El total de la orden es: ${formatPrice(sellerProducts.reduce((total, product) => total + product.price, 0))}.`}
                         text={`Contactar a ${(sellerProducts[0]?.user as User)?.firstName}`}
                       />
                     )}
