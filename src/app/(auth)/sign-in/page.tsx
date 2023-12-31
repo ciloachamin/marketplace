@@ -168,12 +168,13 @@ const Page = () => {
                 Continue as customer
               </Button>
             ) : (
-              <Button
+             /* <Button
                 onClick={continueAsSeller}
                 variant='secondary'
                 disabled={isLoading}>
                 Continue as seller
-              </Button>
+              </Button>*/
+              null
             )}
           </div>
         </div>

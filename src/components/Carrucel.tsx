@@ -25,7 +25,7 @@ import Card from './Cards'
 
 
 interface ProductReelProps {
-  title: string
+  title?: string
   subtitle?: string
   href?: string
   query: TQueryValidator
@@ -62,7 +62,7 @@ const ImageSlider = (props: ProductReelProps) => {
 
   return (
     <div id="container-carrucel">
-      <h1 id="heading-carrucel">{title}</h1>
+      {title && <h1 id="heading-carrucel">{title}</h1>}
       <Swiper
         effect={'coverflow'}
         grabCursor={true}

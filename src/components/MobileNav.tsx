@@ -67,7 +67,7 @@ const MobileNav = ({ user }: { user: User | null }) => {
 
           {/* Contenido en el medio */}
           <div className='flex-1 overflow-y-auto'>
-      			<span className="flex font-medium text-sm text-gray-400 px-4 my-4 uppercase">Projects</span>
+      			<span className="flex font-medium text-sm text-gray-400 px-4 my-4 uppercase">Category</span>
 
             <div className='mt-2'>
               <ul>
