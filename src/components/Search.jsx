@@ -1,6 +1,7 @@
 "use client"
 import { useMemo, useRef, useState } from 'react'
 import { createAutocomplete } from '@algolia/autocomplete-core'
+import Image from 'next/image';
 
 const AutocompleteItem = ({ id, name, category, user, images, ...otherProps }) => {
 
@@ -10,7 +11,7 @@ const AutocompleteItem = ({ id, name, category, user, images, ...otherProps }) =
       <a href={`/product/${id}`}>
         <li className='cursor-pointer hover:bg-primary'>
           <div className='flex gap-4 p-4 ' >
-            <img
+            <Image
               src={images && images.length > 0 && images[0].image.url}
               alt={name}
               className='w-10 h-10 object-cover rounded'
