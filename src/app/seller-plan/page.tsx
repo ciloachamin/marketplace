@@ -41,7 +41,7 @@ const SellerPlanPage = ({ }) => {
                     <p>
                         If you cancel your plan, your products will no longer be
                         available for sale. You can still access your account and
-                        download your products.
+                        buy products.
                     </p>
                 </Accordion>
                 <h2 className='mt-10 text-3xl font-bold tracking-tight text-secondary-foreground sm:text-5xl'>Purchase one of our plans</h2>

@@ -123,7 +123,6 @@ export const Products: CollectionConfig = {
 
           const updated: Product = {
             ...data,
-            stripeId: createdProduct.id,
             priceId: createdProduct.default_price as string,
           }
 
