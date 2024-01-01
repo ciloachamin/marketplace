@@ -18,12 +18,20 @@ const Page = () => {
 
   const router = useRouter()
 
-  const { mutate: createCheckoutSession, isLoading } =
-    trpc.payment.createSession.useMutation({
-      onSuccess: ({ url }) => {
-        if (url) router.push(url)
-      },
-    })
+
+  const createCheckoutSession = trpc.payment.createSession.useMutation({
+    onSuccess: ({ url }) => {
+      if (url) router.push(url);
+    },
+  });
+
+  const handleClickCheckout = async () => {
+    try {
+      await createCheckoutSession.mutate({ productIds });
+    } catch (error) {
+      console.error('Error al crear la sesión de pago:', error);
+    }
+  };
 
   const productIds = items.map(({ product }) => product.id)
 
@@ -232,14 +240,12 @@ const Page = () => {
 
             <div className='mt-6'>
               <Button
-                disabled={items.length === 0 || isLoading}
-
-                onClick={() =>
-                  createCheckoutSession({ productIds })
-                }
+                disabled={items.length === 0 || createCheckoutSession.isLoading}
+                onClick={handleClickCheckout}
                 className='w-full'
-                size='lg'>
-                {isLoading ? (
+                size='lg'
+              >
+                {createCheckoutSession.isLoading ? (
                   <Loader2 className='w-4 h-4 animate-spin mr-1.5' />
                 ) : null}
                 Checkout
