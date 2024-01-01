@@ -98,7 +98,7 @@ const MobileNav = ({ user }: { user: User | null }) => {
                   <p className='flex gap-2 py-4 px-6  text-gray-400 font-medium'>
                     {user.email}
                   </p>
-                  {['sell', 'admin'].includes(user.role) ? (
+                  {['sell', 'admin' ,'sellbasic', 'sellpremium'].includes(user.role) ? (
                     <p className='flex gap-2 py-4 px-6 font-medium hover:bg-secondary'>
 
                       <Link href='/sell'>Seller Dashboard</Link>

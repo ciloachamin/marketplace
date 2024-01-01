@@ -66,13 +66,7 @@ const Page = () => {
                 <div
                   aria-hidden='true'
                   className='relative mb-4 h-40 w-40 text-muted-foreground'>
-                  <Icons.logo className='h-50 w-80 ' />
-                  <Image
-                    src='/cocodrilo-espe-carta.png'
-                    fill
-                    loading='eager'
-                    alt='empty shopping cart espe shop'
-                  />
+                  <Icons.cocodrilo_espe_cesta className='h-40 w-40 ' />
                 </div>
                 <h3 className='font-semibold text-2xl'>
                   Your cart is empty
