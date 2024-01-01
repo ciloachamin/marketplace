@@ -39,7 +39,7 @@ export default function Search(props) {
       sourceId: 'offers-next-api',
       getItems: ({ query }) => {
         if (!!query) {
-          return fetch(`http://localhost:3000/api/search?q=${query}`)
+          return fetch(process.env.NEXT_PUBLIC_SERVER_URL +`/api/search?q=${query}`)
             .then(res => res.json())
         }
       }
