@@ -23,7 +23,7 @@ const VerifyEmailPage = ({ searchParams }: PageProps) => {
             <div className='relative mb-4 h-60 w-60 text-muted-foreground'>
            
               <Image
-                src='/cocodrilo-espe-carta.png'
+                src={process.env.NEXT_PUBLIC_SERVER_URL + '/cocodrilo-espe-carta.png'}
                 fill
                 alt='ESPE SHOP email sent image'
               />
