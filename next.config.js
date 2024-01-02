@@ -3,6 +3,11 @@ const nextConfig = {
 	images: {
 		remotePatterns: [
 			{
+				protocol: "https",
+				hostname: "res.cloudinary.com",
+
+			},
+			{
 				protocol: "http",
 				hostname: "localhost",
 			},
@@ -10,6 +15,7 @@ const nextConfig = {
 				protocol: "https",
 				hostname: "marketplace-production-8aec.up.railway.app",
 			},
+			
 		],
 	},
 };

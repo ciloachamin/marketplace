@@ -42,8 +42,8 @@ export const Media: CollectionConfig = {
     hidden: ({ user }) => user.role !== 'admin',
   },
   upload: {
-    staticURL: '/media',
-    staticDir: 'media',
+    
+    disableLocalStorage: true,
     imageSizes: [
       {
         name: 'thumbnail',

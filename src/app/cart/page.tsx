@@ -15,19 +15,15 @@ import { useEffect, useState } from 'react'
 const Page = () => {
   const { items, removeItem } = useCart()
   const router = useRouter()
-  const createCheckoutSession = trpc.payment.createSession.useMutation({
-    onSuccess: ({ url }) => {
-      if (url) router.push(url);
-    },
-  });
 
-  const handleClickCheckout = async () => {
-    try {
-      await createCheckoutSession.mutate({ productIds });
-    } catch (error) {
-      console.error('Error al crear la sesión de pago:', error);
-    }
-  };
+
+  
+  const { mutate: createCheckoutSession, isLoading } =
+    trpc.payment.createSession.useMutation({
+      onSuccess: ({ url }) => {
+        if (url) router.push(url)
+      },
+    })
 
   const productIds = items.map(({ product }) => product.id)
 
@@ -46,7 +42,7 @@ const Page = () => {
     0
   );
 
-  const fee = 1
+  const fee = 0
 
   return (
     <div className='px-2.5 md:px-20'>
@@ -236,12 +232,14 @@ const Page = () => {
 
             <div className='mt-6'>
               <Button
-                disabled={items.length === 0 || createCheckoutSession.isLoading}
-                onClick={handleClickCheckout}
+                disabled={items.length === 0 || isLoading}
+
+                onClick={() =>
+                  createCheckoutSession({ productIds })
+                }
                 className='w-full'
-                size='lg'
-              >
-                {createCheckoutSession.isLoading ? (
+                size='lg'>
+                {isLoading ? (
                   <Loader2 className='w-4 h-4 animate-spin mr-1.5' />
                 ) : null}
                 Pagar

@@ -5,7 +5,6 @@ import {
 import { PRODUCT_CATEGORIES } from '../../config'
 import { Access, CollectionConfig } from 'payload/types'
 import { Product, User } from '../../payload-types'
-import { stripe } from '../../lib/stripe'
 
 const addUser: BeforeChangeHook<Product> = async ({
   req,
@@ -108,43 +107,6 @@ export const Products: CollectionConfig = {
     afterChange: [syncUser],
     beforeChange: [
       addUser,
-      async (args) => {
-        if (args.operation === 'create') {
-          const data = args.data as Product
-
-          const createdProduct =
-            await stripe.products.create({
-              name: data.name,
-              default_price_data: {
-                currency: 'USD',
-                unit_amount: Math.round(data.price * 100),
-              },
-            })
-
-          const updated: Product = {
-            ...data,
-            priceId: createdProduct.default_price as string,
-          }
-
-          return updated
-        } else if (args.operation === 'update') {
-          const data = args.data as Product
-
-          const updatedProduct =
-            await stripe.products.update(data.stripeId!, {
-              name: data.name,
-              default_price: data.priceId!,
-            })
-
-          const updated: Product = {
-            ...data,
-            stripeId: updatedProduct.id,
-            priceId: updatedProduct.default_price as string,
-          }
-
-          return updated
-        }
-      },
     ],
   },
   fields: [
@@ -220,18 +182,6 @@ export const Products: CollectionConfig = {
     },
     {
       name: 'priceId',
-      access: {
-        create: () => false,
-        read: () => false,
-        update: () => false,
-      },
-      type: 'text',
-      admin: {
-        hidden: true,
-      },
-    },
-    {
-      name: 'stripeId',
       access: {
         create: () => false,
         read: () => false,

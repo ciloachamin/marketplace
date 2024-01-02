@@ -97,6 +97,17 @@ const Page = async ({ params }: PageProps) => {
                   {label}
                 </div>
               </div>
+              <div className='mt-4 space-y-6'>
+                {typeof product.user === 'object' && product.user !== null ? (
+                  <div className='mt-1 flex text-sm'>
+                    <p className='text-muted-foreground'>
+                      Vendedor: {product.user.firstName} {product.user.lastName}
+                    </p>
+                  </div>
+                ) : (
+                  <p>No hay información del vendedor disponible.</p>
+                )}
+              </div>
 
               <div className='mt-4 space-y-6'>
                 <p className='text-base text-muted-foreground'>
@@ -110,7 +121,7 @@ const Page = async ({ params }: PageProps) => {
                   className='h-5 w-5 flex-shrink-0 text-green-500'
                 />
                 <p className='ml-2 text-sm text-muted-foreground'>
-                    Elegible para entrega instantánea
+                  Elegible para entrega instantánea
                 </p>
               </div>
             </section>
@@ -152,7 +163,7 @@ const Page = async ({ params }: PageProps) => {
         subtitle={`Browse similar high-quality ${label} just like '${product.name}'`}
       />
 
-      
+
 
     </MaxWidthWrapper>
   )

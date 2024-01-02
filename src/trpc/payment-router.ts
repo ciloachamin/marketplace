@@ -9,6 +9,7 @@ import { getPayloadClient } from '../get-payload'
 
 
 export const paymentRouter = router({
+  
   createSession: privateProcedure
     .input(z.object({ productIds: z.array(z.string()) }))
     .mutation(async ({ ctx, input }) => {
@@ -27,9 +28,8 @@ export const paymentRouter = router({
         },
       });
       const filteredProducts = products.filter((prod) =>
-        Boolean(prod.priceId)
+        Boolean(prod.price)
       );
-
       const order = await payload.create({
         collection: 'orders',
         data: {
@@ -38,7 +38,6 @@ export const paymentRouter = router({
           user: user.id,
         },
       });
-
       // Devuelve la URL como parte de la respuesta
       const thankYouUrl = `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderId=${order.id}`;
 

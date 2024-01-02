@@ -37,7 +37,6 @@ const Card = ({
             typeof image === 'string' ? image : image.url
         )
         .filter(Boolean) as string[]
-
     if (isVisible && product) {
         return (
             <Link

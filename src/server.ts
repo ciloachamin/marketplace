@@ -6,15 +6,18 @@ import { appRouter } from './trpc'
 import { inferAsyncReturnType } from '@trpc/server'
 import bodyParser from 'body-parser'
 import { IncomingMessage } from 'http'
-import { stripeWebhookHandler } from './webhooks'
 import nextBuild from 'next/dist/build'
 import path from 'path'
 import { PayloadRequest } from 'payload/types'
 import { parse } from 'url'
 import { Request, Response, NextFunction } from 'express';
+import { mediaManagement } from "payload-cloudinary-plugin";
 
 
 const app = express()
+
+
+app.use(mediaManagement());
 
 
 

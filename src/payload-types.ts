@@ -59,7 +59,6 @@ export interface Product {
   product_files?: (string | null) | ProductFile;
   approvedForSale?: ('pending' | 'approved' | 'denied') | null;
   priceId?: string | null;
-  stripeId?: string | null;
   images: {
     image: string | Media;
     id?: string | null;
@@ -70,6 +69,13 @@ export interface Product {
 export interface ProductFile {
   id: string;
   user?: (string | null) | User;
+  cloudinary?: {
+    public_id?: string | null;
+    original_filename?: string | null;
+    format?: string | null;
+    secure_url?: string | null;
+    resource_type?: string | null;
+  };
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -82,6 +88,13 @@ export interface ProductFile {
 export interface Media {
   id: string;
   user?: (string | null) | User;
+  cloudinary?: {
+    public_id?: string | null;
+    original_filename?: string | null;
+    format?: string | null;
+    secure_url?: string | null;
+    resource_type?: string | null;
+  };
   updatedAt: string;
   createdAt: string;
   url?: string | null;
