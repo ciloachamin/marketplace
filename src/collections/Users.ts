@@ -13,6 +13,7 @@ const adminsAndUser: Access = ({ req: { user } }) => {
 
 export const Users: CollectionConfig = {
   slug: 'users',
+  
   auth: {
     verify: {
       generateEmailHTML: ({ token }) => {
@@ -23,6 +24,8 @@ export const Users: CollectionConfig = {
         })
       },
     },
+    tokenExpiration:  60 * 60 * 24 * 30, // 30 days
+  
   },
   access: {
     read: adminsAndUser,

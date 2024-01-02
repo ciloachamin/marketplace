@@ -65,10 +65,10 @@ const Page = () => {
               <div className='flex h-full flex-col items-center justify-center space-y-1'>
                 <div
                   aria-hidden='true'
-                  className='relative mb-4 h-40 w-40 text-muted-foreground'>
+                  className='relative mb-4 h-40 w-40 '>
                   <Icons.cocodrilo_espe_cesta className='h-40 w-40 ' />
                 </div>
-                <h3 className='font-semibold text-2xl'>
+                <h3 className='font-semibold text-2xl '>
                   Tu carrito está vacío
                 </h3>
                 <p className='text-muted-foreground text-center'>

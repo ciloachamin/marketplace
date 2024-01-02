@@ -96,7 +96,7 @@ const MobileNav = ({ user }: { user: User | null }) => {
                   {['sell', 'admin' ,'sellbasic', 'sellpremium'].includes(user.role) ? (
                     <p className='flex gap-2 py-4 px-6 font-medium hover:bg-secondary'>
 
-                      <Link href='/sell'>Panel de vendedor</Link>
+                      <Link href='/sell' target='_blank'>Panel de vendedor</Link>
                     </p>
                   ) : null}
 
