@@ -16,8 +16,8 @@ const AutocompleteItem = ({ id, name, category, user, images, ...otherProps }) =
               alt={name}
               className='w-10 h-10 object-cover rounded'
             />
-            <h3 className='text-sm font-semibold'>{`Sell: ${name}`}</h3>
-            <p className='text-sm text-secondary-foreground'>{`Category: ${category}`}</p>
+            <h3 className='text-sm font-semibold'>{`Vendedor: ${name}`}</h3>
+            <p className='text-sm text-secondary-foreground'>{`Categoría: ${category}`}</p>
           </div>
         </li>
       </a>
@@ -33,7 +33,7 @@ export default function Search(props) {
   })
 
   const autocomplete = useMemo(() => createAutocomplete({
-    placeholder: 'Search for products',
+    placeholder: 'Buscar productos',
     onStateChange: ({ state }) => setAutocompleteState(state),
     getSources: () => [{
       sourceId: 'offers-next-api',

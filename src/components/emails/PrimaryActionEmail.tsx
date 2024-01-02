@@ -29,39 +29,36 @@ export const EmailTemplate = ({
     <Html>
       <Head />
       <Preview>
-        The marketplace for high-quality digital goods.
-      </Preview>
-      <Body style={main}>
-        <Container style={container}>
-          <Img
-            src={`${process.env.NEXT_PUBLIC_SERVER_URL}/cocodrilo-espe-carta.png`}
-            width='150'
-            height='150'
-            alt='ESPESHOP '
-            style={logo}
-          />
-          <Text style={paragraph}>Hi there,</Text>
-          <Text style={paragraph}>
-            Welcome to ESPE SHOP , the marketplace for
-            high quality digital goods. Use the button below
-            to {actionLabel}.
-          </Text>
-          <Section style={btnContainer}>
-            <Button style={button} href={href}>
-              {buttonText}
-            </Button>
-          </Section>
-          <Text style={paragraph}>
-            Best,
-            <br />
-            The ESPE SHOP team
-          </Text>
-          <Hr style={hr} />
-          <Text style={footer}>
-            If you did not request this email, you can
-            safely ignore it.
-          </Text>
-        </Container>
+            El mercado de bienes digitales de alta calidad.
+          </Preview>
+          <Body style={main}>
+            <Container style={container}>
+              <Img
+                src={`${process.env.NEXT_PUBLIC_SERVER_URL}/cocodrilo-espe-carta.png`}
+                width='150'
+                height='150'
+                alt='ESPESHOP '
+                style={logo}
+              />
+              <Text style={paragraph}>Hola,</Text>
+              <Text style={paragraph}>
+                Bienvenido a ESPE SHOP, el mercado de bienes digitales de alta calidad. Utiliza el botón de abajo para {actionLabel}.
+              </Text>
+              <Section style={btnContainer}>
+                <Button style={button} href={href}>
+                  {buttonText}
+                </Button>
+              </Section>
+              <Text style={paragraph}>
+                Saludos,
+                <br />
+                El equipo de ESPE SHOP
+              </Text>
+              <Hr style={hr} />
+              <Text style={footer}>
+                Si no solicitaste este correo electrónico, puedes ignorarlo de forma segura.
+              </Text>
+            </Container>
       </Body>
     </Html>
   )

@@ -60,7 +60,7 @@ const ProductReel = (props: ProductReelProps) => {
           <Link
             href={href}
             className='hidden text-sm font-medium text-primary hover:text-green-400 md:block'>
-            Shop the collection{' '}
+            Compre la colección {' '}
             <span aria-hidden='true'>&rarr;</span>
           </Link>
         ) : null}

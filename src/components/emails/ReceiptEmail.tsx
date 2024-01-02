@@ -18,9 +18,8 @@ import {
 } from '@react-email/components'
 
 import * as React from 'react'
-
 import { format } from 'date-fns'
-import { Icons } from '../Icons'
+
 
 interface ReceiptEmailProps {
   email: string
@@ -63,7 +62,7 @@ export const ReceiptEmail = ({
             <Row style={informationTableRow}>
               <Column style={informationTableColumn}>
                 <Text style={informationTableLabel}>
-                  EMAIL
+                  CORREO
                 </Text>
                 <Link
                   style={{
@@ -75,7 +74,7 @@ export const ReceiptEmail = ({
 
               <Column style={informationTableColumn}>
                 <Text style={informationTableLabel}>
-                  INVOICE DATE
+                  FECHA DE FACTURA
                 </Text>
                 <Text style={informationTableValue}>
                   {format(date, 'dd MMM yyyy')}
@@ -84,7 +83,7 @@ export const ReceiptEmail = ({
 
               <Column style={informationTableColumn}>
                 <Text style={informationTableLabel}>
-                  ORDER ID
+                  ORDEN ID
                 </Text>
                 <Link
                   style={{
@@ -96,7 +95,7 @@ export const ReceiptEmail = ({
             </Row>
           </Section>
           <Section style={productTitleTable}>
-            <Text style={productsTitle}>Order Summary</Text>
+            <Text style={productsTitle}>Resumen del Pedido</Text>
           </Section>
           {products.map((product) => {
             const { image } = product.images[0]
@@ -105,7 +104,7 @@ export const ReceiptEmail = ({
               <Section key={product.id}>
                 <Column style={{ width: '64px' }}>
                   {typeof image !== 'string' &&
-                  image.url ? (
+                    image.url ? (
                     <Img
                       src={image.url}
                       width='64'
@@ -123,16 +122,16 @@ export const ReceiptEmail = ({
                     <Text style={productDescription}>
                       {product.description.length > 50
                         ? product.description?.slice(
-                            0,
-                            50
-                          ) + '...'
+                          0,
+                          50
+                        ) + '...'
                         : product.description}
                     </Text>
                   ) : null}
                   <Link
                     href={`${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderId=${orderId}`}
                     style={productLink}>
-                    Download Asset
+                    Descargar el archivo
                   </Link>
                 </Column>
 
@@ -155,7 +154,7 @@ export const ReceiptEmail = ({
                 paddingTop: 20,
               }}>
               <Text style={productTitle}>
-                Transaction Fee
+                Tarifa de transacción
               </Text>
             </Column>
 

@@ -45,7 +45,7 @@ const Navbar = async () => {
                       className={buttonVariants({
                         variant: 'ghost',
                       })}>
-                      Sign in
+                      Inicia sesión
                     </Link>
                   )}
 
@@ -64,7 +64,7 @@ const Navbar = async () => {
                       className={buttonVariants({
                         variant: 'ghost',
                       })}>
-                      Create account
+                      Crear una cuenta
                     </Link>
                   )}
 

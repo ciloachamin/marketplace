@@ -13,7 +13,6 @@ import { Separator } from './ui/separator'
 import { formatPrice } from '@/lib/utils'
 import Link from 'next/link'
 import { buttonVariants } from './ui/button'
-import Image from 'next/image'
 import { useCart } from '@/hooks/use-cart'
 import { ScrollArea } from './ui/scroll-area'
 import CartItem from './CartItem'
@@ -23,11 +22,10 @@ import { Icons } from './Icons'
 
 const Cart = () => {
   const { items } = useCart()
-  
+
   const [itemCount, setItemCount] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
   const [isBlinking, setIsBlinking] = useState(false);
-  const [hasUpdatedItemCount, setHasUpdatedItemCount] = useState(false);
 
   useEffect(() => {
     setIsMounted(true)
@@ -38,14 +36,13 @@ const Cart = () => {
     if (isMounted && items.length > 0) {
       setItemCount(items.length);
       setIsBlinking(true);
-
       // Desactiva la animación después de 1 segundo
       const blinkTimeout = setTimeout(() => {
         setIsBlinking(false);
       }, 1000);
 
       return () => clearTimeout(blinkTimeout);
-    }else{
+    } else {
       setItemCount(0)
     }
   }, [isMounted, items]);
@@ -62,9 +59,7 @@ const Cart = () => {
   );
 
 
-
-  const fee = 1
-
+  const fee = 0
 
   return (
     <Sheet>
@@ -81,7 +76,7 @@ const Cart = () => {
       </SheetTrigger>
       <SheetContent className='flex w-full flex-col pr-0 sm:max-w-lg'>
         <SheetHeader className='space-y-2.5 pr-6'>
-          <SheetTitle>Cart ({itemCount})</SheetTitle>
+          <SheetTitle>Carrito ({itemCount})</SheetTitle>
         </SheetHeader>
         {itemCount > 0 ? (
           <>
@@ -99,12 +94,12 @@ const Cart = () => {
               <Separator />
               <div className='space-y-1.5 text-sm'>
                 <div className='flex'>
-                  <span className='flex-1'>Shipping</span>
-                  <span>Free</span>
+                  <span className='flex-1'>Envío</span>
+                  <span>Gratis</span>
                 </div>
                 <div className='flex'>
                   <span className='flex-1'>
-                    Transaction Fee
+                    Tarifa de transacción
                   </span>
                   <span>{formatPrice(fee)}</span>
                 </div>
@@ -123,7 +118,7 @@ const Cart = () => {
                     className={buttonVariants({
                       className: 'w-full',
                     })}>
-                    Continue to Checkout
+                    Continuar con el pago
                   </Link>
                 </SheetTrigger>
               </SheetFooter>
@@ -134,11 +129,11 @@ const Cart = () => {
             <div
               aria-hidden='true'
               className='relative mb-4 h-60 w-60 text-muted-foreground'>
-                  <Icons.cocodrilo_espe_cesta className='h-60 w-60 ' />
+              <Icons.cocodrilo_espe_cesta className='h-60 w-60 ' />
 
             </div>
             <div className='text-xl font-semibold'>
-              Your cart is empty
+              Tu carrito está vacío
             </div>
             <SheetTrigger asChild>
               <Link
@@ -149,7 +144,7 @@ const Cart = () => {
                   className:
                     'text-sm text-muted-foreground',
                 })}>
-                Add items to your cart to checkout
+                Agrega productos a tu carrito para realizar el pago
               </Link>
             </SheetTrigger>
           </div>

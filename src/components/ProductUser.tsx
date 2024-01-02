@@ -1,10 +1,9 @@
 'use client'
-import React, { useState } from 'react';
+import React from 'react';
 import { TQueryValidator } from '@/lib/validators/query-validator'
 import { Product } from '@/payload-types'
 import { trpc } from '@/trpc/client'
 import Link from 'next/link'
-import { cn, formatPrice } from '@/lib/utils'
 import ProductListing from './ProductListing';
 
 
@@ -19,7 +18,6 @@ interface ProductReelProps {
 const FALLBACK_LIMIT = 5
 
 const ProductReel = (props: ProductReelProps) => {
-    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
     const { title, subtitle, href, query, userId } = props
     const { data: queryResults, isLoading } =
         trpc.getProductUserId.useInfiniteQuery(
@@ -69,7 +67,7 @@ const ProductReel = (props: ProductReelProps) => {
                     <Link
                         href={href}
                         className='hidden text-sm font-medium text-primary hover:text-green-400 md:block'>
-                        Shop the collection{' '}
+                        Compre la colección {' '}
                         <span aria-hidden='true'>&rarr;</span>
                     </Link>
                 ) : null}

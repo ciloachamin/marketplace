@@ -2,13 +2,11 @@
 
 import { PRODUCT_CATEGORIES } from '@/config'
 import { Menu, X, LogIn, LogOut } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { User } from '@/payload-types'
 import { useAuth } from '@/hooks/use-auth'
-// ... (importaciones anteriores)
 
 const MobileNav = ({ user }: { user: User | null }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -54,7 +52,6 @@ const MobileNav = ({ user }: { user: User | null }) => {
 
       <div className='fixed overflow-y-scroll overscroll-y-none inset-0 z-40 flex lg:hidden'>
         <div className='w-4/5 flex flex-col h-full bg-background border '>
-          {/* Botón "X" siempre arriba */}
           <div className='flex px-4 pb-2 pt-5'>
             <button
               type='button'
@@ -65,9 +62,8 @@ const MobileNav = ({ user }: { user: User | null }) => {
             </button>
           </div>
 
-          {/* Contenido en el medio */}
           <div className='flex-1 overflow-y-auto'>
-      			<span className="flex font-medium text-sm text-gray-400 px-4 my-4 uppercase">Category</span>
+      			<span className="flex font-medium text-sm text-gray-400 px-4 my-4 uppercase">Categorías</span>
 
             <div className='mt-2'>
               <ul>
@@ -89,9 +85,8 @@ const MobileNav = ({ user }: { user: User | null }) => {
             </div>
           </div>
 
-          {/* Enlaces "Sign In" y "Sign Up" siempre abajo */}
           <div className='space-y-1 border-t border py-6'>
-          <span className="flex font-medium text-sm text-gray-400 px-4 my-4 uppercase">ACCOUNT</span>
+          <span className="flex font-medium text-sm text-gray-400 px-4 my-4 uppercase">Cuenta</span>
             <div className='flow-root'>
               {user ? (
                 <>
@@ -101,7 +96,7 @@ const MobileNav = ({ user }: { user: User | null }) => {
                   {['sell', 'admin' ,'sellbasic', 'sellpremium'].includes(user.role) ? (
                     <p className='flex gap-2 py-4 px-6 font-medium hover:bg-secondary'>
 
-                      <Link href='/sell'>Seller Dashboard</Link>
+                      <Link href='/sell'>Panel de vendedor</Link>
                     </p>
                   ) : null}
 
@@ -116,7 +111,7 @@ const MobileNav = ({ user }: { user: User | null }) => {
                   href='/sign-in'
                   className='flex gap-2 py-4 px-6 justify-between font-medium hover:bg-secondary'
                 >
-                  Sign In <LogIn />
+                  Inicia sesión<LogIn />
                 </Link>
               )}
             </div>
@@ -130,7 +125,7 @@ const MobileNav = ({ user }: { user: User | null }) => {
                   href={"/"}
                   className='flex gap-2 py-4 px-6 justify-between font-medium hover:bg-secondary'
                 >
-                  Log Out <LogOut />
+                  Cerrar sesión<LogOut />
                 </Link>
               ) : (
                 <Link
@@ -142,7 +137,7 @@ const MobileNav = ({ user }: { user: User | null }) => {
                   href='/sign-up'
                   className='flex gap-2 py-4 px-6 justify-between font-medium hover:bg-secondary'
                 >
-                  Sign Up <LogIn />
+                  Registrarse<LogIn />
                 </Link>
               )}
             </div>

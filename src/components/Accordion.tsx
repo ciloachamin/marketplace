@@ -1,7 +1,6 @@
 "use client"
 
 import { ChevronDown } from "lucide-react";
-
 import { useState } from 'react';
 
 interface AccordionProps {
@@ -27,7 +26,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
                       <ChevronDown/>
         </span>
       </div>
-      <div className={` transition-all  ${isOpen ? 'group-focus:visible group-focus:max-h-screen group-focus:opacity-100 group-focus:duration-1000 max-h-96 p-4 border-t' : 'max-h-0 overflow-hidden invisible h-auto max-h-0 items-center opacity-0 '}`}>
+      <div className={` transition-all  ${isOpen ? 'group-focus:visible group-focus:max-h-screen group-focus:opacity-100 group-focus:duration-1000 max-h-96 p-4 border-t' : 'max-h-0 overflow-hidden invisible h-auto items-center opacity-0 '}`}>
         {children}
       </div>
     </div>

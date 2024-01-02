@@ -61,7 +61,6 @@ const ProductListing = ({
               <p className='text-muted-foreground'>
                 Vendedor: {product.user.firstName} {product.user.lastName}
               </p>
-              {/* Otros detalles del usuario que desees mostrar */}
             </div>
           ) : (
             <p>No hay información del vendedor disponible.</p>

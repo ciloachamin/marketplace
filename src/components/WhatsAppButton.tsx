@@ -1,4 +1,3 @@
-// components/WhatsAppButton.tsx
 import React from 'react';
 
 interface WhatsAppButtonProps {

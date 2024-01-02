@@ -17,41 +17,41 @@ import { Icons } from '@/components/Icons'
 
 const perks = [
   {
-    name: 'Constant Support',
+    name: 'Soporte Constante',
     Icon: ArrowDownToLine,
     description:
-      'Experience unwavering support from our community and dedicated team, ensuring you have assistance at every step of your entrepreneurial journey.',
+      'Experimenta un apoyo inquebrantable de nuestra comunidad y equipo dedicado, asegurándote de tener asistencia en cada paso de tu viaje emprendedor.',
   },
   {
-    name: 'Continuous Improvements',
+    name: 'Mejoras Continuas',
     Icon: ArrowDownToLine,
     description:
-      'Benefit from regular updates and enhancements to our marketplace, ensuring it remains cutting-edge and meets your evolving needs.',
+      'Benefíciate de actualizaciones y mejoras regulares en nuestro marketplace, asegurando que se mantenga a la vanguardia y cumpla con tus necesidades en constante evolución.',
   },
   {
-    name: 'Security Assurance',
+    name: 'Seguridad Garantizada',
     Icon: ArrowDownToLine,
     description:
-      'Rest easy knowing that we prioritize the security of your information, providing a safe and trustworthy environment for your transactions.',
+      'Descansa tranquilo sabiendo que priorizamos la seguridad de tu información, brindando un entorno seguro y confiable para tus transacciones.',
   },
   {
-    name: 'Marketplace Visibility',
+    name: 'Visibilidad en el Marketplace',
     Icon: ArrowDownToLine,
     description:
-      'Increase the visibility of your products or services through featured listings, promotional campaigns, and strategic partnerships within our marketplace.',
+      'Aumenta la visibilidad de tus productos o servicios a través de listados destacados, campañas promocionales y alianzas estratégicas dentro de nuestro marketplace.',
   },
-  
+
   {
-    name: 'Cross-Promotion Opportunities',
+    name: 'Oportunidades de Cross-Promoción',
     Icon: ArrowDownToLine,
     description:
-      'Explore cross-promotion opportunities with other sellers, amplifying your reach and attracting a broader audience interested in related products or services.',
+      'Explora oportunidades de cross-promoción con otros vendedores, ampliando tu alcance y atrayendo a una audiencia más amplia interesada en productos o servicios relacionados.',
   },
   {
-    name: 'Mobile-Friendly Interface',
+    name: 'Interfaz Amigable para Dispositivos Móviles',
     Icon: ArrowDownToLine,
     description:
-      'Effortlessly manage your marketplace activities on-the-go with a mobile-friendly interface, providing convenience and flexibility for busy entrepreneurs.',
+      'Administra tus actividades en el mercado sin esfuerzo desde cualquier lugar con una interfaz amigable para dispositivos móviles, brindando comodidad y flexibilidad para emprendedores ocupados.',
   },
 
 
@@ -68,23 +68,23 @@ export default function Home() {
         <div className=' mx-auto text-center flex flex-col items-center max-w-3xl'>
           <Icons.logo className='h-50 w-80 ' />
           <h1 className='text-4xl font-bold tracking-tight text-secondary-foreground sm:text-6xl'>
-            Your platform exclusive for  {' '}
+            Tu plataforma exclusiva para {' '}
             <span className='text-primary'>
-              university entrepreneurs
+              emprendedores universitarios
             </span>
             .
           </h1>
           <p className='mt-6 text-lg max-w-prose text-muted-foreground'>
-            Unlock your entrepreneurial potential with us. We provide resources, connections, and exclusive events for students like you. Grow your ideas with our community!
+            Libera tu potencial emprendedor con nosotros. Proporcionamos recursos, conexiones y eventos exclusivos para estudiantes como usted. ¡Haz crecer tus ideas con nuestra comunidad!
           </p>
           <div className='flex flex-col sm:flex-row gap-4 mt-6'>
             <Link
               href='/products'
               className={buttonVariants()}>
-              Browse Trending
+              Ver Productos
             </Link>
             <Button variant='ghost'>
-              <a href='#quality-section'>Our quality promise &rarr;</a>
+              <a href='#quality-section'>Quines Somos &rarr;</a>
             </Button>
           </div>
         </div>
@@ -100,7 +100,7 @@ export default function Home() {
         <ProductReel
           query={{ sort: 'desc', limit: 4 }}
           href='/products?sort=recent'
-          title='Brand new'
+          title='Nuevos'
         />
 
       </MaxWidthWrapper>
@@ -122,29 +122,30 @@ export default function Home() {
                         <path
                           d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z">
                         </path>
-                      </svg> Successfully Providing business solutions from 1999
+                      </svg>
+                      Proveemos soluciones empresariales exitosamente desde 1999
                     </p>
                   </div>
                 </div>
               </div>
               <div className="w-full px-6 mb-10 lg:w-1/2 lg:mb-0 ">
                 <div className="pl-4 mb-6 border-l-4 border-primary ">
-                  <span className="text-sm text-gray-600 uppercase dark:text-gray-400">Who we are?</span>
+                  <span className="text-sm text-gray-600 uppercase dark:text-gray-400">¿Quiénes somos?</span>
                   <h1 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl dark:text-gray-300">
-                    About Us
+                    Acerca de nosotros
                   </h1>
                 </div>
                 <p className="mb-6 text-base leading-7 text-gray-500 dark:text-gray-400">
-                At ESPE SHOP, our commitment is to drive your business ambitions by offering an easy-to-use platform, key industry connections, and exclusive events to strengthen your network. From handmade products to unique services, ESPE SHOP is the place where student entrepreneurs can stand out and thrive.
+                  En ESPE SHOP, nuestro compromiso es impulsar tus ambiciones comerciales ofreciendo una plataforma fácil de usar, conexiones clave en la industria y eventos exclusivos para fortalecer tu red. Desde productos hechos a mano hasta servicios únicos, ESPE SHOP es el lugar donde los emprendedores estudiantiles pueden destacar y prosperar.
                 </p>
                 <a href="/seller-plan"
                   className={buttonVariants()}>
-                  Get started
+                  Comenzar
                 </a>
               </div>
             </div>
           </div>
-          
+
         </section>
 
 

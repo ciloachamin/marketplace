@@ -29,29 +29,28 @@ const VerifyEmailPage = ({ searchParams }: PageProps) => {
               />
             </div>
 
-            <h3 className='font-semibold text-2xl'>
-              Check your email
-            </h3>
+                        <h3 className='font-semibold text-2xl'>
+                          Verifica tu correo electrónico
+                        </h3>
 
-            {toEmail ? (
-              <p className='text-muted-foreground text-center'>
-                We&apos;ve sent a verification link to{' '}
-                <span className='font-semibold'>
-                  {toEmail}
-                </span>
-                .
-              </p>
-            ) : (
-              <p className='text-muted-foreground text-center'>
-                We&apos;ve sent a verification link to your
-                email.
-              </p>
-            )}
-          </div>
-        )}
-      </div>
-    </div>
-  )
-}
+                        {toEmail ? (
+                          <p className='text-muted-foreground text-center'>
+                            Hemos enviado un enlace de verificación a{' '}
+                            <span className='font-semibold'>
+                              {toEmail}
+                            </span>
+                            .
+                          </p>
+                        ) : (
+                          <p className='text-muted-foreground text-center'>
+                            Hemos enviado un enlace de verificación a tu correo electrónico.
+                          </p>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )
+            }
 
-export default VerifyEmailPage
+            export default VerifyEmailPage

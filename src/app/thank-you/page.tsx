@@ -86,16 +86,16 @@ const ThankYouPage = async ({
         <div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-32 xl:gap-x-24'>
           <div className='lg:col-start-2'>
             <p className='text-sm font-medium text-blue-600'>
-              Order successful
+              Orden exitosa
             </p>
             <h1 className='mt-2 text-4xl font-bold tracking-tight text-secondary-foreground sm:text-5xl'>
-              Thanks for ordering
+              Gracias por tu pedido
             </h1>
             {order._isPaid ? (
               <p className='mt-2 text-base text-muted-foreground'>
-                Your order was processed and your assets are
-                available to download below. We&apos;ve sent
-                your receipt and order details to{' '}
+                Tu pedido ha sido procesado y tus activos están
+                disponibles para descargar a continuación. Hemos enviado
+                tu recibo y detalles del pedido a{' '}
                 {typeof order.user !== 'string' ? (
                   <span className='font-medium text-blue-600'>
                     {order.user.email}
@@ -105,9 +105,9 @@ const ThankYouPage = async ({
               </p>
             ) : (
               <p className='mt-2 text-base text-muted-foreground'>
-                We appreciate your order, and we&apos;re
-                currently processing it. So hang tight and
-                we&apos;ll send you confirmation very soon!
+                Agradecemos tu pedido y actualmente lo estamos
+                procesando. ¡Así que espera un poco y te enviaremos
+                la confirmación muy pronto!
               </p>
             )}
 
@@ -146,7 +146,7 @@ const ThankYouPage = async ({
                           <div className='flex-auto flex flex-col justify-between'>
                             <div className='space-y-1'>
                               <h3 className='text-secondary-foreground'>{product.name}</h3>
-                              <p className='my-1'>Category: {PRODUCT_CATEGORIES.find(({ value }) => value === product.category)?.label}</p>
+                                <p className='my-1'>Categoría: {PRODUCT_CATEGORIES.find(({ value }) => value === product.category)?.label}</p>
                               {typeof product.user === 'object' && product.user !== null ? (
                                 <div className='mt-1 flex text-sm'>
                                   <p className='text-muted-foreground'>
@@ -165,7 +165,7 @@ const ThankYouPage = async ({
                                   download={product.name}
                                   className='text-blue-600 hover:underline underline-offset-2'
                                 >
-                                  Download asset
+                                  Descargar el archivo
                                 </a>
                               ) : (
                                 <p>No hay archivos para descargar</p>
@@ -201,7 +201,7 @@ const ThankYouPage = async ({
                 </div>
 
                 <div className='flex justify-between'>
-                  <p>Transaction Fee</p>
+                  <p>Costo de Transacción</p>
                   <p className='text-secondary-foreground'>
                     {formatPrice(1)}
                   </p>
@@ -225,7 +225,7 @@ const ThankYouPage = async ({
                 <Link
                   href='/products'
                   className='text-sm font-medium text-blue-600 hover:text-blue-500'>
-                  Continue shopping &rarr;
+                 Continue comprando &rarr;
                 </Link>
               </div>
             </div>

@@ -80,7 +80,7 @@ const Page = () => {
           <div className='flex flex-col items-center space-y-2 text-center'>
             <Icons.logo className='h-20 w-20' />
             <h1 className='text-2xl font-semibold tracking-tight'>
-              Create an account
+              Crear una cuenta
             </h1>
 
             <Link
@@ -89,7 +89,7 @@ const Page = () => {
                 className: 'gap-1.5',
               })}
               href='/sign-in'>
-              Already have an account? Sign-in
+              ¿Ya tienes una cuenta? Iniciar sesión
               <ArrowRight className='h-4 w-4' />
             </Link>
           </div>
@@ -98,13 +98,13 @@ const Page = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className='grid gap-2'>
                 <div className='grid gap-1 py-2'>
-                  <Label htmlFor='email'>Email</Label>
+                  <Label htmlFor='email'>Correo</Label>
                   <Input
                     {...register('email')}
                     className={cn({
                       'focus-visible:ring-red-500': errors.email,
                     })}
-                    placeholder='you@example.com'
+                    placeholder='tu@ejemplo.com'
                     maxLength={50}
                   />
                   {errors?.email && (
@@ -115,14 +115,14 @@ const Page = () => {
                 </div>
 
                 <div className='grid gap-1 py-2'>
-                  <Label htmlFor='password'>Password</Label>
+                  <Label htmlFor='password'>Contraseña</Label>
                   <Input
                     {...register('password')}
                     type='password'
                     className={cn({
                       'focus-visible:ring-red-500': errors.password,
                     })}
-                    placeholder='Password'
+                    placeholder='******'
                     maxLength={50}
                   />
                   {errors?.password && (
@@ -133,13 +133,13 @@ const Page = () => {
                 </div>
 
                 <div className='grid gap-1 py-2'>
-                  <Label htmlFor='firstName'>First Name</Label>
+                  <Label htmlFor='firstName'>Nombre</Label>
                   <Input
                     {...register('firstName')}
                     className={cn({
                       'focus-visible:ring-red-500': errors.firstName,
                     })}
-                    placeholder='Name'
+                    placeholder='Nombre'
                     maxLength={50}
                   />
                   {errors?.firstName && (
@@ -150,13 +150,13 @@ const Page = () => {
                 </div>
 
                 <div className='grid gap-1 py-2'>
-                  <Label htmlFor='lastName'>Last Name</Label>
+                  <Label htmlFor='lastName'>Apellido</Label>
                   <Input
                     {...register('lastName')}
                     className={cn({
                       'focus-visible:ring-red-500': errors.lastName,
                     })}
-                    placeholder='Last Name'
+                    placeholder='Apellido'
                     maxLength={50}
                   />
                   {errors?.lastName && (
@@ -167,7 +167,7 @@ const Page = () => {
                 </div>
 
                 <div className='grid gap-1 py-2'>
-                  <Label htmlFor='phone'>Phone</Label>
+                    <Label htmlFor='phone'>Teléfono</Label>
                   <Input
                     {...register('phone')}
                     className={cn({
@@ -189,7 +189,7 @@ const Page = () => {
                   )}
                 </div>
 
-                <Button>Sign up</Button>
+                <Button>Registrarse</Button>
               </div>
             </form>
 

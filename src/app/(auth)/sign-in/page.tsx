@@ -47,7 +47,7 @@ const Page = () => {
   const { mutate: signIn, isLoading } =
     trpc.auth.signIn.useMutation({
       onSuccess: async () => {
-        toast.success('Signed in successfully')
+        toast.success('Inicio de sesión exitoso')
 
 
 
@@ -66,7 +66,7 @@ const Page = () => {
       },
       onError: (err) => {
         if (err.data?.code === 'UNAUTHORIZED') {
-          toast.error('Invalid email or password.')
+            toast.error('Correo electrónico o contraseña inválidos.')
         }
       },
     })
@@ -85,17 +85,15 @@ const Page = () => {
           <div className='flex flex-col items-center space-y-2 text-center'>
             <Icons.logo className='h-20 w-20' />
             <h1 className='text-2xl font-semibold tracking-tight'>
-              Sign in to your {isSeller ? 'seller' : ''}{' '}
-              account
+              Inicia sesión en tu cuenta de {isSeller ? 'vendedor' : ''}
             </h1>
-
             <Link
               className={buttonVariants({
                 variant: 'link',
                 className: 'gap-1.5',
               })}
               href='/sign-up'>
-              Don&apos;t have an account?
+                ¿No tienes una cuenta?
               <ArrowRight className='h-4 w-4' />
             </Link>
           </div>
@@ -104,14 +102,14 @@ const Page = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className='grid gap-2'>
                 <div className='grid gap-1 py-2'>
-                  <Label htmlFor='email'>Email</Label>
+                  <Label htmlFor='email'>Correo</Label>
                   <Input
                     {...register('email')}
                     className={cn({
                       'focus-visible:ring-red-500':
                         errors.email,
                     })}
-                    placeholder='you@example.com'
+                    placeholder='tu@ejemplo.com'
                   />
                   {errors?.email && (
                     <p className='text-sm text-red-500'>
@@ -121,7 +119,7 @@ const Page = () => {
                 </div>
 
                 <div className='grid gap-1 py-2'>
-                  <Label htmlFor='password'>Password</Label>
+                  <Label htmlFor='password'>Contraseña</Label>
                   <Input
                     {...register('password')}
                     type='password'
@@ -129,7 +127,7 @@ const Page = () => {
                       'focus-visible:ring-red-500':
                         errors.password,
                     })}
-                    placeholder='Password'
+                    placeholder='*****'
                   />
                   {errors?.password && (
                     <p className='text-sm text-red-500'>
@@ -142,7 +140,7 @@ const Page = () => {
                   {isLoading && (
                     <Loader2 className='mr-2 h-4 w-4 animate-spin' />
                   )}
-                  Sign in
+                    Iniciar sesión
                 </Button>
               </div>
             </form>
@@ -165,7 +163,7 @@ const Page = () => {
                 onClick={continueAsBuyer}
                 variant='secondary'
                 disabled={isLoading}>
-                Continue as customer
+                Continuar como cliente
               </Button>
             ) : (
              /* <Button

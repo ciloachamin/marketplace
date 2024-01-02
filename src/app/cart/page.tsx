@@ -14,11 +14,7 @@ import { useEffect, useState } from 'react'
 
 const Page = () => {
   const { items, removeItem } = useCart()
-
-
   const router = useRouter()
-
-
   const createCheckoutSession = trpc.payment.createSession.useMutation({
     onSuccess: ({ url }) => {
       if (url) router.push(url);
@@ -56,18 +52,18 @@ const Page = () => {
     <div className='px-2.5 md:px-20'>
       <div className='mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8'>
         <h1 className='text-3xl font-bold tracking-tight text-secondary-foreground sm:text-4xl'>
-          Shopping Cart
-        </h1>
+            Carrito de Compras
+          </h1>
 
-        <div className='mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16'>
-          <div
-            className={cn('lg:col-span-7', {
-              'rounded-lg border-2 border-dashed border-zinc-200 p-12':
-                isMounted && items.length === 0,
-            })}>
-            <h2 className='sr-only'>
-              Items in your shopping cart
-            </h2>
+          <div className='mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16'>
+            <div
+              className={cn('lg:col-span-7', {
+                'rounded-lg border-2 border-dashed border-zinc-200 p-12':
+                  isMounted && items.length === 0,
+              })}>
+              <h2 className='sr-only'>
+                Artículos en tu carrito de compras
+              </h2>
 
             {isMounted && items.length === 0 ? (
               <div className='flex h-full flex-col items-center justify-center space-y-1'>
@@ -77,10 +73,10 @@ const Page = () => {
                   <Icons.cocodrilo_espe_cesta className='h-40 w-40 ' />
                 </div>
                 <h3 className='font-semibold text-2xl'>
-                  Your cart is empty
+                  Tu carrito está vacío
                 </h3>
                 <p className='text-muted-foreground text-center'>
-                  Whoops! Nothing to show here yet.
+                  ¡Ups! Aún no hay nada que mostrar aquí.
                 </p>
               </div>
             ) : null}
@@ -133,7 +129,7 @@ const Page = () => {
 
                             <div className='mt-1 flex text-sm'>
                               <p className='text-muted-foreground'>
-                                Category: {label}
+                                Categoría: {label}
                               </p>
                             </div>
                             {typeof product.user === 'object' && product.user !== null ? (
@@ -147,18 +143,18 @@ const Page = () => {
                               <p>No hay información del vendedor disponible.</p>
                             )}
 
-                            <p className='mt-1 text-sm font-medium text-secondary-foreground'>
-                              Unit Price: {formatPrice(product.price)}
-                            </p>
-                          </div>
-                          <div className='mt-4 text-sm'>
-                            <p className='mt-1 text-sm font-medium text-secondary-foreground'>
-                              Quantity: {quantity}
-                            </p>
-                            <p className='mt-1 text-sm font-medium text-secondary-foreground'>
-                              Total: {formatPrice(product.price * (quantity ?? 0))}
-                            </p>
-                          </div>
+                              <p className='mt-1 text-sm font-medium text-secondary-foreground'>
+                                Precio Unitario: {formatPrice(product.price)}
+                              </p>
+                            </div>
+                            <div className='mt-4 text-sm'>
+                              <p className='mt-1 text-sm font-medium text-secondary-foreground'>
+                                Cantidad: {quantity}
+                              </p>
+                              <p className='mt-1 text-sm font-medium text-secondary-foreground'>
+                                Total: {formatPrice(product.price * (quantity ?? 0))}
+                              </p>
+                            </div>
 
                           <div className='mt-4 sm:mt-0 sm:pr-9 w-20'>
 
@@ -182,7 +178,7 @@ const Page = () => {
                           <Check className='h-5 w-5 flex-shrink-0 text-green-500' />
 
                           <span>
-                            Eligible for instant delivery
+                            Elegible para entrega instantánea
                           </span>
                         </p>
                       </div>
@@ -194,7 +190,7 @@ const Page = () => {
 
           <section className='mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8'>
             <h2 className='text-lg font-medium text-gray-900'>
-              Order summary
+              Resumen del pedido
             </h2>
 
             <div className='mt-6 space-y-4'>
@@ -213,7 +209,7 @@ const Page = () => {
 
               <div className='flex items-center justify-between border-t border-gray-200 pt-4'>
                 <div className='flex items-center text-sm text-muted-foreground'>
-                  <span>Flat Transaction Fee</span>
+                  <span>Tarifa de Transacción Fija</span>
                 </div>
                 <div className='text-sm font-medium text-gray-900'>
                   {isMounted ? (
@@ -226,7 +222,7 @@ const Page = () => {
 
               <div className='flex items-center justify-between border-t border-gray-200 pt-4'>
                 <div className='text-base font-medium text-gray-900'>
-                  Order Total
+                  Orden Total
                 </div>
                 <div className='text-base font-medium text-gray-900'>
                   {isMounted ? (
@@ -248,7 +244,7 @@ const Page = () => {
                 {createCheckoutSession.isLoading ? (
                   <Loader2 className='w-4 h-4 animate-spin mr-1.5' />
                 ) : null}
-                Checkout
+                Pagar
               </Button>
             </div>
           </section>

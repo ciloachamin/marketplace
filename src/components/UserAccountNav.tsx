@@ -24,7 +24,7 @@ const UserAccountNav = ({ user }: { user: User }) => {
           variant='ghost'
           size='sm'
           className='relative'>
-          My account
+          Mi cuenta
         </Button>
       </DropdownMenuTrigger>
 
@@ -43,15 +43,14 @@ const UserAccountNav = ({ user }: { user: User }) => {
 
         {['sell', 'admin','sellbasic','sellpremium'].includes(user.role) ? (
           <DropdownMenuItem asChild>
-            <Link href='/sell'>Seller Dashboard</Link>
+            <Link href='/sell'>Panel de vendedor</Link>
           </DropdownMenuItem>
         ) : null}
-
 
         <DropdownMenuItem
           onClick={signOut}
           className='cursor-pointer'>
-          Log out
+          Cerrar sesión
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

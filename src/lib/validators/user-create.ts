@@ -1,19 +1,22 @@
 import { z } from 'zod';
 
 export const UserCredentialsValidator = z.object({
-  email: z.string().email(),
+  email: z.string().email({
+    message: 'El correo electrónico debe ser válido.',
+  }),
   password: z.string().min(8, {
-    message: 'Password must be at least 8 characters long.',
+    message: 'La contraseña debe tener al menos 8 caracteres.',
   }),
   firstName: z.string().min(2).max(50, {
-    message: 'First name must be between 2 and 50 characters long.',
+    message: 'El nombre debe tener entre 2 y 50 caracteres.',
   }),
   lastName: z.string().min(2).max(50, {
-    message: 'Last name must be between 2 and 50 characters long.',
+    message: 'El apellido debe tener entre 2 y 50 caracteres.',
   }),
-  phone: z.string().min(10).max(15, {
-    message: 'Phone number must be between 10 and 15 characters long.',
+  phone: z.string().min(10).max(10, {
+    message: 'El número de teléfono debe tener 10',
   }),
+  
 });
 
 export type TUserCredentialsValidator = z.infer<typeof UserCredentialsValidator>;

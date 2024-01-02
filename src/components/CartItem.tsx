@@ -4,8 +4,6 @@ import { formatPrice } from '@/lib/utils'
 import { Product } from '@/payload-types'
 import { ImageIcon, X } from 'lucide-react'
 import Image from 'next/image'
-import { it } from 'node:test'
-
 
 const CartItem = ({ product }: { product: Product }) => {
   const { image } = product.images[0]
@@ -75,13 +73,11 @@ const CartItem = ({ product }: { product: Product }) => {
                   <p className='text-muted-foreground'>
                     Vendedor: {product.user.firstName} {product.user.lastName}
                   </p>
-                  {/* Otros detalles del usuario que desees mostrar */}
                 </div>
               ) : (
                 <p>No hay información del vendedor disponible.</p>
               )}
             </span>
-
             <div className='mt-4 text-xs text-muted-foreground'>
               <button
                 onClick={() => removeItem(product.id)}

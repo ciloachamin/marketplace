@@ -17,7 +17,7 @@ interface PageProps {
 
 const BREADCRUMBS = [
   { id: 1, name: 'Home', href: '/' },
-  { id: 2, name: 'Products', href: '/products' },
+  { id: 2, name: 'Productos', href: '/products' },
 ]
 
 const Page = async ({ params }: PageProps) => {
@@ -110,7 +110,7 @@ const Page = async ({ params }: PageProps) => {
                   className='h-5 w-5 flex-shrink-0 text-green-500'
                 />
                 <p className='ml-2 text-sm text-muted-foreground'>
-                  Eligible for instant delivery
+                    Elegible para entrega instantánea
                 </p>
               </div>
             </section>
@@ -136,7 +136,7 @@ const Page = async ({ params }: PageProps) => {
                     className='mr-2 h-5 w-5 flex-shrink-0 text-gray-400'
                   />
                   <span className='text-muted-foreground hover:text-gray-700'>
-                    30 Day Return Guarantee
+                    Pago seguro
                   </span>
                 </div>
               </div>

@@ -1,175 +1,175 @@
 export const PRODUCT_CATEGORIES = [
   {
-    label: 'Technology',
+    label: 'Tecnología',
     value: 'technology' as const,
     href: '/products?category=technology',
-    featured: [
+    destacados: [
       {
-        name: 'Editor picks',
+        name: 'Selecciones del Editor',
         href: `/products?category=technology`,
         imageSrc: '/nav/technology/editor_picks.jpg',
       },
       {
-        name: 'New Arrivals',
+        name: 'Nuevos Lanzamientos',
         href: '/products?category=technology&sort=desc',
         imageSrc: '/nav/technology/new_arrivals.jpg',
       },
       {
-        name: 'Bestsellers',
+        name: 'Más Vendidos',
         href: '/products?category=technology',
         imageSrc: '/nav/technology/bestsellers.jpg',
       },
     ],
   },
   {
-    label: 'Food',
+    label: 'Comida',
     value: 'food' as const,
     href: '/products?category=food',
-    featured: [
+    destacados: [
       {
-        name: 'Favorite Food Picks',
+        name: 'Selecciones de Comida Favorita',
         href: `/products?category=food`,
         imageSrc: '/nav/food/favorite_picks.jpg',
       },
       {
-        name: 'New Arrivals',
+        name: 'Nuevos Lanzamientos',
         href: '/products?category=food&sort=desc',
         imageSrc: '/nav/food/new_arrivals.jpg',
       },
       {
-        name: 'Bestselling Food',
+        name: 'Más Vendidos de Comida',
         href: '/products?category=food',
         imageSrc: '/nav/food/bestsellers.jpg',
       },
     ],
   },
   {
-    label: 'Fashion and Beauty',
+    label: 'Moda y Belleza',
     value: 'fashion_and_beauty' as const,
     href: '/products?category=fashion_and_beauty',
-    featured: [
+    destacados: [
       {
-        name: 'Editor Picks',
+        name: 'Selecciones del Editor',
         href: `/products?category=fashion_and_beauty`,
         imageSrc: '/nav/fashion_and_beauty/editor_picks.jpg',
       },
       {
-        name: 'New Arrivals',
+        name: 'Nuevos Lanzamientos',
         href: '/products?category=fashion_and_beauty&sort=desc',
         imageSrc: '/nav/fashion_and_beauty/new_arrivals.jpg',
       },
       {
-        name: 'Bestsellers',
+        name: 'Más Vendidos',
         href: '/products?category=fashion_and_beauty',
         imageSrc: '/nav/fashion_and_beauty/bestsellers.jpg',
       },
     ],
   },
   {
-    label: 'Services',
+    label: 'Servicios',
     value: 'services' as const,
     href: '/products?category=services',
-    featured: [
+    destacados: [
       {
-        name: 'Top Services',
+        name: 'Principales Servicios',
         href: `/products?category=services`,
         imageSrc: '/nav/services/top_services.jpg',
       },
       {
-        name: 'New Arrivals',
+        name: 'Nuevos Lanzamientos',
         href: '/products?category=services&sort=desc',
         imageSrc: '/nav/services/new_arrivals.jpg',
       },
       {
-        name: 'Bestselling Services',
+        name: 'Más Vendidos de Servicios',
         href: '/products?category=services',
         imageSrc: '/nav/services/bestsellers.jpg',
       },
     ],
   },
   {
-    label: 'Sports',
+    label: 'Deportes',
     value: 'sports' as const,
     href: '/products?category=sports',
-    featured: [
+    destacados: [
       {
-        name: 'Sports Picks',
+        name: 'Selecciones Deportivas',
         href: `/products?category=sports`,
         imageSrc: '/nav/sports/sports_picks.jpg',
       },
       {
-        name: 'New Arrivals',
+        name: 'Nuevos Lanzamientos',
         href: '/products?category=sports&sort=desc',
         imageSrc: '/nav/sports/new_arrivals.jpg',
       },
       {
-        name: 'Bestselling Sports',
+        name: 'Más Vendidos Deportivos',
         href: '/products?category=sports',
         imageSrc: '/nav/sports/bestsellers.jpg',
       },
     ],
   },
   {
-    label: 'Beverages',
+    label: 'Bebidas',
     value: 'beverages' as const,
     href: '/products?category=beverages',
-    featured: [
+    destacados: [
       {
-        name: 'Favorite Beverages',
+        name: 'Bebidas Favoritas',
         href: `/products?category=beverages`,
         imageSrc: '/nav/beverages/favorite_beverages.jpg',
       },
       {
-        name: 'New Arrivals',
+        name: 'Nuevos Lanzamientos',
         href: '/products?category=beverages&sort=desc',
         imageSrc: '/nav/beverages/new_arrivals.jpg',
       },
       {
-        name: 'Bestselling Beverages',
+        name: 'Más Vendidos de Bebidas',
         href: '/products?category=beverages',
         imageSrc: '/nav/beverages/bestsellers.jpg',
       },
     ],
   },
   {
-    label: 'Art and Accessories',
+    label: 'Arte y Accesorios',
     value: 'art_and_accessories' as const,
     href: '/products?category=art_and_accessories',
-    featured: [
+    destacados: [
       {
-        name: 'Art Picks',
+        name: 'Selecciones de Arte',
         href: `/products?category=art_and_accessories`,
         imageSrc: '/nav/art_and_accessories/art_picks.jpg',
       },
       {
-        name: 'New Arrivals',
+        name: 'Nuevos Lanzamientos',
         href: '/products?category=art_and_accessories&sort=desc',
         imageSrc: '/nav/art_and_accessories/new_arrivals.jpg',
       },
       {
-        name: 'Bestselling Art',
+        name: 'Más Vendidos de Arte',
         href: '/products?category=art_and_accessories',
         imageSrc: '/nav/art_and_accessories/bestsellers.jpg',
       },
     ],
   },
   {
-    label: 'Tasks',
+    label: 'Tareas',
     value: 'tasks' as const,
     href: '/products?category=tasks',
-    featured: [
+    destacados: [
       {
-        name: 'Top Tasks',
+        name: 'Tareas Principales',
         href: `/products?category=tasks`,
         imageSrc: '/nav/tasks/top_tasks.jpg',
       },
       {
-        name: 'New Arrivals',
+        name: 'Nuevos Lanzamientos',
         href: '/products?category=tasks&sort=desc',
         imageSrc: '/nav/tasks/new_arrivals.jpg',
       },
       {
-        name: 'Bestselling Tasks',
+        name: 'Más Vendidos de Tareas',
         href: '/products?category=tasks',
         imageSrc: '/nav/tasks/bestsellers.jpg',
       },

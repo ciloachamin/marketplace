@@ -1,12 +1,10 @@
 import React from 'react';
-
 import { Product } from '@/payload-types'
 import { useEffect, useState } from 'react'
 import { Skeleton } from './ui/skeleton'
 import Link from 'next/link'
 import { cn, formatPrice } from '@/lib/utils'
 import { PRODUCT_CATEGORIES } from '@/config'
-import ImageSlider from './ImageSlider'
 import Image from 'next/image';
 
 
@@ -71,17 +69,17 @@ const Card = ({
                         </p>
                     </div>
                     <div className="px-6 pt-4 pb-2">
-                        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Price: {formatPrice(product.price)}</span>
+                        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Precio: {formatPrice(product.price)}</span>
                         {typeof product.user === 'object' && product.user !== null ? (
                             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
 
-                                Sell: {product.user.firstName} {product.user.lastName}
+                                Vendedor: {product.user.firstName} {product.user.lastName}
                             </span>
                         ) : (
                             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">No hay información del vendedor disponible.</span>
                         )}
 
-                        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Category: {label}</span>
+                        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Categoría: {label}</span>
                     </div>
                 </div>
             </Link>

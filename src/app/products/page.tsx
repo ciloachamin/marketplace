@@ -31,7 +31,7 @@ const ProductsPage = ({
         title='Productos Populares'
       />
       <ProductReel
-        title={label ?? 'Browse high-quality assets'}
+        title={label ?? 'Explorar productos'}
         query={{
           category,
           limit: 40,
