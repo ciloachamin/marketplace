@@ -52,6 +52,7 @@ const ThankYouPage = async ({
     )
   }
 
+  const fee=0
   const products = order.products as Product[]
 
   const orderTotal = products.reduce((total, product) => {
@@ -203,7 +204,7 @@ const ThankYouPage = async ({
                 <div className='flex justify-between'>
                   <p>Costo de Transacción</p>
                   <p className='text-secondary-foreground'>
-                    {formatPrice(1)}
+                    {formatPrice(fee)}
                   </p>
                 </div>
 
