@@ -84,7 +84,7 @@ export default function Home() {
               Ver Productos
             </Link>
             <Button variant='ghost'>
-              <a href='#quality-section'>Quines Somos &rarr;</a>
+              <a href='#quality-section'>¿Quiénes somos? &rarr;</a>
             </Button>
           </div>
         </div>

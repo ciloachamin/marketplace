@@ -142,7 +142,7 @@ getProductSellerPremium: publicProcedure
       collection: 'users',
       where: {
         role: {
-          in: ['sellpremium', 'sellbasic'],
+          in: ['sellpremium', 'sellbasic', 'admin'],
         },
       },
     });
