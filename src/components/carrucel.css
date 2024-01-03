@@ -76,6 +76,13 @@
     left: 80% !important;
     transform: translateX(-80%) !important;
   }
+  #swiper-slide-carrucel img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+
+
+  }
 }
 
 @media (max-width: 990px) {
