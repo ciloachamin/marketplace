@@ -25,17 +25,19 @@ export const Users: CollectionConfig = {
       },
     },
     tokenExpiration:  60 * 60 * 24 * 30, // 30 days
+    
   
   },
   access: {
     read: adminsAndUser,
     create: () => true,
-    update: ({ req }) => req.user.role === 'admin',
+    update: adminsAndUser,
     delete: ({ req }) => req.user.role === 'admin',
   },
   admin: {
     hidden: ({ user }) => user.role !== 'admin',
     defaultColumns: ['id'],
+
   },
   fields: [
     {
@@ -81,6 +83,9 @@ export const Users: CollectionConfig = {
         { label: 'Sell Premium', value: 'sellpremium' },
 
       ],
+      access: {
+        update: ({ req }) => req.user.role === 'admin',
+      },
       
     },
      {

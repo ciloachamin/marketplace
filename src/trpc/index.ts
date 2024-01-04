@@ -79,8 +79,7 @@ export const appRouter = router({
     )
     .query(async ({ input }) => {
       const { query, cursor } = input
-      const { sort, limit, ...queryOpts } = query
-
+      const { sort, limit, ...queryOpts } = query     
       const payload = await getPayloadClient()
 
       const parsedQueryOpts: Record<

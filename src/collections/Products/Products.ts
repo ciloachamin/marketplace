@@ -154,6 +154,9 @@ export const Products: CollectionConfig = {
       type: 'relationship',
       relationTo: 'product_files',
       hasMany: false,
+      admin: {
+        condition: () => false,
+      },
     },
     {
       name: 'approvedForSale',

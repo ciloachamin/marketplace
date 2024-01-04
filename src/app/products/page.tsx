@@ -25,11 +25,6 @@ const ProductsPage = ({
 
   return (
     <MaxWidthWrapper className='px-2.5 md:px-20'>
-      <ProductReelPremium
-        query={{ sort: 'desc', limit: 4 }}
-        href='/products?sort=recent'
-        title='Productos Populares'
-      />
       <ProductReel
         title={label ?? 'Explorar productos'}
         query={{

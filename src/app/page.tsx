@@ -89,16 +89,16 @@ export default function Home() {
           </div>
         </div>
 
-        <Carrucel query={{ sort: 'desc', limit: 8 }}
+        <Carrucel query={{ limit: 20 }}
           href='/products?sort=recent'
         />
         <ProductReelPremium
-          query={{ sort: 'desc', limit: 4 }}
+          query={{limit: 4 }}
           href='/products?sort=recent'
           title='Productos Populares'
         />
         <ProductReel
-          query={{ sort: 'desc', limit: 4 }}
+          query={{ limit: 8 }}
           href='/products?sort=recent'
           title='Nuevos'
         />
