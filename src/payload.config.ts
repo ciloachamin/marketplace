@@ -37,6 +37,14 @@ export default buildConfig({
   rateLimit: {
     max: 2000,
   },
+
+  csrf: [ // whitelist of domains to allow cookie auth from
+    'http://localhost:3000',
+    'https://www.smrtuc.com',
+    'https://marketplace-production-8aec.up.railway.app',
+  ],
+  cors: '*',
+
   editor: slateEditor({}),
   db: mongooseAdapter({
     url: process.env.MONGODB_URL!,
