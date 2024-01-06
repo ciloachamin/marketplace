@@ -7,21 +7,22 @@ const AutocompleteItem = ({ id, name, category, user, images, ...otherProps }) =
 
 
   return (
-    <>
+    <div>
       <a href={`/product/${id}`}>
         <li className='cursor-pointer hover:bg-primary'>
           <div className='flex gap-4 p-4 ' >
             <Image
               src={images && images.length > 0 && images[0].image.url}
               alt={name}
+              width={100}
+              height={100}
               className='w-10 h-10 object-cover rounded'
             />
-            <h3 className='text-sm font-semibold'>{`Vendedor: ${name}`}</h3>
-            <p className='text-sm text-secondary-foreground'>{`Categoría: ${category}`}</p>
+            <h3 className='text-sm font-semibold'>{`${name}`}</h3>
           </div>
         </li>
       </a>
-    </>
+    </div>
   );
 };
 
@@ -39,7 +40,7 @@ export default function Search(props) {
       sourceId: 'offers-next-api',
       getItems: ({ query }) => {
         if (!!query) {
-          return fetch(process.env.NEXT_PUBLIC_SERVER_URL +`/api/search?q=${query}`)
+          return fetch(process.env.NEXT_PUBLIC_SERVER_URL + `/api/search?q=${query}`)
             .then(res => res.json())
         }
       }
@@ -61,7 +62,7 @@ export default function Search(props) {
   return (
 
     <>
- <form
+      <form
         ref={formRef}
         className="lg:block lg:pl-3.5 max-lg:w-[400px] max-sm:w-auto"
         {...formProps}
@@ -89,27 +90,24 @@ export default function Search(props) {
             {...inputProps}
             className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg  block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
           />
-          {
-            autocompleteState.isOpen && (
-              <div className="absolute mt-12 top-0 left-0 border w-full  dark:bg-gray-700 bg-secondary overflow-hidden rounded-lg shadow-lg z-10" ref={panelRef} {...autocomplete.getPanelProps()}>
-                {autocompleteState.collections.map((collection, index) => {
-                  const { items } = collection
-                  return (
-                    <section key={`section-${index}`}  >
-                      {items.length > 0 && (
-                        <ul {...autocomplete.getListProps()}>
-                          {items.map(item => (
-                            <AutocompleteItem key={item.id} {...item} />
-                          ))}
-
-                        </ul>
-                      )}
-                    </section>
-                  )
-                })}
-              </div>
-            )
-          }
+          {autocompleteState.isOpen && (
+            <div className="absolute mt-12 top-0 left-0 border w-full dark:bg-gray-700 bg-secondary overflow-hidden rounded-lg shadow-lg z-10" ref={panelRef} {...autocomplete.getPanelProps()}>
+              {autocompleteState.collections.map((collection, index) => {
+                const { items } = collection;
+                return (
+                  <section key={`section-${index}`} className='max-sm:fixed max-sm:mt-16 max-sm:top-0 max-sm:left-0 max-sm:border max-sm:w-full  max-sm:dark:bg-gray-700  max-sm:bg-secondary  max-sm:overflow-hidden  max-sm:rounded-lg  max-sm:shadow-lg z-10'>
+                    {items.length > 0 && (
+                      <ul className="max-h-[576px] overflow-y-auto" {...autocomplete.getListProps()}>
+                        {items.map(item => (
+                          <AutocompleteItem key={item.id} {...item} />
+                        ))}
+                      </ul>
+                    )}
+                  </section>
+                );
+              })}
+            </div>
+          )}
 
         </div>
       </form>

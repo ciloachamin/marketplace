@@ -3,6 +3,7 @@ import WhatsAppButton from './WhatsAppButton';
 interface PricingCardProps {
   title: string;
   description: string;
+  promo?: string;
   price: string;
   time: string;
   features: string[];
@@ -14,6 +15,7 @@ interface PricingCardProps {
 const PricingCard: React.FC<PricingCardProps> = ({
   title,
   description,
+  promo,
   price,
   time,
   features,
@@ -25,6 +27,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
     <div className="flex flex-col max-w-lg w-[400px] p-6 shadow-lg mx-auto text-gray-900 bg-white border border-gray-200 rounded-lg dark:border-gray-700 xl:p-8 dark:bg-gray-800 dark:text-white">
       <h3 className="mb-4 text-2xl font-semibold">{title}</h3>
       <p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">{description}</p>
+      <span className="mr-2 text-5xl font-extrabold">{promo}</span>
       <div className="flex items-baseline my-8">
         <span className="mr-2 text-5xl font-extrabold">{price}</span>
         <span className="text-gray-500 dark:text-gray-400">/{time}</span>

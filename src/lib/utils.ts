@@ -29,7 +29,7 @@ export function formatPrice(
 export function constructMetadata({
   title = 'ESPE SHOP',
   description = 'ESPE SHOP es un mercado diseñado para que estudiantes universitarios muestren y vendan sus productos.',
-  image = '/thumbnail.png',
+  image = '/thumbnail.jpg',
   icons = '/favicon.ico',
   noIndex = false,
 }: {

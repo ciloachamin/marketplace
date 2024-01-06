@@ -123,7 +123,6 @@ const start = async () => {
   const searchProducts = async (req: Request, res: Response) => {
     try {
       const { q, userId } = req.query;
-  
       let whereCondition: any = { approvedForSale: { equals: 'approved' } };
   
       if (userId) {
@@ -134,15 +133,18 @@ const start = async () => {
       const paginatedProducts = await payload.find({
         collection: 'products',
         where: whereCondition,
+        page: 1,
+        limit: 1000,
       });
       // Convertir PaginatedDocs a un array
       const products = paginatedProducts.docs || [];
   
       // Implementar la búsqueda por palabra clave
       if (q) {
-        const results = products.filter(product => {
+        const results = products.filter((product) => {
           // Asegúrate de que 'product.name' sea una cadena
-          const productName = typeof product.name === 'string' ? product.name : '';
+          const productName =
+            typeof product.name === 'string' ? product.name : '';
           return productName.toLowerCase().includes(q.toString().toLowerCase());
         });
   
@@ -157,6 +159,7 @@ const start = async () => {
   };
   
   app.get('/api/search', searchProducts);
+  
 
 
 

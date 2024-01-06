@@ -32,7 +32,7 @@ const SellerPlanPage = ({ }) => {
                 </Accordion>
                 <Accordion title="¿Qué sucede si cancelo mi plan?">
                     <p>
-                        Si cancelas tu plan, tus productos ya no estarán disponibles para la venta. Aún podrás acceder a tu cuenta y comprar productos.
+                        Si cancelas tu plan, tus productos ya no estarán disponibles para la venta. Aún podrás acceder a tu cuenta y comprar productos. Tus productos permaneceran en nuestra base de datos, pero no estarán disponibles para la venta. Hasta que vuelvas a comprar un plan.
                     </p>
                 </Accordion>
                 <h2 className='mt-10 text-3xl font-bold tracking-tight text-secondary-foreground sm:text-5xl'>Compra uno de nuestros planes</h2>
@@ -42,6 +42,7 @@ const SellerPlanPage = ({ }) => {
                 <PricingCard
                     title="Inicio"
                     description="Ideal para publicar y vender tus productos."
+                    promo='Gratis 1 mes'
                     price="$2"
                     time='Mes'
                     features={[
@@ -56,6 +57,7 @@ const SellerPlanPage = ({ }) => {
                 <PricingCard
                     title="Vendedor Básico"
                     description="Perfecto para emprendedores que buscan expandir su alcance."
+                    promo='Gratis 1 mes'
                     price="$5"
                     time='Mes'
                     features={[

@@ -15,6 +15,10 @@ const nextConfig = {
 				protocol: "https",
 				hostname: "marketplace-production-8aec.up.railway.app",
 			},
+			{
+				protocol: "https",
+				hostname: "www.smrtuc.com",
+			},
 			
 		],
 	},
