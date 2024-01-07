@@ -2,7 +2,7 @@
 
 Built with the Next.js 14 App Router, tRPC, TypeScript, Payload & Tailwind
 
-![Project Image](https://github.com/ciloachamin/marktplace/public/thumbnail.jpg)
+![Project Image](https://github.com/ciloachamin/marketplace/public/thumbnail.jpg)
 
 ## Features
 
