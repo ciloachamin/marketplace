@@ -19,6 +19,10 @@ const nextConfig = {
 				protocol: "https",
 				hostname: "www.smrtuc.com",
 			},
+			{
+				protocol: "https",
+				hostname: "smrtuc.com",
+			},
 			
 		],
 	},
