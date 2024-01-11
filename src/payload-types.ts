@@ -28,6 +28,8 @@ export interface User {
   firstName: string;
   lastName: string;
   phone: string;
+  timeStart?: string | null;
+  timeEnd?: string | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -47,6 +49,7 @@ export interface Product {
   name: string;
   description?: string | null;
   price: number;
+  stock?: number | null;
   category:
     | 'technology'
     | 'food'

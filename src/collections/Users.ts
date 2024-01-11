@@ -106,5 +106,27 @@ export const Users: CollectionConfig = {
       type: 'text',
       required: true,
     },
+    {
+      name: 'timeStart',
+      label: 'Opening hours',
+      type: 'date',
+      admin: {
+        date: {
+          pickerAppearance: 'timeOnly',
+          displayFormat: 'h:mm:ss a',
+        },
+      },
+    },
+    {
+      name: 'timeEnd',
+      label: 'Closing time',
+      type: 'date',
+      admin: {
+        date: {
+          pickerAppearance: 'timeOnly',
+          displayFormat: 'h:mm:ss a',
+        },
+      },
+    },
   ],
 }

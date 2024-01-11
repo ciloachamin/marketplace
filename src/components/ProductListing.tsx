@@ -38,18 +38,29 @@ const ProductListing = ({
     )
     .filter(Boolean) as string[]
 
+
   if (isVisible && product) {
+    const isOutOfStock = product.stock === 0;
     return (
       <Link
         className={cn(
           'invisible h-full w-full cursor-pointer group/main',
           {
             'visible animate-in fade-in-5': isVisible,
-          }
+          },
         )}
-        href={`/product/${product.id}`}>
-        <div className='flex flex-col w-full'>
+        href={`/product/${product.id}`}
+      >
+        
+        <div className={`relative flex flex-col w-full `}>
+          {isOutOfStock && (
+              <div className="absolute  top-0 left-0 text-3xl max-sm:text-sm  text-red-500 font-bold z-10">
+                AGOTADO
+              </div>
+          )}
+
           <ImageSlider urls={validUrls} />
+
           <h3 className='mt-4 font-medium text-sm '>
             {product.name}
           </h3>
@@ -70,7 +81,7 @@ const ProductListing = ({
           </p>
         </div>
       </Link>
-    )
+    );
   }
 }
 

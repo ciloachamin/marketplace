@@ -139,6 +139,15 @@ export const Products: CollectionConfig = {
       type: 'number',
       required: true,
     },
+    
+    {
+      name: 'stock',
+      label: 'Stock',
+      min: 0,
+      max: 1000,
+      type: 'number',
+    },
+
     {
       name: 'category',
       label: 'Category',

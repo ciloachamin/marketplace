@@ -5,7 +5,8 @@ import ProductReel from '@/components/ProductReel'
 import { PRODUCT_CATEGORIES } from '@/config'
 import { getPayloadClient } from '@/get-payload'
 import { formatPrice } from '@/lib/utils'
-import { Check, Shield } from 'lucide-react'
+import { User } from '@/payload-types'
+import { Check, Shield, XIcon } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -37,6 +38,23 @@ const Page = async ({ params }: PageProps) => {
       },
     },
   })
+
+
+  function estaDentroDelHorario() {
+    const ahora = new Date();
+    const inicio = new Date((product.user as User)?.timeStart ?? '');
+    const fin = new Date((product.user as User)?.timeEnd ?? '');
+    return ahora >= inicio && ahora <= fin;
+  }
+
+
+  function formatarHora(fechaString: string) {
+    const fecha = new Date(fechaString);
+    const hora = fecha.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+    return hora;
+  }
+
+
 
   const [product] = products
 
@@ -110,20 +128,56 @@ const Page = async ({ params }: PageProps) => {
               </div>
 
               <div className='mt-4 space-y-6'>
+                <div className='mt-1 flex text-sm'>
+                  {typeof product.stock !== 'undefined' && product.stock !== null ? (
+                    <p className='text-muted-foreground'>
+                      En stock: {product.stock}
+                    </p>
+                  ) : (null
+                  )}
+                </div>
+              </div>
+
+
+              <div className='mt-4 space-y-6'>
                 <p className='text-base text-muted-foreground'>
                   {product.description}
                 </p>
               </div>
 
               <div className='mt-6 flex items-center'>
-                <Check
-                  aria-hidden='true'
-                  className='h-5 w-5 flex-shrink-0 text-green-500'
-                />
-                <p className='ml-2 text-sm text-muted-foreground'>
-                  Elegible para entrega instantánea
-                </p>
+                {typeof product.user === 'object' && product.user !== null && product.user.timeStart && product.user.timeEnd ? (
+                  <>
+                    {estaDentroDelHorario() ? (
+                      <>
+                        <Check aria-hidden='true' className='h-5 w-5 flex-shrink-0 text-green-500' />
+                        <p className='ml-2 text-sm text-muted-foreground'>
+                          &nbsp;Disponible de: {formatarHora(product.user.timeStart)} - {formatarHora(product.user.timeEnd)}
+                        </p>
+                      </>
+
+                    ) : (
+                      <>
+                        <XIcon aria-hidden='true' className='h-5 w-5 flex-shrink-0 text-red-500' />
+                        <p className='ml-2 text-sm text-muted-foreground'>
+                          &nbsp;Disponible de: {formatarHora(product.user.timeStart)} - {formatarHora(product.user.timeEnd)}
+                        </p>
+
+                      </>
+                    )}
+
+                  </>
+                ) : (
+                  <>
+                    <Check aria-hidden='true' className='h-5 w-5 flex-shrink-0 text-green-500' />
+                    <p className='ml-2 text-sm text-muted-foreground'>
+                      &nbsp;Elegible para entrega instantánea
+                    </p>
+                  </>
+                )}
               </div>
+
+
             </section>
           </div>
 
