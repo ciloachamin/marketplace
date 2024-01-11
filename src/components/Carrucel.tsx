@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import type SwiperType from 'swiper'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import {Autoplay, EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 
@@ -36,7 +36,7 @@ const FALLBACK_LIMIT = 6
 const ImageSlider = (props: ProductReelProps) => {
   const { title, subtitle, href, query } = props
   const { data: queryResults, isLoading } =
-    trpc.getInfiniteProducts.useInfiniteQuery(
+    trpc.getProductSellerPremium.useInfiniteQuery(
       {
         limit: query.limit ?? FALLBACK_LIMIT,
         query,
@@ -46,9 +46,9 @@ const ImageSlider = (props: ProductReelProps) => {
       }
     )
 
-  const products = queryResults?.pages.flatMap(
-    (page) => page.items
-  )
+    const products = useMemo(() => {
+      return queryResults?.pages.flatMap((page) => page.items) || [];
+    }, [queryResults]);
 
   let map: (Product | null)[] = []
   if (products && products.length) {
