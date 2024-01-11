@@ -73,6 +73,7 @@ const SellerPlanPage = ({ }) => {
                 <PricingCard
                     title="Vendedor Premium"
                     description="Diseñado para vendedores que desean máxima visibilidad."
+                    promo='En desarrollo'
                     price="$30"
                     time='único'
                     features={[
