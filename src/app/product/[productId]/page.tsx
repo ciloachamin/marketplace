@@ -50,8 +50,7 @@ const Page = async ({ params }: PageProps) => {
 
   function formatarHora(fechaString: string) {
     const fecha = new Date(fechaString);
-    const idiomaUsuario = navigator.language || 'en-US';
-    const hora = fecha.toLocaleTimeString(idiomaUsuario, { hour: 'numeric', minute: '2-digit', hour12: true });
+    const hora = fecha.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
     return hora;
   }
 
