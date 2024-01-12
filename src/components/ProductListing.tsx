@@ -51,13 +51,21 @@ const ProductListing = ({
         )}
         href={`/product/${product.id}`}
       >
-        
+
         <div className={`relative flex flex-col w-full `}>
-          {isOutOfStock && (
-              <div className="absolute  top-0 left-0 text-3xl max-sm:text-sm  text-red-500 font-bold z-10">
-                AGOTADO
-              </div>
+          {!isOutOfStock && product.stock && (
+            <div className="absolute top-0 left-0  max-sm:text-sm inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 m-1  z-10">
+              {`Stock : ${product.stock}`}
+            </div>
           )}
+
+          {isOutOfStock && (
+            <div className="absolute top-0 left-0 text-2xl inline-block max-sm:text-sm max-lg:text-sm text-red-500 bg-gray-200 rounded-full font-bold z-10 py-2 px-4 m-1">
+              AGOTADO
+            </div>
+          )}
+
+
 
           <ImageSlider urls={validUrls} />
 
