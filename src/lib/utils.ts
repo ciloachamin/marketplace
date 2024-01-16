@@ -51,13 +51,10 @@ export function constructMetadata({
         },
       ],
     },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: [image],
-      creator: '@joshtriedcoding',
+    other: {
+      'google-adsense-account': 'ca-pub-3778180805849959',
     },
+
     icons,
     metadataBase: new URL('https://marketplace-production-8aec.up.railway.app'),
     ...(noIndex && {
