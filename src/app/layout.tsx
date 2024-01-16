@@ -8,6 +8,8 @@ import './globals.css'
 import Footer from '@/components/Footer'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
+import Script from 'next/script'
+import Head from 'next/head'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = constructMetadata()
@@ -19,6 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='es' suppressHydrationWarning className='h-full'>
+      <Head>
+        <meta name="google-adsense-account" content="ca-pub-2148072584206249"/>
+      </Head>
+
       <body
         className={cn(
           'relative h-full font-sans antialiased',
