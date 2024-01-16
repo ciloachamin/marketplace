@@ -20,6 +20,7 @@
   "dependencies": {
     "@algolia/autocomplete-core": "^1.13.0",
     "@hookform/resolvers": "^3.3.2",
+    "@next/third-parties": "^14.0.5-canary.56",
     "@payloadcms/bundler-webpack": "^1.0.5",
     "@payloadcms/db-mongodb": "^1.1.1",
     "@payloadcms/richtext-slate": "^1.1.0",
@@ -44,7 +45,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "lucide-react": "^0.292.0",
-    "next": "14.0.1",
+    "next": "^14.0.4",
     "next-themes": "^0.2.1",
     "nodemailer": "^6.9.7",
     "payload": "^2.0.15",

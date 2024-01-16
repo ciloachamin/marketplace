@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google'
 import { Toaster } from 'sonner'
 import './globals.css'
 import Footer from '@/components/Footer'
+import { GoogleTagManager } from '@next/third-parties/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +24,7 @@ export default function RootLayout({
           'relative h-full font-sans antialiased',
           inter.className
         )}>
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GA_ID || ''} />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
