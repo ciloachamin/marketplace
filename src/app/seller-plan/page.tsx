@@ -51,7 +51,7 @@ const SellerPlanPage = ({ }) => {
                         'Configuración individual de productos',
                     ]}
                     buttonText="Comenzar"
-                    buttonNumber='0998377036'
+                    buttonNumber='0978814129'
                     buttonMessage='Hola, quiero comprar el plan Inicio'
                 />
                 <PricingCard
@@ -67,7 +67,7 @@ const SellerPlanPage = ({ }) => {
                         'Colocación prioritaria en la plataforma principal',
                     ]}
                     buttonText="Comenzar"
-                    buttonNumber='0998377036'
+                    buttonNumber='0978814129'
                     buttonMessage='Hola, quiero comprar el plan vendedor básico.'
                 />
                 <PricingCard
@@ -85,7 +85,7 @@ const SellerPlanPage = ({ }) => {
 
                     ]}
                     buttonText="Comenzar"
-                    buttonNumber='0998377036'
+                    buttonNumber='0978814129'
                     buttonMessage='Hola, quiero comprar el plan vendedor premium. ¿Qué implica este plan?'
 
                 />

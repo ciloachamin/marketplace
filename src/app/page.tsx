@@ -93,7 +93,7 @@ export default function Home() {
           href='/products?sort=recent'
         />
         <ProductReelPremium
-          query={{limit: 4 }}
+          query={{ limit: 4 }}
           href='/products?sort=recent'
           title='Productos Populares'
         />
@@ -102,6 +102,14 @@ export default function Home() {
           href='/products?sort=recent'
           title='Nuevos'
         />
+
+        <div className='flex flex-col  gap-4 my-6'>
+          <Link
+            href='/products'
+            className={buttonVariants()}>
+            Explorar mas productos
+          </Link>
+        </div>
 
       </MaxWidthWrapper>
 

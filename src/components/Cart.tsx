@@ -118,7 +118,7 @@ const Cart = () => {
                     className={buttonVariants({
                       className: 'w-full',
                     })}>
-                    Continuar con el pago
+                    Continuar con el pedido
                   </Link>
                 </SheetTrigger>
               </SheetFooter>

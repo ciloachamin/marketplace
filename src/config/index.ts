@@ -110,7 +110,7 @@ export const PRODUCT_CATEGORIES = [
     ],
   },
   {
-    label: 'Bebidas',
+    label: 'Bebidas y algo más',
     value: 'beverages' as const,
     href: '/products?category=beverages',
     destacados: [

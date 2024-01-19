@@ -45,7 +45,7 @@ const PaymentStatus = ({
         </p>
         <p className='text-muted-foreground'>
           {isPaid
-            ? 'Pago exitoso'
+            ? 'Pedido exitoso'
             : 'Pago pendiente'}
         </p>
       </div>
