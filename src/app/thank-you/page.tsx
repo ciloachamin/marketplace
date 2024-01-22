@@ -106,9 +106,7 @@ const ThankYouPage = async ({
               </p>
             ) : (
               <p className='mt-2 text-base text-muted-foreground'>
-                Agradecemos tu pedido y actualmente lo estamos
-                procesando. ¡Así que espera un poco y te enviaremos
-                la confirmación muy pronto!
+                 Para confirmar el lugar de entrega contacta al vendedor con el botón de <b>Confirmar pedido.</b>
               </p>
             )}
 
@@ -185,7 +183,7 @@ const ThankYouPage = async ({
                       <WhatsAppButton
                         phoneNumber={typeof sellerProducts[0]?.user === 'object' ? sellerProducts[0]?.user.phone : ''}
                          message = {`Hola, soy ${(user as User)?.firstName} ${(user as User)?.lastName}.\nY deseo Adquirir:\n${sellerProducts.map((product) => `${product.name} (${formatPrice(product.price)})`).join('\n')}.\nMe ayudas con tu método de pago.\nGracias.\n\nTotal: ${formatPrice(sellerProducts.reduce((total, product) => total + product.price, 0))}.\nESPE SHOP (Orden: ${order.id}).`}
-                        text={`Contactar a ${(sellerProducts[0]?.user as User)?.firstName}`}
+                        text={`Confirmar pedido`}
                       />
                     )}
 

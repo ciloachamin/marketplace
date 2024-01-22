@@ -137,6 +137,7 @@ getProductSellerPremium: publicProcedure
     const page = cursor || 1;
 
     // Primero, obtenemos los usuarios con los roles 'sellpremium' y 'sellbasic'
+    // CAmbiar a me muestra solo los sellpremium
     const { docs: users } = await payload.find({
       collection: 'users',
       where: {
@@ -145,6 +146,7 @@ getProductSellerPremium: publicProcedure
         },
       },
     });
+    console.log('users', users)
     
 
     // Luego, obtenemos los productos que están aprobados para la venta y cuyo campo 'user' se encuentra en la lista de usuarios obtenidos en la primera consulta
