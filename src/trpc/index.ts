@@ -146,7 +146,7 @@ getProductSellerPremium: publicProcedure
         },
       },
     });
-    console.log('users', users)
+   // console.log('users', users)
     
 
     // Luego, obtenemos los productos que están aprobados para la venta y cuyo campo 'user' se encuentra en la lista de usuarios obtenidos en la primera consulta
