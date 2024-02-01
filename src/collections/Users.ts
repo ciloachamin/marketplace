@@ -28,6 +28,8 @@ export const Users: CollectionConfig = {
     cookies: {
       secure: true,
       sameSite: 'none',
+      domain: process.env.NEXT_PUBLIC_SERVER_URL,
+      
     },
     
   
