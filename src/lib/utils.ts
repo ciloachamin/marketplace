@@ -51,9 +51,9 @@ export function constructMetadata({
         },
       ],
     },
-    other: {
-      'google-adsense-account': 'ca-pub-3778180805849959',
-    },
+    // other: {
+    //   'google-adsense-account': 'ca-pub-3778180805849959',
+    // },
     
 
     icons,
