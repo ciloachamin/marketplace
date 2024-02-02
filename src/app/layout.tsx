@@ -6,7 +6,7 @@ import { Inter } from 'next/font/google'
 import { Toaster } from 'sonner'
 import './globals.css'
 import Footer from '@/components/Footer'
-import { GoogleAnalytics } from '@next/third-parties/google'
+// import { GoogleAnalytics } from '@next/third-parties/google'
 
 import Script from 'next/script'
 import Head from 'next/head'
