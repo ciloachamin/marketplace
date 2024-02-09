@@ -47,7 +47,7 @@ export const Users: CollectionConfig = {
   fields: [
     {
       name: 'products',
-      label: 'Products',
+      label: 'Productos',
       admin: {
         condition: () => false,
       },
@@ -57,7 +57,7 @@ export const Users: CollectionConfig = {
     },
     {
       name: 'membership',
-      label: 'Membership',
+      label: 'Membresía',
       admin: {
         condition: () => false,
       },
@@ -67,7 +67,7 @@ export const Users: CollectionConfig = {
     },
     {
       name: 'product_files',
-      label: 'Product files',
+      label: 'Archivos de Productos',
       admin: {
         condition: () => false,
       },
@@ -95,25 +95,25 @@ export const Users: CollectionConfig = {
     },
      {
       name: 'firstName',
-      label: 'First Name',
+      label: 'Nombre',
       type: 'text',
       required: true,
     },
     {
       name: 'lastName',
-      label: 'Last Name',
+      label: 'Apelido',
       type: 'text',
       required: true,
     },
     {
       name: 'phone',
-      label: 'Phone',
+      label: 'Celular',
       type: 'text',
       required: true,
     },
     {
       name: 'timeStart',
-      label: 'Opening hours',
+      label: 'Hora en la que está disponible para atender en la Universidad',
       type: 'date',
       admin: {
         date: {
@@ -124,7 +124,7 @@ export const Users: CollectionConfig = {
     },
     {
       name: 'timeEnd',
-      label: 'Closing time',
+      label: 'Hora en la que termina de atender en la Universidad',
       type: 'date',
       admin: {
         date: {

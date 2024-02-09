@@ -34,26 +34,26 @@ export const Membership: CollectionConfig = {
         },
         {
             name: 'name',
-            label: 'Membership Name',
+            label: 'Nombre de la membresía',
             type: 'text',
             required: true,
         },
         {
             name: 'active',
-            label: 'Active',
+            label: 'Activo',
             type: 'select',
             defaultValue: 'pending',
             options: [
                 {
-                    label: 'Pending verification',
+                    label: 'Pendiente de Verificación',
                     value: 'pending',
                 },
                 {
-                    label: 'Approved',
+                    label: 'Approvado',
                     value: 'approved',
                 },
                 {
-                    label: 'Denied',
+                    label: 'Denegado',
                     value: 'denied',
                 },
             ],
@@ -61,7 +61,7 @@ export const Membership: CollectionConfig = {
         },
         {
             name: 'time',
-            label: 'Time',
+            label: 'Tiempo de la membresía (días)',
             min: 0,
             max: 1000,
             type: 'number',
@@ -70,19 +70,19 @@ export const Membership: CollectionConfig = {
 
         {
             name: 'startDate',
-            label: 'Start Date',
+            label: 'Fecha inicial de la membresía',
             type: 'date',
             required: true,
         },
         {
             name: 'endDate',
-            label: 'End Date',
+            label: 'Fecha final de la membresía',
             type: 'date',
             required: true,
         },
         {
             name: 'price',
-            label: 'Price',
+            label: 'Precio Pagado',
             type: 'number',
             required: true,
         },

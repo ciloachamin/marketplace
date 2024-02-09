@@ -122,18 +122,18 @@ export const Products: CollectionConfig = {
     },
     {
       name: 'name',
-      label: 'Name',
+      label: 'Nombre del producto',
       type: 'text',
       required: true,
     },
     {
       name: 'description',
       type: 'textarea',
-      label: 'Product details',
+      label: 'Detalles del producto',
     },
     {
       name: 'price',
-      label: 'Price in USD',
+      label: 'Precio en USD',
       min: 0,
       max: 1000,
       type: 'number',
@@ -142,7 +142,7 @@ export const Products: CollectionConfig = {
     
     {
       name: 'stock',
-      label: 'Stock',
+      label: 'Stock disponible (Opcional)',
       min: 0,
       max: 1000,
       type: 'number',
@@ -150,7 +150,7 @@ export const Products: CollectionConfig = {
 
     {
       name: 'category',
-      label: 'Category',
+      label: 'Categoría del producto',
       type: 'select',
       options: PRODUCT_CATEGORIES.map(
         ({ label, value }) => ({ label, value })
@@ -159,7 +159,7 @@ export const Products: CollectionConfig = {
     },
     {
       name: 'product_files',
-      label: 'Product file(s)',
+      label: 'Archivos del producto',
       type: 'relationship',
       relationTo: 'product_files',
       hasMany: false,
@@ -169,7 +169,7 @@ export const Products: CollectionConfig = {
     },
     {
       name: 'approvedForSale',
-      label: 'Product Status',
+      label: 'Estado de aprobación para la venta',
       type: 'select',
       defaultValue: 'approved',
       access: {
@@ -179,15 +179,15 @@ export const Products: CollectionConfig = {
       },
       options: [
         {
-          label: 'Pending verification',
+          label: 'Pendiente Verificación',
           value: 'pending',
         },
         {
-          label: 'Approved',
+          label: 'Aprobado para la venta',
           value: 'approved',
         },
         {
-          label: 'Denied',
+          label: 'Denegado para la venta',
           value: 'denied',
         },
       ],
@@ -207,13 +207,13 @@ export const Products: CollectionConfig = {
     {
       name: 'images',
       type: 'array',
-      label: 'Product images',
+      label: 'Imagenes del producto',
       minRows: 1,
-      maxRows: 4,
+      maxRows: 10,
       required: true,
       labels: {
-        singular: 'Image',
-        plural: 'Images',
+        singular: 'Imagen',
+        plural: 'Imagenes',
       },
       fields: [
         {
