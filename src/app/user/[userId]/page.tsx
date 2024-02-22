@@ -53,7 +53,7 @@ const Page = async ({ params }: PageProps) => {
 
 
                 <ProductUser
-                    query={{ sort: 'desc', limit: 5 }}
+                    query={{ sort: 'desc', limit: 10}}
                     title='Products me'
                     userId={userId}
                 />

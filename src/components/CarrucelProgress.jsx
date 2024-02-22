@@ -45,7 +45,7 @@ export default function App() {
             layout="fill"
             objectFit="cover"
             loading='eager'
-            src='/thumbnail.jpg'
+            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/thumbnail.jpg'}   
             alt='Product image'
           /></SwiperSlide>
         <SwiperSlide >
@@ -53,7 +53,7 @@ export default function App() {
             layout="fill"
             objectFit="cover"
             loading='eager'
-            src='/1.png'
+            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/1.png'}   
             alt='Product image'
           /></SwiperSlide>
         <SwiperSlide>
@@ -61,7 +61,7 @@ export default function App() {
             layout="fill"
             objectFit="cover"
             loading='eager'
-            src='/2.png'
+            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/2.png'}   
             alt='Product image'
           /></SwiperSlide>
         <SwiperSlide>
@@ -69,7 +69,7 @@ export default function App() {
             layout="fill"
             objectFit="cover"
             loading='eager'
-            src='/4.png'
+            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/4.png'}   
             alt='Product image'
           /></SwiperSlide>
         <SwiperSlide>
@@ -77,7 +77,7 @@ export default function App() {
             layout="fill"
             objectFit="cover"
             loading='eager'
-            src='/3.png'
+            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/5.png'}   
             alt='Product image'
           /></SwiperSlide>
 
