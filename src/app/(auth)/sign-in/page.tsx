@@ -153,7 +153,7 @@ const Page = () => {
               </div>
               <div className='relative flex justify-center text-xs uppercase'>
                 <span className='bg-background px-2 text-muted-foreground'>
-                  or
+                  o
                 </span>
               </div>
             </div>
@@ -172,7 +172,15 @@ const Page = () => {
                 disabled={isLoading}>
                 Continue as seller
               </Button>*/
-              null
+              <Link
+              className={buttonVariants({
+                variant: 'link',
+                className: 'gap-1.5',
+              })}
+              href='/forget-password'>
+                ¿Olvidaste tu contraseña?
+              <ArrowRight className='h-4 w-4' />
+            </Link>
             )}
           </div>
         </div>

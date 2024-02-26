@@ -42,42 +42,42 @@ export default function App() {
       >
         <SwiperSlide >
           <Image
-            layout="fill"
-            objectFit="cover"
             loading='eager'
-            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/thumbnail.jpg'}   
+            height={680}
+            width={1920}
+            src={process.env.NEXT_PUBLIC_SERVER_URL + '/thumbnail.jpg'}
             alt='Product image'
           /></SwiperSlide>
         <SwiperSlide >
           <Image
-            layout="fill"
-            objectFit="cover"
+            height={680}
+            width={1920}
             loading='eager'
-            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/1.png'}   
+            src={process.env.NEXT_PUBLIC_SERVER_URL + '/1.png'}
             alt='Product image'
           /></SwiperSlide>
         <SwiperSlide>
           <Image
-            layout="fill"
-            objectFit="cover"
+            height={680}
+            width={1920}
             loading='eager'
-            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/2.png'}   
+            src={process.env.NEXT_PUBLIC_SERVER_URL + '/2.png'}
             alt='Product image'
           /></SwiperSlide>
         <SwiperSlide>
           <Image
-            layout="fill"
-            objectFit="cover"
+            height={680}
+            width={1920}
             loading='eager'
-            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/4.png'}   
+            src={process.env.NEXT_PUBLIC_SERVER_URL + '/4.png'}
             alt='Product image'
           /></SwiperSlide>
         <SwiperSlide>
           <Image
-            layout="fill"
-            objectFit="cover"
+            height={680}
+            width={1920}
             loading='eager'
-            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/5.png'}   
+            src={process.env.NEXT_PUBLIC_SERVER_URL + '/4.png'}
             alt='Product image'
           /></SwiperSlide>
 

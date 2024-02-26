@@ -1,3 +1,4 @@
+import { access } from 'fs'
 import { PrimaryActionEmailHtml } from '../components/emails/PrimaryActionEmail'
 import { Access, CollectionConfig } from 'payload/types'
 
@@ -15,6 +16,19 @@ export const Users: CollectionConfig = {
   slug: 'users',
   
   auth: {
+
+    forgotPassword: {
+      generateEmailHTML: (token) => {
+        return PrimaryActionEmailHtml({
+          actionLabel: "reset your password",
+          buttonText: "Reset Password",
+          href: `${process.env.NEXT_PUBLIC_SERVER_URL}/reset-password?token=${token?.token}`
+        })
+
+      },
+    
+    },
+    
     verify: {
       generateEmailHTML: ({ token }) => {
         return PrimaryActionEmailHtml({
@@ -24,6 +38,8 @@ export const Users: CollectionConfig = {
         })
       },
     },
+
+    
     tokenExpiration:  60 * 60 * 24 * 30, // 30 days
     // cookies: {
     //   secure: true,
@@ -31,6 +47,7 @@ export const Users: CollectionConfig = {
     //   domain: process.env.NEXT_PUBLIC_SERVER_URL,
       
     // },
+
   
   },
   access: {

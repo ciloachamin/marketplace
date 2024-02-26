@@ -32,7 +32,6 @@ export default function Search(props) {
     collections: [],
     isOpen: false
   })
-
   const autocomplete = useMemo(() => createAutocomplete({
     placeholder: 'Buscar productos',
     onStateChange: ({ state }) => setAutocompleteState(state),
@@ -40,6 +39,10 @@ export default function Search(props) {
       sourceId: 'offers-next-api',
       getItems: ({ query }) => {
         if (!!query) {
+          if (props.userId) {
+            return fetch(process.env.NEXT_PUBLIC_SERVER_URL + `/api/search?userId=${props.userId}&q=${query}`)
+            .then(res => res.json())
+          }
           return fetch(process.env.NEXT_PUBLIC_SERVER_URL + `/api/search?q=${query}`)
             .then(res => res.json())
         }

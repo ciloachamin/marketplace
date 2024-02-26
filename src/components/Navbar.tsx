@@ -34,7 +34,8 @@ const Navbar = async () => {
                 <NavItems />
               </div>
               <div className='ml-auto flex items-center'>
-                <Search />
+              <Search/>
+              {/* <Search userId={"65945511053c95a8d160025d"} /> */}
               </div>
 
               <div className='ml-auto flex items-center'>

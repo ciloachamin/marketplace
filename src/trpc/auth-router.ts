@@ -80,4 +80,44 @@ export const authRouter = router({
         throw new TRPCError({ code: 'UNAUTHORIZED' })
       }
     }),
+
+
+    forgotPassword: publicProcedure
+    .input(z.object({ email: z.string() }))
+    .mutation(async ({ input }) => {
+      const { email } = input;
+      const payload = await getPayloadClient();
+      try {
+        const token = await payload.forgotPassword({
+          collection: 'users',
+          data: {
+            email: email,
+          },
+        })
+        return { success: true , sentToEmail: email}
+      } catch (err) {
+        throw new TRPCError({ code: 'UNAUTHORIZED' })
+      }
+    }),
+
+    resetPassword: publicProcedure
+    .input(z.object({ token: z.string(), password: z.string() }))
+    .query(async ({ input }) => {
+      const { token, password } = input;
+      const payload = await getPayloadClient();
+      try {
+        const result= await payload.resetPassword({
+          collection: 'users',
+          data: {
+            token: token,
+            password: password,
+          },
+          overrideAccess : true
+        })
+        return { success: true }
+      } catch (err) {
+        
+        throw new TRPCError({ code: 'UNAUTHORIZED' })
+      }
+    }),
 })
