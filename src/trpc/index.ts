@@ -145,10 +145,8 @@ getProductSellerPremium: publicProcedure
           in: ['sellpremium', 'sellbasic', 'admin'],
         },
       },
+      pagination: false,
     });
-   // console.log('users', users)
-    
-
     // Luego, obtenemos los productos que están aprobados para la venta y cuyo campo 'user' se encuentra en la lista de usuarios obtenidos en la primera consulta
     const {
       docs: items,
@@ -169,6 +167,7 @@ getProductSellerPremium: publicProcedure
       depth: 1,
       limit,
       page,
+      pagination: false,
     });
     return {
       items,
