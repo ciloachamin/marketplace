@@ -20,10 +20,10 @@ export default function RootLayout({
   return (
     <html lang='es' suppressHydrationWarning className='h-full'>
       <head>
-        {process.env.NODE_ENV === 'production' && (
+        {/* {process.env.NODE_ENV === 'production' && (
           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2148072584206249"
             crossOrigin="anonymous"></script>
-        )}
+        )} */}
 
       </head>
       <body
