@@ -17,17 +17,17 @@ export const Users: CollectionConfig = {
   
   auth: {
 
-    forgotPassword: {
-      generateEmailHTML: (token) => {
-        return PrimaryActionEmailHtml({
-          actionLabel: "reset your password",
-          buttonText: "Reset Password",
-          href: `${process.env.NEXT_PUBLIC_SERVER_URL}/reset-password?token=${token?.token}`
-        })
+    // forgotPassword: {
+    //   generateEmailHTML: (token) => {
+    //     return PrimaryActionEmailHtml({
+    //       actionLabel: "reset your password",
+    //       buttonText: "Reset Password",
+    //       href: `${process.env.NEXT_PUBLIC_SERVER_URL}/reset-password?token=${token?.token}`
+    //     })
 
-      },
+    //   },
     
-    },
+    // },
     
     verify: {
       generateEmailHTML: ({ token }) => {

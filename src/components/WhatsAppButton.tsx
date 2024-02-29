@@ -12,20 +12,20 @@ interface WhatsAppButtonProps {
 const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phoneNumber, message, text, autoSend}) => {
   const baseUrl = 'https://wa.me/';
   
-  const sendMessage = () => {
-    window.open(`${baseUrl}${"593"+phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
-  };
-
   // const sendMessage = () => {
-  //   window.open(`${baseUrl}${"593"+phoneNumber}?text=${encodeURIComponent(message)}`);
+  //   window.open(`${baseUrl}${"593"+phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
   // };
 
-  useEffect(() => {
-    // Si la prop autoSend está establecida en true, envía el mensaje automáticamente al montarse el componente
-    if (autoSend) {
-      sendMessage();
-    }
-  }, []); // El efecto se ejecutará solo una vez al montarse el componente
+  // // const sendMessage = () => {
+  // //   window.open(`${baseUrl}${"593"+phoneNumber}?text=${encodeURIComponent(message)}`);
+  // // };
+
+  // useEffect(() => {
+  //   // Si la prop autoSend está establecida en true, envía el mensaje automáticamente al montarse el componente
+  //   if (autoSend) {
+  //     sendMessage();
+  //   }
+  // }, []); // El efecto se ejecutará solo una vez al montarse el componente
 
 
   return (
