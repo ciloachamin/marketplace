@@ -9,7 +9,7 @@ export const authRouter = router({
   createPayloadUser: publicProcedure
     .input(UserCredentialsValidator)
     .mutation(async ({ input }) => {
-      const { email, password, firstName,lastName,phone } = input
+      const { email, password, firstName, lastName, phone } = input
       const payload = await getPayloadClient()
 
       // check if user already exists
@@ -41,7 +41,7 @@ export const authRouter = router({
       return { success: true, sentToEmail: email }
     }),
 
-    forgotPassword: publicProcedure
+  forgotPassword: publicProcedure
     .input(z.object({ email: z.string() }))
     .mutation(async ({ input }) => {
       const { email } = input;
@@ -53,8 +53,29 @@ export const authRouter = router({
             email: email,
           },
         })
-        return { success: true , sentToEmail: email}
+        return { success: true, sentToEmail: email }
       } catch (err) {
+        throw new TRPCError({ code: 'UNAUTHORIZED' })
+      }
+    }),
+
+  resetPassword: publicProcedure
+    .input(z.object({ token: z.string(), password: z.string() }))
+    .query(async ({ input }) => {
+      const { token, password } = input;
+      const payload = await getPayloadClient();
+      try {
+        const result = await payload.resetPassword({
+          collection: 'users',
+          data: {
+            token: token,
+            password: password,
+          },
+          overrideAccess: true
+        })
+        return { success: true }
+      } catch (err) {
+
         throw new TRPCError({ code: 'UNAUTHORIZED' })
       }
     }),
