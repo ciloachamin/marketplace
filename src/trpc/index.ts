@@ -145,6 +145,7 @@ getProductSellerPremium: publicProcedure
           in: ['sellpremium', 'sellbasic', 'admin'],
         },
       },
+      pagination: false,
 
     });
    // console.log('users', users)
