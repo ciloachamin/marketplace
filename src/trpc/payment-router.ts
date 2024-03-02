@@ -9,7 +9,7 @@ import { getPayloadClient } from '../get-payload'
 
 
 export const paymentRouter = router({
-  
+
   createSession: privateProcedure
     .input(z.object({ productIds: z.array(z.string()) }))
     .mutation(async ({ ctx, input }) => {
@@ -38,6 +38,24 @@ export const paymentRouter = router({
           user: user.id,
         },
       });
+
+
+      // Actualizar el stock de cada producto
+      for (const product of products) {
+        if (product && typeof product.id === 'string' && typeof product.stock === 'number') {
+          const result = await payload.update({
+            collection: 'products',
+            where: {
+              id: {
+                equals: product.id,
+              },
+            },
+            data: {
+              stock: product.stock - 1, // Restar uno al stock actual
+            },
+          });
+        }
+      }
       // Devuelve la URL como parte de la respuesta
       const thankYouUrl = `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderId=${order.id}`;
 
