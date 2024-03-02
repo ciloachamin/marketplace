@@ -39,10 +39,10 @@ export default buildConfig({
   },
 
   csrf: [ // whitelist of domains to allow cookie auth from
-    'http://localhost:3000',
-    'https://www.smrtuc.com',
-    'https://smrtuc.com',
-    'https://marketplace-production-8aec.up.railway.app',
+  'http://localhost:3000',
+  'https://www.smrtuc.com',
+  'https://smrtuc.com',
+  'https://marketplace-production-8aec.up.railway.app',
   ],
   cors: '*',
 

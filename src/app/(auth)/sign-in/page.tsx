@@ -166,12 +166,6 @@ const Page = () => {
                 Continuar como cliente
               </Button>
             ) : (
-             /* <Button
-                onClick={continueAsSeller}
-                variant='secondary'
-                disabled={isLoading}>
-                Continue as seller
-              </Button>*/
               <Link
               className={buttonVariants({
                 variant: 'link',

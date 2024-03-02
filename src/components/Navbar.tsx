@@ -26,7 +26,7 @@ const Navbar = async () => {
 
               <div className='ml-4  max-sm:mx-2 flex lg:ml-0 h-15 w-20  max-sm:w-15'>
                 <Link href='/'>
-                  <Icons.logo className='w-full '/>
+                  <Icons.logo className='w-full ' />
                 </Link>
               </div>
 
@@ -34,8 +34,8 @@ const Navbar = async () => {
                 <NavItems />
               </div>
               <div className='ml-auto flex items-center'>
-              <Search/>
-              {/* <Search userId={"65945511053c95a8d160025d"} /> */}
+                <Search />
+                {/* <Search userId={"65945511053c95a8d160025d"} /> */}
               </div>
 
               <div className='ml-auto flex items-center'>

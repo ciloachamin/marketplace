@@ -16,18 +16,6 @@ export const Users: CollectionConfig = {
   slug: 'users',
   
   auth: {
-
-    forgotPassword: {
-      generateEmailHTML: (token) => {
-        return PrimaryActionEmailHtml({
-          actionLabel: "reset your password",
-          buttonText: "Reset Password",
-          href: `${process.env.NEXT_PUBLIC_SERVER_URL}/reset-password?token=${token?.token}`
-        })
-
-      },
-    
-    },
     
     verify: {
       generateEmailHTML: ({ token }) => {
@@ -48,6 +36,17 @@ export const Users: CollectionConfig = {
       
     // },
 
+    forgotPassword: {
+      generateEmailHTML: (token) => {
+        return PrimaryActionEmailHtml({
+          actionLabel: "reset your password",
+          buttonText: "Reset Password",
+          href: `${process.env.NEXT_PUBLIC_SERVER_URL}/reset-password?token=${token?.token}`
+        })
+
+      },
+    
+    },
   
   },
   access: {

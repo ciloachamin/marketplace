@@ -42,10 +42,10 @@ export default function App() {
       >
         <SwiperSlide >
           <Image
-            loading='eager'
             height={680}
             width={1920}
             src={process.env.NEXT_PUBLIC_SERVER_URL + '/thumbnail.jpg'}
+            loading='eager'
             alt='Product image'
           /></SwiperSlide>
         <SwiperSlide >
@@ -77,7 +77,7 @@ export default function App() {
             height={680}
             width={1920}
             loading='eager'
-            src={process.env.NEXT_PUBLIC_SERVER_URL + '/4.png'}
+            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/4.png'}   
             alt='Product image'
           /></SwiperSlide>
 

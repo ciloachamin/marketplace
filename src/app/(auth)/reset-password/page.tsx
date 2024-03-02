@@ -125,4 +125,4 @@ const ResetPasswordPage = ({ searchParams }: PageProps) => {
     )
 }
 
-export default ResetPasswordPage 
+export default ResetPasswordPage
