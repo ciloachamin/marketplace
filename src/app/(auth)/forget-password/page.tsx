@@ -33,7 +33,9 @@ const ResetPasswordPage = () => {
     const router = useRouter()
 
     const { mutate, isLoading } =
-        trpc.forgotPassword.useMutation({
+        trpc.auth.forgotPassword.useMutation({
+
+
             onError: (err) => {
 
                 if (err.data?.code === 'CONFLICT') {

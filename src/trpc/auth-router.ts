@@ -41,6 +41,24 @@ export const authRouter = router({
       return { success: true, sentToEmail: email }
     }),
 
+    forgotPassword: publicProcedure
+    .input(z.object({ email: z.string() }))
+    .mutation(async ({ input }) => {
+      const { email } = input;
+      const payload = await getPayloadClient();
+      try {
+        const token = await payload.forgotPassword({
+          collection: 'users',
+          data: {
+            email: email,
+          },
+        })
+        return { success: true , sentToEmail: email}
+      } catch (err) {
+        throw new TRPCError({ code: 'UNAUTHORIZED' })
+      }
+    }),
+
   verifyEmail: publicProcedure
     .input(z.object({ token: z.string() }))
     .query(async ({ input }) => {
