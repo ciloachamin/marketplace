@@ -14,6 +14,7 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import { Icons } from '@/components/Icons'
+import CarrucelAdvert from '@/components/CarrucelAdvert'
 
 const perks = [
   {
@@ -92,6 +93,10 @@ export default function Home() {
         <Carrucel query={{ limit: 100 }}
           href='/products?sort=recent'
         />
+
+
+        <CarrucelAdvert />
+
         <ProductReelPremium
           query={{ limit: 4 }}
           href='/products?sort=recent'

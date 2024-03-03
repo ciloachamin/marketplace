@@ -14,7 +14,7 @@ import { useAuth } from '@/hooks/use-auth'
 
 const UserAccountNav = ({ user }: { user: User }) => {
   const { signOut } = useAuth()
-  
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
@@ -41,10 +41,15 @@ const UserAccountNav = ({ user }: { user: User }) => {
 
         <DropdownMenuSeparator />
 
-        {['sell', 'admin','sellbasic','sellpremium'].includes(user.role) ? (
-          <DropdownMenuItem asChild>
-            <Link href='/sell' target='_blank'>Panel de vendedor</Link>
-          </DropdownMenuItem>
+        {['sell', 'admin', 'sellbasic', 'sellpremium'].includes(user.role) ? (
+          <>
+            <DropdownMenuItem asChild>
+              <Link href='/sell' target='_blank'>Panel de vendedor</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href='/sell/collections/products/create' target='_blank'>Subir Producto</Link>
+            </DropdownMenuItem>
+          </>
         ) : null}
 
         <DropdownMenuItem

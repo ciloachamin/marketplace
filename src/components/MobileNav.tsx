@@ -63,7 +63,7 @@ const MobileNav = ({ user }: { user: User | null }) => {
           </div>
 
           <div className='flex-1 overflow-y-auto'>
-      			<span className="flex font-medium text-sm text-gray-400 px-4 my-4 uppercase">Categorías</span>
+            <span className="flex font-medium text-sm text-gray-400 px-4 my-4 uppercase">Categorías</span>
 
             <div className='mt-2'>
               <ul>
@@ -86,18 +86,24 @@ const MobileNav = ({ user }: { user: User | null }) => {
           </div>
 
           <div className='space-y-1 border-t border py-6'>
-          <span className="flex font-medium text-sm text-gray-400 px-4 my-4 uppercase">Cuenta</span>
+            <span className="flex font-medium text-sm text-gray-400 px-4 my-4 uppercase">Cuenta</span>
             <div className='flow-root'>
               {user ? (
                 <>
                   <p className='flex gap-2 py-4 px-6  text-gray-400 font-medium'>
                     {user.email}
                   </p>
-                  {['sell', 'admin' ,'sellbasic', 'sellpremium'].includes(user.role) ? (
-                    <p className='flex gap-2 py-4 px-6 font-medium hover:bg-secondary'>
+                  {['sell', 'admin', 'sellbasic', 'sellpremium'].includes(user.role) ? (
+                    <>
+                      <p className='flex gap-2 py-4 px-6 font-medium hover:bg-secondary'>
 
-                      <Link href='/sell' target='_blank'>Panel de vendedor</Link>
-                    </p>
+                        <Link href='/sell' target='_blank' className='h-full w-full'>Panel de vendedor</Link>
+                      </p>
+                      <p className='flex gap-2 py-4 px-6 font-medium hover:bg-secondary'>
+
+                        <Link href='/sell/collections/products/create' target='_blank' className='h-full w-full'>Subir Producto</Link>
+                      </p>
+                    </>
                   ) : null}
 
                 </>

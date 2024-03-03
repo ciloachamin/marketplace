@@ -12,7 +12,7 @@ interface WhatsAppButtonProps {
 const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phoneNumber, message, text, autoSend}) => {
   const baseUrl = 'https://wa.me/';
   const sendMessage = () => {
-    window.open(`${baseUrl}${"593"+phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`${baseUrl}${"593"+phoneNumber}?text=${encodeURIComponent(message)}`);
   };
 
   // const sendMessage = () => {

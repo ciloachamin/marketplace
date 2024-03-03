@@ -10,6 +10,7 @@ import UserAccountNav from './UserAccountNav'
 import MobileNav from './MobileNav'
 import { ModeToggle } from './ModeToggle'
 import Search from './Search'
+import {Plus} from 'lucide-react'
 
 
 const Navbar = async () => {
@@ -85,10 +86,20 @@ const Navbar = async () => {
                     </div>
                   )}
                 </div>
+                {user && ['sell', 'admin', 'sellbasic', 'sellpremium'].includes(user.role) ? (
+                  <>
+                    <div className='ml-4 flow-root lg:ml-6 '>
+                      <div className='rounded-md bg-[#208215] h-8 w-10 justify-center items-center flex'>
+                      <Link href='/sell/collections/products/create' target='_blank'><Plus size={20} color='white' strokeWidth={5} /></Link>
+                        
+                      </div>
+                    </div>
+                  </>
+                ) : null}
                 <div className='ml-4 flow-root lg:ml-6'>
                   <Cart />
                 </div>
-                <div className='ml-4 flow-root lg:ml-6'>
+                <div className='ml-4 flow-root lg:ml-6 '>
                   <ModeToggle />
                 </div>
               </div>
