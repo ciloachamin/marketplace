@@ -172,6 +172,13 @@ getProductSellerPremium: publicProcedure
       limit,
       page,
     });
+    // console.log('items', items);
+    
+
+    const shuffledItems = shuffle(items);
+
+    // console.log('shuffledItems', shuffledItems);
+    
     return {
       items,
       nextPage: hasNextPage ? nextPage : null,
@@ -182,3 +189,14 @@ getProductSellerPremium: publicProcedure
 })
 
 export type AppRouter = typeof appRouter
+function shuffle(items: import("../payload-types").Product[]) {
+    // Recorre el arreglo de atrás hacia adelante
+    for (let i = items.length - 1; i > 0; i--) {
+      // Genera un índice aleatorio entre 0 y i
+      const j = Math.floor(Math.random() * (i + 1));
+      // Intercambia los elementos en las posiciones i y j
+      [items[i], items[j]] = [items[j], items[i]];
+    }
+    return items;
+}
+
