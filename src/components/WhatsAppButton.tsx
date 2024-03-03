@@ -1,4 +1,3 @@
-"use client"
 import React, { useEffect } from 'react';
 
 interface WhatsAppButtonProps {
@@ -6,23 +5,14 @@ interface WhatsAppButtonProps {
   message: string;
   text: string;
   autoSend?: boolean;
-
 }
 
 const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phoneNumber, message, text, autoSend}) => {
   const baseUrl = 'https://wa.me/';
-  const sendMessage = () => {
-    window.open(`${baseUrl}${"593"+phoneNumber}?text=${encodeURIComponent(message)}`);
-  };
-
-  // const sendMessage = () => {
-  //   window.open(`${baseUrl}${"593"+phoneNumber}?text=${encodeURIComponent(message)}`);
-  // };
-
+  
   useEffect(() => {
-    // Si la prop autoSend está establecida en true, envía el mensaje automáticamente al montarse el componente
     if (autoSend) {
-      sendMessage();
+      window.location.href = `${baseUrl}${"593"+phoneNumber}?text=${encodeURIComponent(message)}&source=${encodeURIComponent(document.URL)}`;
     }
   }, []); 
 
