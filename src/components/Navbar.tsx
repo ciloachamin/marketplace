@@ -10,7 +10,7 @@ import UserAccountNav from './UserAccountNav'
 import MobileNav from './MobileNav'
 import { ModeToggle } from './ModeToggle'
 import Search from './Search'
-import {Plus} from 'lucide-react'
+import { Plus, Upload } from 'lucide-react'
 
 
 const Navbar = async () => {
@@ -89,9 +89,11 @@ const Navbar = async () => {
                 {user && ['sell', 'admin', 'sellbasic', 'sellpremium'].includes(user.role) ? (
                   <>
                     <div className='ml-4 flow-root lg:ml-6 '>
-                      <div className='rounded-md bg-[#208215] h-8 w-10 justify-center items-center flex'>
-                      <Link href='/sell/collections/products/create' target='_blank'><Plus size={20} color='white' strokeWidth={5} /></Link>
-                        
+                      <div className='max-lg:hidden rounded-md bg-[#208215] h-8 w-20  justify-center items-center flex'>
+                        <Link href='/sell/collections/products/create' className=" text-white flex justify-center items-center gap-2" target='_blank'>Subir  <Upload size={20} /></Link>
+                      </div>
+                      <div className='lg:hidden rounded-md bg-[#208215] h-8 w-10 justify-center items-center flex'>
+                        <Link href='/sell/collections/products/create' target='_blank'><Plus size={20} color='white' strokeWidth={5} /></Link>
                       </div>
                     </div>
                   </>
