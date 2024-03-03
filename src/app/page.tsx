@@ -64,10 +64,13 @@ const perks = [
 export default function Home() {
   return (
     <>
+      <MaxWidthWrapper className=''>
+        <CarrucelAdvert />
+      </MaxWidthWrapper>
       <MaxWidthWrapper className='px-2.5 md:px-20'>
 
         <div className=' mx-auto text-center flex flex-col items-center max-w-3xl'>
-          <Icons.logo className='h-50 w-80 ' />
+
           <h1 className='text-4xl font-bold tracking-tight text-secondary-foreground sm:text-6xl'>
             Tu plataforma exclusiva para {' '}
             <span className='text-primary'>
@@ -94,8 +97,6 @@ export default function Home() {
           href='/products?sort=recent'
         />
 
-
-        <CarrucelAdvert />
 
         <ProductReelPremium
           query={{ limit: 4 }}
