@@ -185,6 +185,47 @@ getProductSellerPremium: publicProcedure
     };
   }),
 
+// Nueva función getProductSellerPremium
+getSellerPremium: publicProcedure
+  .input(getProductSellerPremiumInputSchema)
+  .query(async ({ input }) => {
+    const { query, cursor } = input;
+    const { sort, limit, ...queryOpts } = query;
+
+    const payload = await getPayloadClient();
+
+    const parsedQueryOpts: Record<string, { equals: string }> = {};
+    Object.entries(queryOpts).forEach(([key, value]) => {
+      parsedQueryOpts[key] = {
+        equals: value,
+      };
+    });
+
+    const page = cursor || 1;
+
+    // Primero, obtenemos los usuarios con los roles 'sellpremium' y 'sellbasic'
+    // CAmbiar a me muestra solo los sellpremium
+    const { docs: users } = await payload.find({
+      collection: 'users',
+      where: {
+        role: {
+          in: ['sellpremium', 'sellbasic', 'admin'],
+        },
+      },
+      pagination: false,
+
+    });
+   // console.log('users', users)
+  
+
+    // console.log('shuffledItems', shuffledItems);
+    
+    return {
+      users,
+    };
+  }),
+
+
 
 })
 

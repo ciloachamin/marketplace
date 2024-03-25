@@ -10,6 +10,7 @@ import { Media } from './collections/Media'
 import { ProductFiles } from './collections/ProductFile'
 import { Orders } from './collections/Orders'
 import { Membership } from './collections/Membership'
+import { Plans } from './collections/Plan'
 import cloudinaryPlugin from "payload-cloudinary-plugin/dist/plugins";
 
 dotenv.config({
@@ -19,7 +20,7 @@ dotenv.config({
 export default buildConfig({
   plugins: [cloudinaryPlugin()],
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || '', 
-  collections: [Users, Products, Media, ProductFiles, Orders, Membership], 
+  collections: [Users, Products, Media, ProductFiles, Orders, Membership, Plans], 
   routes: {
     admin: '/sell',
     
