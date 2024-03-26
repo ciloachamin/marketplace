@@ -4,6 +4,7 @@ import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -44,6 +45,17 @@ export default function App() {
             loading='eager'
             alt='Product image'
           /></SwiperSlide>
+                  <SwiperSlide>
+          <Link href={process.env.NEXT_PUBLIC_SERVER_URL + '/product/65fa26c72ff1b68aa13c187d'}>   <Image
+            height={680}
+            width={1920}
+            loading='eager'
+            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/gimnasio.gif'}   
+            alt='Product image'
+          />
+          </Link>
+        
+          </SwiperSlide>
         <SwiperSlide >
           <Image
             height={680}
@@ -58,14 +70,6 @@ export default function App() {
             width={1920}
             loading='eager'
             src= {process.env.NEXT_PUBLIC_SERVER_URL + '/sakuraa.png'}   
-            alt='Product image'
-          /></SwiperSlide>
-        <SwiperSlide>
-          <Image
-            height={680}
-            width={1920}
-            loading='eager'
-            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/apanado.png'}   
             alt='Product image'
           /></SwiperSlide>
         <SwiperSlide>
