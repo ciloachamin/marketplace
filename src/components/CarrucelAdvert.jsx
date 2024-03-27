@@ -77,7 +77,7 @@ export default function App() {
             height={680}
             width={1920}
             loading='eager'
-            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/sakuraa.png'}   
+            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/compraygana.png'}   
             alt='Product image'
           /></SwiperSlide>
 {/* 
