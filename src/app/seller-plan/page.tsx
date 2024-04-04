@@ -43,7 +43,7 @@ const SellerPlanPage = ({ }) => {
                     title="Inicio"
                     description="Ideal para publicar y vender tus productos."
                     promo='Gratis 1 mes'
-                    price="$2"
+                    price="$1"
                     time='Mes'
                     features={[
                         'Cuenta de vendedor para subir y gestionar productos',
@@ -58,7 +58,7 @@ const SellerPlanPage = ({ }) => {
                     title="Vendedor Básico"
                     description="Perfecto para emprendedores que buscan expandir su alcance."
                     promo='Gratis 1 mes'
-                    price="$5"
+                    price="$3"
                     time='Mes'
                     features={[
                         'Cuenta de vendedor para subir y gestionar productos',
