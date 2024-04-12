@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { User } from '@/payload-types'
 import { useAuth } from '@/hooks/use-auth'
+import { Icons } from './Icons'
 
 const MobileNav = ({ user }: { user: User | null }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -51,6 +52,7 @@ const MobileNav = ({ user }: { user: User | null }) => {
       </div>
 
       <div className='fixed overflow-y-scroll overscroll-y-none inset-0 z-40 flex lg:hidden'>
+
         <div className='w-4/5 flex flex-col h-full bg-background border '>
           <div className='flex px-4 pb-2 pt-5'>
             <button
@@ -61,6 +63,17 @@ const MobileNav = ({ user }: { user: User | null }) => {
               <X className='h-6 w-6' aria-hidden='true' />
             </button>
           </div>
+          <div className='ml-4 max-sm:mx-auto flex lg:ml-0 h-15 w-20 max-sm:w-15 items-center justify-center'>
+            <div className='flex items-center justify-center'>
+              <Link href='/'>
+                <Icons.emprendex className='w-full' />
+              </Link>
+            </div>
+          </div>
+
+
+
+
 
           <div className='flex-1 overflow-y-auto'>
             <span className="flex font-medium text-sm text-gray-400 px-4 my-4 uppercase">Categorías</span>

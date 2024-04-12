@@ -41,27 +41,37 @@ export default function App() {
           <Image
             height={680}
             width={1920}
+            src={process.env.NEXT_PUBLIC_SERVER_URL + '/logos.gif'}
+            loading='eager'
+            unoptimized 
+            alt='Product image'
+          /></SwiperSlide>
+        {/* <SwiperSlide >
+          <Image
+            height={680}
+            width={1920}
             src={process.env.NEXT_PUBLIC_SERVER_URL + '/thumbnail.jpg'}
             loading='eager'
             alt='Product image'
-          /></SwiperSlide>
-                  <SwiperSlide>
+          /></SwiperSlide> */}
+        <SwiperSlide>
           <Link href={process.env.NEXT_PUBLIC_SERVER_URL + '/product/65fa26c72ff1b68aa13c187d'}>   <Image
             height={680}
             width={1920}
             loading='eager'
-            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/gimnasio.gif'}   
+            src={process.env.NEXT_PUBLIC_SERVER_URL + '/gimnasio.gif'}
+            unoptimized
             alt='Product image'
           />
           </Link>
-        
-          </SwiperSlide>
+
+        </SwiperSlide>
         <SwiperSlide >
           <Image
             height={680}
             width={1920}
             loading='eager'
-            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/apanado.png'}   
+            src={process.env.NEXT_PUBLIC_SERVER_URL + '/apanado.png'}
             alt='Product image'
           /></SwiperSlide>
         <SwiperSlide>
@@ -69,7 +79,7 @@ export default function App() {
             height={680}
             width={1920}
             loading='eager'
-            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/sakuraa.png'}   
+            src={process.env.NEXT_PUBLIC_SERVER_URL + '/sakuraa.png'}
             alt='Product image'
           /></SwiperSlide>
         <SwiperSlide>
@@ -77,10 +87,10 @@ export default function App() {
             height={680}
             width={1920}
             loading='eager'
-            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/compraygana.png'}   
+            src={process.env.NEXT_PUBLIC_SERVER_URL + '/compraygana.png'}
             alt='Product image'
           /></SwiperSlide>
-{/* 
+        {/* 
         <div className="autoplay-progress" slot="container-end">
           <svg viewBox="0 0 48 48" ref={progressCircle}>
             <circle cx="24" cy="24" r="20"></circle>
