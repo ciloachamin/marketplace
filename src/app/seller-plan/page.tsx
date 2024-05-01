@@ -42,7 +42,7 @@ const SellerPlanPage = ({ }) => {
                 <PricingCard
                     title="Inicio"
                     description="Ideal para publicar y vender tus productos."
-                    promo='Gratis 1 mes'
+                    promo='Gratis 10 Días'
                     price="$1"
                     time='Mes'
                     features={[
@@ -57,7 +57,7 @@ const SellerPlanPage = ({ }) => {
                 <PricingCard
                     title="Vendedor Básico"
                     description="Perfecto para emprendedores que buscan expandir su alcance."
-                    promo='Gratis 1 mes'
+                    promo='Gratis 10 Días'
                     price="$3"
                     time='Mes'
                     features={[
@@ -75,7 +75,7 @@ const SellerPlanPage = ({ }) => {
                     description="Diseñado para vendedores que desean máxima visibilidad."
                     promo='En desarrollo'
                     price="$30"
-                    time='único'
+                    time='Semestral'
                     features={[
                         'Cuenta de vendedor para subir y gestionar productos',
                         'Soporte técnico para el uso de la plataforma',
