@@ -41,7 +41,7 @@ const SellerPlanPage = ({ }) => {
             <div className='flex gap-5 my-10  max-lg:flex-col'>
                 <PricingCard
                     title="Inicio"
-                    description="Ideal para publicar y vender tus productos."
+                    description=" Ideal para nuevos vendedores o aquellos con pocos productos y venta no muy frecuente. Una forma económica y efectiva de dar tus primeros pasos en el comercio digital."
                     promo='Gratis 10 Días'
                     price="$1"
                     time='Mes'
@@ -56,7 +56,7 @@ const SellerPlanPage = ({ }) => {
                 />
                 <PricingCard
                     title="Vendedor Básico"
-                    description="Perfecto para emprendedores que buscan expandir su alcance."
+                    description="Diseñado para vendedores con un mercado ya establecido o que manejan un catálogo variado de productos. Este plan te ayudará a expandir tu presencia y alcanzar a más clientes dentro de ESPE Shop."
                     promo='Gratis 10 Días'
                     price="$3"
                     time='Mes'
@@ -65,6 +65,7 @@ const SellerPlanPage = ({ }) => {
                         'Soporte técnico para el uso de la plataforma',
                         'Configuración individual de productos',
                         'Colocación prioritaria en la plataforma principal',
+                        'Publicidad en Redes Sociales de ESPE Shop y Emprendex'
                     ]}
                     buttonText="Comenzar"
                     buttonNumber='0978814129'
@@ -72,7 +73,7 @@ const SellerPlanPage = ({ }) => {
                 />
                 <PricingCard
                     title="Vendedor Premium"
-                    description="Diseñado para vendedores que desean máxima visibilidad."
+                    description="La opción definitiva para aquellos que desean llevar su negocio al siguiente nivel. Obtén tu propia página web independiente, gestionada desde ESPE Shop, y vende tus productos más allá de nuestra plataforma."
                     promo='En desarrollo'
                     price="$30"
                     time='Semestral'
@@ -82,6 +83,7 @@ const SellerPlanPage = ({ }) => {
                         'Configuración individual de productos',
                         'Colocación prioritaria en la plataforma principal',
                         'Página de destino personalizable que muestra tus productos para clientes externos',
+                        'Publicidad en Redes Sociales de ESPE Shop y Emprendex'
 
                     ]}
                     buttonText="Comenzar"
