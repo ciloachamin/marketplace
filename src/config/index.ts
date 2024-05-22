@@ -22,6 +22,29 @@ export const PRODUCT_CATEGORIES = [
     ],
   },
   {
+    label: 'Internacional',
+    value: 'international' as const,
+    href: '/products?category=international',
+    destacados: [
+      {
+        name: 'Selecciones del Editor',
+        href: `/products?category=international`,
+        imageSrc: '/nav/international/editor_picks.jpg',
+      },
+      {
+        name: 'Nuevos Lanzamientos',
+        href: '/products?category=international&sort=desc',
+        imageSrc: '/nav/international/new_arrivals.jpg',
+      },
+      {
+        name: 'Más Solicitados',
+        href: '/products?category=international&sort=popular',
+        imageSrc: '/nav/international/most_requested.jpg',
+      },
+    ],
+  }
+  ,
+  {
     label: 'Tecnología',
     value: 'technology' as const,
     href: '/products?category=technology',
@@ -197,5 +220,5 @@ export const PRODUCT_CATEGORIES = [
       },
     ],
   },
-  
+
 ];

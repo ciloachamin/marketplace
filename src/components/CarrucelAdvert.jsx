@@ -71,7 +71,7 @@ export default function App() {
             height={680}
             width={1920}
             loading='eager'
-            src={process.env.NEXT_PUBLIC_SERVER_URL + '/apanado.png'}
+            src={process.env.NEXT_PUBLIC_SERVER_URL + '/Los-secos-del-gordo-banner.png'}
             alt='Product image'
           /></SwiperSlide>
         <SwiperSlide>
