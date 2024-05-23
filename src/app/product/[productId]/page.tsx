@@ -214,7 +214,7 @@ const Page = async ({ params }: PageProps) => {
         href='/products'
         query={{ category: product.category, limit: 4 }}
         title={`Similar ${label}`}
-        subtitle={`Browse similar high-quality ${label} just like '${product.name}'`}
+        subtitle={`Buscar ${label} similar a '${product.name}'`}
       />
 
 
