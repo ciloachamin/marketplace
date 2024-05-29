@@ -38,6 +38,7 @@ const ProductListing = ({
     )
     .filter(Boolean) as string[]
 
+{/* Agregar una condicion de si el producto tiene categoria de negocios que me muestre el link de user/id del negocios */}
 
   if (isVisible && product) {
     const isOutOfStock = product.stock === 0;
