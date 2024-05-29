@@ -53,7 +53,7 @@ export default function App() {
             height={680}
             width={1920}
             loading='eager'
-            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/1.png'}   
+            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/zaruma-london.png'}   
             alt='Product image'
           /></SwiperSlide>
         <SwiperSlide>
@@ -61,7 +61,15 @@ export default function App() {
             height={680}
             width={1920}
             loading='eager'
-            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/2.png'}   
+            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/Los-secos-del-gordo-banner.png'}   
+            alt='Product image'
+          /></SwiperSlide>
+        {/* <SwiperSlide>
+          <Image
+            height={680}
+            width={1920}
+            loading='eager'
+            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/4.png'}   
             alt='Product image'
           /></SwiperSlide>
         <SwiperSlide>
@@ -71,15 +79,7 @@ export default function App() {
             loading='eager'
             src= {process.env.NEXT_PUBLIC_SERVER_URL + '/4.png'}   
             alt='Product image'
-          /></SwiperSlide>
-        <SwiperSlide>
-          <Image
-            height={680}
-            width={1920}
-            loading='eager'
-            src= {process.env.NEXT_PUBLIC_SERVER_URL + '/4.png'}   
-            alt='Product image'
-          /></SwiperSlide>
+          /></SwiperSlide> */}
 
         <div className="autoplay-progress" slot="container-end">
           <svg viewBox="0 0 48 48" ref={progressCircle}>

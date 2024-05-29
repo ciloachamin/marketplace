@@ -96,6 +96,7 @@ export const Users: CollectionConfig = {
       options: [
         { label: 'Admin', value: 'admin' },
         { label: 'User', value: 'user' },
+        { label: 'Business', value: 'business' },
         { label: 'Sell', value: 'sell' },
         { label: 'Sell Basic', value: 'sellbasic' },
         { label: 'Sell Premium', value: 'sellpremium' },

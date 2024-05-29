@@ -14,6 +14,7 @@ export interface Config {
     product_files: ProductFile;
     orders: Order;
     membership: Membership;
+    plans: Plan;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -24,7 +25,7 @@ export interface User {
   products?: (string | Product)[] | null;
   membership?: (string | Membership)[] | null;
   product_files?: (string | ProductFile)[] | null;
-  role: 'admin' | 'user' | 'sell' | 'sellbasic' | 'sellpremium';
+  role: 'admin' | 'user' | 'business' | 'sell' | 'sellbasic' | 'sellpremium';
   firstName: string;
   lastName: string;
   phone: string;
@@ -51,6 +52,9 @@ export interface Product {
   price: number;
   stock?: number | null;
   category:
+    | 'rentals'
+    | 'business'
+    | 'international'
     | 'technology'
     | 'food'
     | 'fashion_and_beauty'
@@ -135,12 +139,13 @@ export interface Media {
 }
 export interface Membership {
   id: string;
-  user?: (string | null) | User;
-  name: string;
+  user: string | User;
+  plan: 'sell' | 'sellbasic' | 'sellpremium';
+  commentary?: string | null;
   active: 'pending' | 'approved' | 'denied';
   time: number;
   startDate: string;
-  endDate: string;
+  endDate?: string | null;
   price: number;
   updatedAt: string;
   createdAt: string;
@@ -150,6 +155,14 @@ export interface Order {
   _isPaid: boolean;
   user: string | User;
   products: (string | Product)[];
+  updatedAt: string;
+  createdAt: string;
+}
+export interface Plan {
+  id: string;
+  name: string;
+  time: number;
+  price: number;
   updatedAt: string;
   createdAt: string;
 }

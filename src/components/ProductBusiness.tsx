@@ -17,7 +17,7 @@ interface ProductReelProps {
 
 const FALLBACK_LIMIT = 5
 
-const ProductReel = (props: ProductReelProps) => {
+const ProductBusiness = (props: ProductReelProps) => {
     const { title, subtitle, href, query, userId } = props
     const { data: queryResults, isLoading } =
         trpc.getProductUserId.useInfiniteQuery(
@@ -75,7 +75,7 @@ const ProductReel = (props: ProductReelProps) => {
 
             <div className='relative'>
                 <div className='mt-6 flex items-center w-full'>
-                    <div className='w-full grid grid-cols-1 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-2 md:gap-y-10 lg:gap-x-8'>
+                    <div className='w-full grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-10 lg:gap-x-8'>
                         {map.map((product, i) => (
                             <ProductListingBusiness
                                 key={`product-${i}`}
@@ -90,4 +90,4 @@ const ProductReel = (props: ProductReelProps) => {
     )
 }
 
-export default ProductReel
+export default ProductBusiness

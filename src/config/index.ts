@@ -22,6 +22,28 @@ export const PRODUCT_CATEGORIES = [
     ],
   },
   {
+    label: 'Negocios',
+    value: 'business' as const,
+    href: '/products?category=business',
+    destacados: [
+      {
+        name: 'Selecciones del Editor',
+        href: `/products?category=business`,
+        imageSrc: '/nav/business/editor_picks.jpg',
+      },
+      {
+        name: 'Nuevos Lanzamientos',
+        href: '/products?category=business&sort=desc',
+        imageSrc: '/nav/business/new_arrivals.jpg',
+      },
+      {
+        name: 'Más Solicitados',
+        href: '/products?category=business&sort=popular',
+        imageSrc: '/nav/business/most_requested.jpg',
+      },
+    ],
+  },  
+  {
     label: 'Internacional',
     value: 'international' as const,
     href: '/products?category=international',
