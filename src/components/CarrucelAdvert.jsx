@@ -82,14 +82,14 @@ export default function App() {
             src={process.env.NEXT_PUBLIC_SERVER_URL + '/zaruma-london.png'}
             alt='Product image'
           /></SwiperSlide>
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <Image
             height={680}
             width={1920}
             loading='eager'
             src={process.env.NEXT_PUBLIC_SERVER_URL + '/compraygana.png'}
             alt='Product image'
-          /></SwiperSlide>
+          /></SwiperSlide> */}
         {/* 
         <div className="autoplay-progress" slot="container-end">
           <svg viewBox="0 0 48 48" ref={progressCircle}>

@@ -4,24 +4,26 @@ import { TQueryValidator } from '@/lib/validators/query-validator'
 import { Product } from '@/payload-types'
 import { trpc } from '@/trpc/client'
 import Link from 'next/link'
-import ProductListingBusiness from './ProductListingBusiness'
+import ProductListing from './ProductListing'
 
 interface ProductReelProps {
   title: string
   subtitle?: string
   href?: string
   query: TQueryValidator
+  productExcept?: string[];
 }
 
-const FALLBACK_LIMIT = 6
+const FALLBACK_LIMIT = 4
 
-const ProductReelBusiness = (props: ProductReelProps) => {
-  const { title, subtitle, href, query } = props
+const ProductReelProduct = (props: ProductReelProps) => {
+  const { title, subtitle, href, query, productExcept  } = props
   const { data: queryResults, isLoading } =
-  trpc.getProductBusiness.useInfiniteQuery(
+  trpc.getInfiniteProducts.useInfiniteQuery(
     {
       limit: query.limit ?? FALLBACK_LIMIT,
       query,
+      productExcept,
     },
     {
       getNextPageParam: (lastPage) => lastPage.nextPage,
@@ -68,9 +70,9 @@ const ProductReelBusiness = (props: ProductReelProps) => {
 
       <div className='relative'>
         <div className='mt-6 flex items-center w-full'>
-          <div className='w-full grid grid-cols-1 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-3 md:gap-y-10 lg:gap-x-8'>
+          <div className='w-full grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-10 lg:gap-x-8'>
             {map.map((product, i) => (
-              <ProductListingBusiness
+              <ProductListing
                 key={`product-${i}`}
                 product={product}
                 index={i}
@@ -83,4 +85,4 @@ const ProductReelBusiness = (props: ProductReelProps) => {
   )
 }
 
-export default ProductReelBusiness
+export default ProductReelProduct

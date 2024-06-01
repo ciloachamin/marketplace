@@ -37,7 +37,11 @@ const ProductListing = ({
       typeof image === 'string' ? image : image.url
     )
     .filter(Boolean) as string[]
-
+    
+  // Verifica si la categoría del producto es "negocios"
+  const linkHref = product.category === 'business'
+    ? `/user/${(typeof product.user === 'object' && product.user !== null) ? product.user.id : ''}`
+    : `/product/${product.id}`
 {/* Agregar una condicion de si el producto tiene categoria de negocios que me muestre el link de user/id del negocios */}
 
   if (isVisible && product) {
@@ -50,7 +54,7 @@ const ProductListing = ({
             'visible animate-in fade-in-5': isVisible,
           },
         )}
-        href={`/product/${product.id}`}
+        href={linkHref}
       >
 
         <div className={`relative flex flex-col w-full `}>

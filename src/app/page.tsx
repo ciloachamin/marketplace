@@ -15,6 +15,8 @@ import {
 import Link from 'next/link'
 import { Icons } from '@/components/Icons'
 import CarrucelAdvert from '@/components/CarrucelAdvert'
+import ProductReelBusiness from '@/components/ProductReelBusiness'
+import ProductReelProduct from '@/components/ProductReelProduct'
 
 const perks = [
   {
@@ -97,16 +99,27 @@ export default function Home() {
           href='/products?sort=recent'
         />
 
-
         <ProductReelPremium
           query={{ limit: 4 }}
           href='/products?sort=recent'
           title='Productos Populares'
         />
-        <ProductReel
+        <ProductReelProduct
           query={{ limit: 8 }}
           href='/products?sort=recent'
           title='Nuevos'
+          productExcept={['business', 'international']} // Añade esta línea
+        />
+        <ProductReelProduct
+          query={{ limit: 4 }}
+          href='/products?category=international'
+          title='Internacional'
+          productExcept={['business', 'rentals', 'tasks', 'art_and_accessories','beverages', 'sports', 'services', 'fashion_and_beauty', 'food', 'technology']} // Añade esta línea
+        />
+        <ProductReelBusiness
+          query={{ limit: 6 }}
+          href='/products?category=business'
+          title='Negocios'
         />
 
         <div className='flex flex-col  gap-4 my-6'>

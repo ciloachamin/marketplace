@@ -39,7 +39,7 @@ const ProductListingBusiness = ({
     .filter(Boolean) as string[]
 
 
-    console.log(typeof product.user === 'object' && product.user !== null ? product.user.id : null);
+    // console.log(typeof product.user === 'object' && product.user !== null ? product.user.id : null);
     
   if (isVisible && product) {
     const isOutOfStock = product.stock === 0;

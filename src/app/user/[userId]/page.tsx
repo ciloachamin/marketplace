@@ -44,14 +44,14 @@ const Page = async ({ params }: PageProps) => {
 
     return (
         <>
-            <MaxWidthWrapper className=''>
+            {/* <MaxWidthWrapper className=''>
                 <CarrucelProgress />
-            </MaxWidthWrapper>
+            </MaxWidthWrapper> */}
 
             <MaxWidthWrapper className='px-2.5 md:px-20'>
                 <ProductUser
                     query={{ sort: 'desc', limit: 10 }}
-                    title='Products me'
+                    title='Menú y Promociones '
                     userId={userId}
                 />
             </MaxWidthWrapper>

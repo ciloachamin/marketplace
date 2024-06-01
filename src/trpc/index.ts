@@ -75,11 +75,12 @@ export const appRouter = router({
         limit: z.number().min(1).max(100),
         cursor: z.number().nullish(),
         query: QueryValidator,
+        productExcept: z.array(z.string()).optional(),
       })
     )
     .query(async ({ input }) => {
-      const { query, cursor } = input
-      const { sort, limit, ...queryOpts } = query     
+      const { query, cursor, productExcept } = input
+      const { sort, limit, ...queryOpts } = query
       const payload = await getPayloadClient()
 
       const parsedQueryOpts: Record<
@@ -87,12 +88,22 @@ export const appRouter = router({
         { equals: string }
       > = {}
 
+
       Object.entries(queryOpts).forEach(([key, value]) => {
         parsedQueryOpts[key] = {
           equals: value,
         }
       })
 
+      // Añade la condición para excluir categorías si se proporciona productExcept\
+      let categoryExclusions = {};
+      if (productExcept) {
+        categoryExclusions = {
+          category: {
+            not_in: productExcept
+          }
+        };
+      }
       const page = cursor || 1
 
       const {
@@ -106,6 +117,7 @@ export const appRouter = router({
             equals: 'approved',
           },
           ...parsedQueryOpts,
+          ...categoryExclusions,
         },
         sort,
         depth: 1,
@@ -118,112 +130,179 @@ export const appRouter = router({
         nextPage: hasNextPage ? nextPage : null,
       }
     }),
-// Nueva función getProductSellerPremium
-getProductSellerPremium: publicProcedure
-  .input(getProductSellerPremiumInputSchema)
-  .query(async ({ input }) => {
-    const { query, cursor } = input;
-    const { sort, limit, ...queryOpts } = query;
+  // Nueva función getProductSellerPremium
+  getProductSellerPremium: publicProcedure
+    .input(getProductSellerPremiumInputSchema)
+    .query(async ({ input }) => {
+      const { query, cursor } = input;
+      const { sort, limit, ...queryOpts } = query;
 
-    const payload = await getPayloadClient();
+      const payload = await getPayloadClient();
 
-    const parsedQueryOpts: Record<string, { equals: string }> = {};
-    Object.entries(queryOpts).forEach(([key, value]) => {
-      parsedQueryOpts[key] = {
-        equals: value,
+      const parsedQueryOpts: Record<string, { equals: string }> = {};
+      Object.entries(queryOpts).forEach(([key, value]) => {
+        parsedQueryOpts[key] = {
+          equals: value,
+        };
+      });
+
+      const page = cursor || 1;
+
+      // Primero, obtenemos los usuarios con los roles 'sellpremium' y 'sellbasic'
+      // CAmbiar a me muestra solo los sellpremium
+      const { docs: users } = await payload.find({
+        collection: 'users',
+        where: {
+          role: {
+            in: ['sellpremium', 'sellbasic', 'admin'],
+          },
+        },
+        pagination: false,
+
+      });
+      // console.log('users', users)
+
+
+      // Luego, obtenemos los productos que están aprobados para la venta y cuyo campo 'user' se encuentra en la lista de usuarios obtenidos en la primera consulta
+      const {
+        docs: items,
+        hasNextPage,
+        nextPage,
+      } = await payload.find({
+        collection: 'products',
+        where: {
+          approvedForSale: {
+            equals: 'approved',
+          },
+          user: {
+            in: users.map(user => user.id), // Aquí utilizamos el array de usuarios obtenidos en la primera consulta
+          },
+          ...parsedQueryOpts,
+        },
+        sort,
+        depth: 1,
+        limit,
+        page,
+      });
+      // console.log('items', items);
+
+
+      const shuffledItems = shuffle(items);
+
+      // console.log('shuffledItems', shuffledItems);
+
+      return {
+        items,
+        nextPage: hasNextPage ? nextPage : null,
       };
-    });
+    }),
 
-    const page = cursor || 1;
+  // Nueva función getProductSellerPremium
+  getProductBusiness: publicProcedure
+    .input(getProductSellerPremiumInputSchema)
+    .query(async ({ input }) => {
+      const { query, cursor } = input;
+      const { sort, limit, ...queryOpts } = query;
 
-    // Primero, obtenemos los usuarios con los roles 'sellpremium' y 'sellbasic'
-    // CAmbiar a me muestra solo los sellpremium
-    const { docs: users } = await payload.find({
-      collection: 'users',
-      where: {
-        role: {
-          in: ['sellpremium', 'sellbasic', 'admin'],
+      const payload = await getPayloadClient();
+
+      const parsedQueryOpts: Record<string, { equals: string }> = {};
+      Object.entries(queryOpts).forEach(([key, value]) => {
+        parsedQueryOpts[key] = {
+          equals: value,
+        };
+      });
+
+      const page = cursor || 1;
+
+      // Primero, obtenemos los usuarios con los roles 'sellpremium' y 'sellbasic'
+      // CAmbiar a me muestra solo los sellpremium
+      const { docs: users } = await payload.find({
+        collection: 'users',
+        where: {
+          role: {
+            in: ['business'],
+          },
         },
-      },
-      pagination: false,
+        pagination: false,
 
-    });
-   // console.log('users', users)
-    
+      });
+      // console.log('users', users)
 
-    // Luego, obtenemos los productos que están aprobados para la venta y cuyo campo 'user' se encuentra en la lista de usuarios obtenidos en la primera consulta
-    const {
-      docs: items,
-      hasNextPage,
-      nextPage,
-    } = await payload.find({
-      collection: 'products',
-      where: {
-        approvedForSale: {
-          equals: 'approved',
+
+      // Luego, obtenemos los productos que están aprobados para la venta y cuyo campo 'user' se encuentra en la lista de usuarios obtenidos en la primera consulta
+      const {
+        docs: items,
+        hasNextPage,
+        nextPage,
+      } = await payload.find({
+        collection: 'products',
+        where: {
+          approvedForSale: {
+            equals: 'approved',
+          },
+          user: {
+            in: users.map(user => user.id), // Aquí utilizamos el array de usuarios obtenidos en la primera consulta
+          },
+          ...parsedQueryOpts,
         },
-        user: {
-          in: users.map(user => user.id), // Aquí utilizamos el array de usuarios obtenidos en la primera consulta
-        },
-        ...parsedQueryOpts,
-      },
-      sort,
-      depth: 1,
-      limit,
-      page,
-    });
-    // console.log('items', items);
-    
+        sort,
+        depth: 1,
+        limit,
+        page,
+      });
+      // console.log('items', items);
 
-    const shuffledItems = shuffle(items);
 
-    // console.log('shuffledItems', shuffledItems);
-    
-    return {
-      items,
-      nextPage: hasNextPage ? nextPage : null,
-    };
-  }),
+      const shuffledItems = shuffle(items);
 
-// Nueva función getProductSellerPremium
-getSellerPremium: publicProcedure
-  .input(getProductSellerPremiumInputSchema)
-  .query(async ({ input }) => {
-    const { query, cursor } = input;
-    const { sort, limit, ...queryOpts } = query;
+      // console.log('shuffledItems', shuffledItems);
 
-    const payload = await getPayloadClient();
-
-    const parsedQueryOpts: Record<string, { equals: string }> = {};
-    Object.entries(queryOpts).forEach(([key, value]) => {
-      parsedQueryOpts[key] = {
-        equals: value,
+      return {
+        items,
+        nextPage: hasNextPage ? nextPage : null,
       };
-    });
+    }),
 
-    const page = cursor || 1;
+  // Nueva función getProductSellerPremium
+  getSellerPremium: publicProcedure
+    .input(getProductSellerPremiumInputSchema)
+    .query(async ({ input }) => {
+      const { query, cursor } = input;
+      const { sort, limit, ...queryOpts } = query;
 
-    // Primero, obtenemos los usuarios con los roles 'sellpremium' y 'sellbasic'
-    // CAmbiar a me muestra solo los sellpremium
-    const { docs: users } = await payload.find({
-      collection: 'users',
-      where: {
-        role: {
-          in: ['sellpremium', 'sellbasic', 'admin'],
+      const payload = await getPayloadClient();
+
+      const parsedQueryOpts: Record<string, { equals: string }> = {};
+      Object.entries(queryOpts).forEach(([key, value]) => {
+        parsedQueryOpts[key] = {
+          equals: value,
+        };
+      });
+
+      const page = cursor || 1;
+
+      // Primero, obtenemos los usuarios con los roles 'sellpremium' y 'sellbasic'
+      // CAmbiar a me muestra solo los sellpremium
+      const { docs: users } = await payload.find({
+        collection: 'users',
+        where: {
+          role: {
+            in: ['sellpremium', 'sellbasic', 'admin'],
+          },
         },
-      },
-      pagination: false,
+        pagination: false,
 
-    });
-   // console.log('users', users)
-  
+      });
+      // console.log('users', users)
 
-    // console.log('shuffledItems', shuffledItems);
-    
-    return {
-      users,
-    };
-  }),
+
+      // console.log('shuffledItems', shuffledItems);
+
+      return {
+        users,
+      };
+    }),
 
 
 
@@ -231,13 +310,13 @@ getSellerPremium: publicProcedure
 
 export type AppRouter = typeof appRouter
 function shuffle(items: import("../payload-types").Product[]) {
-    // Recorre el arreglo de atrás hacia adelante
-    for (let i = items.length - 1; i > 0; i--) {
-      // Genera un índice aleatorio entre 0 y i
-      const j = Math.floor(Math.random() * (i + 1));
-      // Intercambia los elementos en las posiciones i y j
-      [items[i], items[j]] = [items[j], items[i]];
-    }
-    return items;
+  // Recorre el arreglo de atrás hacia adelante
+  for (let i = items.length - 1; i > 0; i--) {
+    // Genera un índice aleatorio entre 0 y i
+    const j = Math.floor(Math.random() * (i + 1));
+    // Intercambia los elementos en las posiciones i y j
+    [items[i], items[j]] = [items[j], items[i]];
+  }
+  return items;
 }
 

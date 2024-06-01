@@ -24,7 +24,7 @@ const ProductsPage = ({
   )?.label
 
   const isBusinessCategory = category === 'business';
-  console.log(isBusinessCategory);
+  // console.log(isBusinessCategory);
   
 
   return (
