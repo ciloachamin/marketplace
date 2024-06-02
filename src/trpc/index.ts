@@ -105,9 +105,6 @@ export const appRouter = router({
         };
       }
       const page = cursor || 1
-
-      console.log(sort, limit, queryOpts, categoryExclusions);
-      
       const {
         docs: items,
         hasNextPage,
@@ -253,8 +250,6 @@ export const appRouter = router({
         limit,
         page,
       });
-      console.log('items', items);
-
 
       const shuffledItems = shuffle(items);
 
