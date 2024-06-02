@@ -7,7 +7,7 @@ import { paymentRouter } from './payment-router'
 
 
 const getProductSellerPremiumInputSchema = z.object({
-  limit: z.number().min(1).max(100),
+  limit: z.number().min(1).max(200),
   cursor: z.number().nullish(),
   query: QueryValidator,
 });
@@ -19,7 +19,7 @@ export const appRouter = router({
     .input(
       z.object({
         userId: z.string(),
-        limit: z.number().min(1).max(100),
+        limit: z.number().min(1).max(200),
         cursor: z.number().nullish(),
         query: QueryValidator,
       })
@@ -72,7 +72,7 @@ export const appRouter = router({
   getInfiniteProducts: publicProcedure
     .input(
       z.object({
-        limit: z.number().min(1).max(100),
+        limit: z.number().min(1).max(200),
         cursor: z.number().nullish(),
         query: QueryValidator,
         productExcept: z.array(z.string()).optional(),
@@ -106,6 +106,8 @@ export const appRouter = router({
       }
       const page = cursor || 1
 
+      console.log(sort, limit, queryOpts, categoryExclusions);
+      
       const {
         docs: items,
         hasNextPage,
@@ -251,7 +253,7 @@ export const appRouter = router({
         limit,
         page,
       });
-      // console.log('items', items);
+      console.log('items', items);
 
 
       const shuffledItems = shuffle(items);

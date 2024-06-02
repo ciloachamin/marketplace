@@ -41,7 +41,7 @@ const UserAccountNav = ({ user }: { user: User }) => {
 
         <DropdownMenuSeparator />
 
-        {['sell', 'admin', 'sellbasic', 'sellpremium'].includes(user.role) ? (
+        {['sell', 'admin', 'sellbasic', 'sellpremium', 'business'].includes(user.role) ? (
           <>
             <DropdownMenuItem asChild>
               <Link href='/sell' target='_blank'>Panel de vendedor</Link>

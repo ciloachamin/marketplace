@@ -35,10 +35,7 @@ const ProductsPage = ({
           query={{
             category,
             limit: 100,
-            sort:
-              sort === 'desc' || sort === 'asc'
-                ? sort
-                : undefined,
+            sort:'name'
           }}
         />
       ) : (
@@ -46,11 +43,8 @@ const ProductsPage = ({
           title={label ?? 'Explorar productos'}
           query={{
             category,
-            limit: 100,
-            sort:
-              sort === 'desc' || sort === 'asc'
-                ? sort
-                : undefined,
+            limit: 200,
+            sort: 'name',
           }}
         />
       )}

@@ -86,7 +86,7 @@ const Navbar = async () => {
                     </div>
                   )}
                 </div>
-                {user && ['sell', 'admin', 'sellbasic', 'sellpremium'].includes(user.role) ? (
+                {user && ['sell', 'admin', 'sellbasic', 'sellpremium', 'business'].includes(user.role) ? (
                   <>
                     <div className='ml-4 flow-root lg:ml-6 '>
                       <div className='max-lg:hidden rounded-md bg-[#208215] h-8 w-20  justify-center items-center flex'>
