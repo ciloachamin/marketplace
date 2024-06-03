@@ -104,6 +104,11 @@ export default function Home() {
           href='/products?sort=recent'
           title='Productos Populares'
         />
+        <ProductReelBusiness
+          query={{ limit: 6 }}
+          href='/products?category=business'
+          title='Negocios'
+        />
         <ProductReelProduct
           query={{ limit: 8 }}
           href='/products?sort=recent'
@@ -114,13 +119,9 @@ export default function Home() {
           query={{ limit: 4 }}
           href='/products?category=international'
           title='Internacional'
-          productExcept={['business', 'rentals', 'tasks', 'art_and_accessories','beverages', 'sports', 'services', 'fashion_and_beauty', 'food', 'technology']} // Añade esta línea
+          productExcept={['business', 'rentals', 'tasks', 'art_and_accessories', 'beverages', 'sports', 'services', 'fashion_and_beauty', 'food', 'technology']} // Añade esta línea
         />
-        <ProductReelBusiness
-          query={{ limit: 6 }}
-          href='/products?category=business'
-          title='Negocios'
-        />
+
 
         <div className='flex flex-col  gap-4 my-6'>
           <Link

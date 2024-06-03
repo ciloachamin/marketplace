@@ -243,6 +243,9 @@ export const appRouter = router({
           user: {
             in: users.map(user => user.id), // Aquí utilizamos el array de usuarios obtenidos en la primera consulta
           },
+          name: {
+            contains: 'logo', // Filtra por nombres que comienzan con "1"
+          },
           ...parsedQueryOpts,
         },
         sort,
