@@ -43,7 +43,7 @@ export default function App() {
             width={1920}
             src={process.env.NEXT_PUBLIC_SERVER_URL + '/logos.gif'}
             loading='eager'
-            unoptimized 
+            unoptimized
             alt='Product image'
           /></SwiperSlide>
         {/* <SwiperSlide >
@@ -54,18 +54,6 @@ export default function App() {
             loading='eager'
             alt='Product image'
           /></SwiperSlide> */}
-        <SwiperSlide>
-          <Link href={process.env.NEXT_PUBLIC_SERVER_URL + '/product/65fa26c72ff1b68aa13c187d'}>   <Image
-            height={680}
-            width={1920}
-            loading='eager'
-            src={process.env.NEXT_PUBLIC_SERVER_URL + '/gimnasio.gif'}
-            unoptimized
-            alt='Product image'
-          />
-          </Link>
-
-        </SwiperSlide>
         <SwiperSlide >
           <Image
             height={680}
@@ -82,14 +70,25 @@ export default function App() {
             src={process.env.NEXT_PUBLIC_SERVER_URL + '/zaruma-london.png'}
             alt='Product image'
           /></SwiperSlide>
-        {/* <SwiperSlide>
+        <SwiperSlide>
           <Image
             height={680}
             width={1920}
             loading='eager'
-            src={process.env.NEXT_PUBLIC_SERVER_URL + '/compraygana.png'}
+            src={process.env.NEXT_PUBLIC_SERVER_URL + '/delta-med-banner.png'}
             alt='Product image'
-          /></SwiperSlide> */}
+          /></SwiperSlide>
+        <SwiperSlide>
+          <Link href={process.env.NEXT_PUBLIC_SERVER_URL + '/product/65fa26c72ff1b68aa13c187d'}>   <Image
+            height={680}
+            width={1920}
+            loading='eager'
+            src={process.env.NEXT_PUBLIC_SERVER_URL + '/gimnasio.gif'}
+            unoptimized
+            alt='Product image'
+          />
+          </Link>
+        </SwiperSlide>
         {/* 
         <div className="autoplay-progress" slot="container-end">
           <svg viewBox="0 0 48 48" ref={progressCircle}>
