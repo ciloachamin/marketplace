@@ -55,40 +55,63 @@ export default function App() {
             alt='Product image'
           /></SwiperSlide> */}
         <SwiperSlide >
-          <Image
-            height={680}
-            width={1920}
-            loading='eager'
-            src={process.env.NEXT_PUBLIC_SERVER_URL + '/Los-secos-del-gordo-banner.png'}
-            alt='Product image'
-          /></SwiperSlide>
+          <Link href={process.env.NEXT_PUBLIC_SERVER_URL + '/user/665755a1726102b284a68cf2'}>
+            <Image
+              height={680}
+              width={1920}
+              loading='eager'
+              src={process.env.NEXT_PUBLIC_SERVER_URL + '/Los-secos-del-gordo-banner.png'}
+              alt='Product image'
+            />
+          </Link>
+
+        </SwiperSlide>
+        <SwiperSlide>
+          <Link href={process.env.NEXT_PUBLIC_SERVER_URL + '/user/6657550f726102b284a68c5a'}>
+            <Image
+              height={680}
+              width={1920}
+              loading='eager'
+              src={process.env.NEXT_PUBLIC_SERVER_URL + '/zaruma-london.png'}
+              alt='Product image'
+            />
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Link href={process.env.NEXT_PUBLIC_SERVER_URL + '/user/66576690726102b284a6921d'}>
+            <Image
+              height={680}
+              width={1920}
+              loading='eager'
+              src={process.env.NEXT_PUBLIC_SERVER_URL + '/delta-med-banner.png'}
+              alt='Product image'
+            />
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Link href={process.env.NEXT_PUBLIC_SERVER_URL + '/product/65fa26c72ff1b68aa13c187d'}>
+            <Image
+              height={680}
+              width={1920}
+              loading='eager'
+              src={process.env.NEXT_PUBLIC_SERVER_URL + '/gimnasio.gif'}
+              unoptimized
+              alt='Product image'
+            />
+          </Link>
+        </SwiperSlide>
         <SwiperSlide>
           <Image
             height={680}
             width={1920}
             loading='eager'
-            src={process.env.NEXT_PUBLIC_SERVER_URL + '/zaruma-london.png'}
-            alt='Product image'
-          /></SwiperSlide>
-        <SwiperSlide>
-          <Image
-            height={680}
-            width={1920}
-            loading='eager'
-            src={process.env.NEXT_PUBLIC_SERVER_URL + '/delta-med-banner.png'}
-            alt='Product image'
-          /></SwiperSlide>
-        <SwiperSlide>
-          <Link href={process.env.NEXT_PUBLIC_SERVER_URL + '/product/65fa26c72ff1b68aa13c187d'}>   <Image
-            height={680}
-            width={1920}
-            loading='eager'
-            src={process.env.NEXT_PUBLIC_SERVER_URL + '/gimnasio.gif'}
+            src={process.env.NEXT_PUBLIC_SERVER_URL + '/fast-food-banner.png'}
             unoptimized
             alt='Product image'
           />
-          </Link>
+
         </SwiperSlide>
+
         {/* 
         <div className="autoplay-progress" slot="container-end">
           <svg viewBox="0 0 48 48" ref={progressCircle}>
