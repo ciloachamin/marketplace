@@ -43,7 +43,7 @@ const ProductsPage = ({
           title={label ?? 'Explorar productos'}
           query={{
             category,
-            limit: 200,
+            limit: 300,
             sort: 'name',
           }}
         />
