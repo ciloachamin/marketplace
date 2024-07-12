@@ -26,7 +26,7 @@ const Navbar = async () => {
               <MobileNav user={user} />
 
               <div className='ml-4  max-sm:mx-2 flex lg:ml-0 h-15 w-20  max-sm:w-15'>
-                <Link href='/'>
+                <Link href='/' aria-label='inicio'>
                   <Icons.logo className='w-full ' />
                 </Link>
               </div>

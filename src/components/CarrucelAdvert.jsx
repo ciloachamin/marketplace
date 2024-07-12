@@ -65,7 +65,7 @@ export default function App() {
               height={680}
               width={1920}
               loading='eager'
-              src={process.env.NEXT_PUBLIC_SERVER_URL + '/Los-secos-del-gordo-banner.png'}
+              src={process.env.NEXT_PUBLIC_SERVER_URL + '/Los-secos-del-gordo-banner.webp'}
               alt='Product image'
             />
           </Link>
@@ -77,7 +77,7 @@ export default function App() {
               height={680}
               width={1920}
               loading='eager'
-              src={process.env.NEXT_PUBLIC_SERVER_URL + '/zaruma-london.png'}
+              src={process.env.NEXT_PUBLIC_SERVER_URL + '/zaruma-london.webp'}
               alt='Product image'
             />
           </Link>
@@ -88,7 +88,7 @@ export default function App() {
               height={680}
               width={1920}
               loading='eager'
-              src={process.env.NEXT_PUBLIC_SERVER_URL + '/delta-med-banner.png'}
+              src={process.env.NEXT_PUBLIC_SERVER_URL + '/delta-med-banner.webp'}
               alt='Product image'
             />
           </Link>
@@ -114,7 +114,7 @@ export default function App() {
             height={680}
             width={1920}
             loading='eager'
-            src={process.env.NEXT_PUBLIC_SERVER_URL + '/fast-food-banner.png'}
+            src={process.env.NEXT_PUBLIC_SERVER_URL + '/fast-food-banner.webp'}
             unoptimized
             alt='Product image'
           />

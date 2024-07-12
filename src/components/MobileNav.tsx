@@ -65,7 +65,7 @@ const MobileNav = ({ user }: { user: User | null }) => {
           </div>
           <div className='ml-4 max-sm:mx-auto flex lg:ml-0 h-15 w-20 max-sm:w-15 items-center justify-center'>
             <div className='flex items-center justify-center'>
-              <Link href='/'>
+              <Link href='/' aria-label='inicio'>
                 <Icons.emprendex className='w-full' />
               </Link>
             </div>
