@@ -92,6 +92,11 @@ export default function Home() {
             <Button variant='ghost'>
               <a href='/seller-plan'>¿Quieres vender? &rarr;</a>
             </Button>
+
+            <Button variant='ghost'>
+              <a href='https://api.whatsapp.com/send/?phone=5930983537312'> Trabaja con nosotros&rarr;</a>
+            </Button>
+            
           </div>
         </div>
 
