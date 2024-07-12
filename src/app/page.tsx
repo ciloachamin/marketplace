@@ -1,5 +1,4 @@
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
-import ProductReel from '@/components/ProductReel'
 import ProductReelPremium from '@/components/ProductReelPremium'
 import Carrucel from '@/components/Carrucel'
 import {
@@ -8,9 +7,6 @@ import {
 } from '@/components/ui/button'
 import {
   ArrowDownToLine,
-  Car,
-  CheckCircle,
-  Leaf,
 } from 'lucide-react'
 import Link from 'next/link'
 import { Icons } from '@/components/Icons'

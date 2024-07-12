@@ -37,15 +37,20 @@ export default function App() {
         // onAutoplayTimeLeft={onAutoplayTimeLeft}
         className=""
       >
-        <SwiperSlide >
-          <Image
-            height={680}
-            width={1920}
-            src={process.env.NEXT_PUBLIC_SERVER_URL + '/logos.gif'}
-            loading='eager'
-            unoptimized
-            alt='Product image'
-          /></SwiperSlide>
+        <SwiperSlide>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            width="1920"
+            height="680"
+            style={{ display: 'block', width: '100%', height: 'auto' }}
+          >
+            <source src={process.env.NEXT_PUBLIC_SERVER_URL + '/logos.webm'} type="video/webm" />
+            Tu navegador no soporta el formato de vídeo.
+          </video>
+        </SwiperSlide>
         {/* <SwiperSlide >
           <Image
             height={680}
@@ -90,14 +95,18 @@ export default function App() {
         </SwiperSlide>
         <SwiperSlide>
           <Link href={process.env.NEXT_PUBLIC_SERVER_URL + '/product/65fa26c72ff1b68aa13c187d'}>
-            <Image
-              height={680}
-              width={1920}
-              loading='eager'
-              src={process.env.NEXT_PUBLIC_SERVER_URL + '/gimnasio.gif'}
-              unoptimized
-              alt='Product image'
-            />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            width="1920"
+            height="680"
+            style={{ display: 'block', width: '100%', height: 'auto' }}
+          >
+            <source src={process.env.NEXT_PUBLIC_SERVER_URL + '/gimnasio.webm'} type="video/webm" />
+            Tu navegador no soporta el formato de vídeo.
+          </video>
           </Link>
         </SwiperSlide>
         <SwiperSlide>
