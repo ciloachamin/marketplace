@@ -21,7 +21,7 @@ const Card = ({
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsVisible(true)
-        }, index * 75)
+        }, index * 2)
 
         return () => clearTimeout(timer)
     }, [index])

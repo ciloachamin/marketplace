@@ -1,14 +1,23 @@
 'use client'
+import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { useMemo} from 'react'
+import type SwiperType from 'swiper'
+import { useEffect, useMemo, useState } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Autoplay, EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
+
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+
 import './carrucel.css'
+
 import { TQueryValidator } from '@/lib/validators/query-validator'
+import { Product } from '@/payload-types'
 import { trpc } from '@/trpc/client'
+import Link from 'next/link'
+import ProductListing from './ProductListing'
 import Card from './Cards'
 
 interface ProductReelProps {
@@ -37,7 +46,13 @@ const ImageSlider = (props: ProductReelProps) => {
     return queryResults?.pages.flatMap((page) => page.items) || []
   }, [queryResults])
 
-  const slides = products.length ? products : new Array(FALLBACK_LIMIT).fill(null);
+  let map: (Product | null)[] = []
+  if (products && products.length) {
+    map = products
+  } else if (isLoading) {
+    map = new Array<null>(query.limit ?? FALLBACK_LIMIT).fill(null)
+  }
+
   return (
     <div id="container-carrucel">
       {title && <h1 id="heading-carrucel">{title}</h1>}
@@ -66,7 +81,7 @@ const ImageSlider = (props: ProductReelProps) => {
         modules={[Autoplay, EffectCoverflow, Pagination, Navigation]}
         id="swiper_container-carrucel"
       >
-        {slides.map((product, i) => (
+        {map.map((product, i) => (
           <SwiperSlide key={i} id="swiper-slide-carrucel">
             <Card key={`product-${i}`} product={product} index={i} />
           </SwiperSlide>

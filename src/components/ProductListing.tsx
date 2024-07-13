@@ -21,7 +21,7 @@ const ProductListing = ({
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true)
-    }, index * 75)
+    }, index * 1)
 
     return () => clearTimeout(timer)
   }, [index])
