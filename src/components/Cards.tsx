@@ -21,7 +21,7 @@ const Card = ({
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsVisible(true)
-        }, index * 2)
+        }, index * 1)
 
         return () => clearTimeout(timer)
     }, [index])
@@ -55,9 +55,9 @@ const Card = ({
 
                     <div className="h-4/6 relative max-sm:h-3/5">
                         <Image
-                            layout="fill"
-                            objectFit="cover"
+                            fill
                             loading='eager'
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             src={validUrls[0]}
                             alt='Product image'
                             className="h-full w-full"

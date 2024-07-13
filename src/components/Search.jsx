@@ -14,6 +14,7 @@ const AutocompleteItem = ({ id, name, category, user, images, ...otherProps }) =
             <Image
               src={images && images.length > 0 && images[0].image.url}
               alt={name}
+
               width={100}
               height={100}
               className='w-10 h-10 object-cover rounded'

@@ -108,19 +108,19 @@ export default function Home() {
         <ProductReelPremium
           query={{ limit: 4 }}
           href='/products?sort=recent'
-          title='Productos Populares'
+          title='Productos Nuevos'
         />
         <ProductReelBusiness
           query={{ limit: 6 }}
           href='/products?category=business'
           title='Negocios'
         />
-        <ProductReelProduct
+        {/* <ProductReelProduct
           query={{ limit: 8 }}
           href='/products?sort=recent'
           title='Nuevos'
           productExcept={['business', 'international']} // Añade esta línea
-        />
+        /> */}
         <ProductReelProduct
           query={{ limit: 4 }}
           href='/products?category=international'

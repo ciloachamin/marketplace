@@ -47,6 +47,7 @@ const ResetPassword = ({ token , password }: ResetPasswordProps) => {
           <Image
             src={process.env.NEXT_PUBLIC_SERVER_URL + '/cocodrilo-espe-carta.png'}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             alt='el correo electrónico fue enviado'
           />
         </div>

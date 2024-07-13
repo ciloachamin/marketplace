@@ -56,6 +56,7 @@ const ResetPasswordPage = ({ searchParams }: PageProps) => {
                                             <Image
                                                 src={process.env.NEXT_PUBLIC_SERVER_URL + '/cocodrilo-espe-carta.png'}
                                                 fill
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                 alt='ESPE SHOP email sent image'
                                             />
                                         </div>

@@ -103,6 +103,7 @@ const Page = () => {
                             <Image
                               fill
                               src={image.url}
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                               alt='product image'
                               className='h-full w-full rounded-md object-cover object-center sm:h-48 sm:w-48'
                             />

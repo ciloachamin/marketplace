@@ -77,6 +77,7 @@ const ThankYouPage = async ({
       <div className='hidden lg:block h-80 overflow-hidden lg:absolute lg:h-full lg:w-1/2 lg:pr-4 xl:pr-12'>
         <Image
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           src={process.env.NEXT_PUBLIC_SERVER_URL + '/checkout-thank-you.jpg'}
           className='h-full w-full object-cover object-center'
           alt='thank you for your order'
@@ -136,6 +137,7 @@ const ThankYouPage = async ({
                               product.images[0]?.image?.url ? (
                               <Image
                                 fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 src={product.images[0]?.image.url}
                                 alt={`${product.name} image`}
                                 className='flex-none rounded-md bg-gray-100 object-cover object-center'

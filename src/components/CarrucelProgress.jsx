@@ -44,6 +44,7 @@ export default function App() {
           <Image
             height={680}
             width={1920}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             src={process.env.NEXT_PUBLIC_SERVER_URL + '/thumbnail.jpg'}
             loading='eager'
             alt='Product image'
@@ -52,6 +53,7 @@ export default function App() {
           <Image
             height={680}
             width={1920}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             loading='eager'
             src= {process.env.NEXT_PUBLIC_SERVER_URL + '/zaruma-london.webp'}   
             alt='Product image'
@@ -60,6 +62,7 @@ export default function App() {
           <Image
             height={680}
             width={1920}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             loading='eager'
             src= {process.env.NEXT_PUBLIC_SERVER_URL + '/Los-secos-del-gordo-banner.webp'}   
             alt='Product image'
