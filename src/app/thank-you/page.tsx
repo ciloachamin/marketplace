@@ -224,6 +224,7 @@ const ThankYouPage = async ({
               <div className='mt-16 border-t border-gray-200 py-6 text-right'>
                 <Link
                   href='/products'
+                  aria-label="Continuar comprando"
                   className='text-sm font-medium text-blue-600 hover:text-blue-500'>
                  Continue comprando &rarr;
                 </Link>

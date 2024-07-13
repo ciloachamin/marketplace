@@ -88,6 +88,7 @@ const Page = () => {
                 variant: 'link',
                 className: 'gap-1.5',
               })}
+              aria-label='¿Ya tienes una cuenta? Iniciar sesión'
               href='/sign-in'>
               ¿Ya tienes una cuenta? Iniciar sesión
               <ArrowRight className='h-4 w-4' />

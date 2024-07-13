@@ -117,6 +117,7 @@ const Page = () => {
                               <h3 className='text-sm'>
                                 <Link
                                   href={`/product/${product.id}`}
+                                  aria-label=" Ver detalles del producto"
                                   className='font-medium text-secondary-foreground hover:text-gray-400'>
                                   {product.name}
                                 </Link>

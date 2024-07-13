@@ -51,6 +51,7 @@ const ProductListingBusiness = ({
             'visible animate-in fade-in-5': isVisible,
           },
         )}
+        aaria-label="Productos"
         href={`/user/${typeof product.user === 'object' && product.user !== null ? product.user.id : null}`}
       >
 

@@ -4,7 +4,6 @@ import { Loader2, XCircle } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { buttonVariants } from './ui/button'
-import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
 interface ResetPasswordProps {
   token: string
@@ -33,6 +32,7 @@ const ResetPassword = ({ token , password }: ResetPasswordProps) => {
         </p>
         <Link
           className={buttonVariants({ className: 'mt-4' })}
+          aria-label="Cambiar contraseña"
           href='/forget-password'>
           Cambiar contraseña
         </Link>
@@ -59,6 +59,7 @@ const ResetPassword = ({ token , password }: ResetPasswordProps) => {
         </p>
         <Link
           className={buttonVariants({ className: 'mt-4' })}
+          aria-label="Iniciar sesión"
           href='/sign-in'>
           Iniciar sesión
         </Link>

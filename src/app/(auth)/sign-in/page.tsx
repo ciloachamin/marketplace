@@ -92,6 +92,7 @@ const Page = () => {
                 variant: 'link',
                 className: 'gap-1.5',
               })}
+              aria-label="¿No tienes una cuenta? Regístrate aquí"
               href='/sign-up'>
                 ¿No tienes una cuenta?
               <ArrowRight className='h-4 w-4' />
@@ -171,6 +172,7 @@ const Page = () => {
                 variant: 'link',
                 className: 'gap-1.5',
               })}
+              aria-label="¿Olvidaste tu contraseña?"
               href='/forget-password'>
                 ¿Olvidaste tu contraseña?
               <ArrowRight className='h-4 w-4' />

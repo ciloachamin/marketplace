@@ -44,6 +44,7 @@ const Navbar = async () => {
                   {user ? null : (
                     <Link
                       href='/sign-in'
+                      aria-label="Inicia sesión"
                       className={buttonVariants({
                         variant: 'ghost',
                       })}>
@@ -63,6 +64,7 @@ const Navbar = async () => {
                   ) : (
                     <Link
                       href='/sign-up'
+                      aria-label="Crear una cuenta"
                       className={buttonVariants({
                         variant: 'ghost',
                       })}>
@@ -90,10 +92,10 @@ const Navbar = async () => {
                   <>
                     <div className='ml-4 flow-root lg:ml-6 '>
                       <div className='max-lg:hidden rounded-md bg-[#208215] h-8 w-20  justify-center items-center flex'>
-                        <Link href='/sell/collections/products/create' className=" text-white flex justify-center items-center gap-2" target='_blank'>Subir  <Upload size={20} /></Link>
+                        <Link aria-label="Subir" href='/sell/collections/products/create' className=" text-white flex justify-center items-center gap-2" target='_blank'>Subir  <Upload size={20} /></Link>
                       </div>
                       <div className='lg:hidden rounded-md bg-[#208215] h-8 w-10 justify-center items-center flex'>
-                        <Link href='/sell/collections/products/create' target='_blank'><Plus size={20} color='white' strokeWidth={5} /></Link>
+                        <Link aria-label="Subir" href='/sell/collections/products/create' target='_blank'><Plus size={20} color='white' strokeWidth={5} /></Link>
                       </div>
                     </div>
                   </>

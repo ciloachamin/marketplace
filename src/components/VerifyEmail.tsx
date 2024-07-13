@@ -50,6 +50,7 @@ const VerifyEmail = ({ token }: VerifyEmailProps) => {
         </p>
         <Link
           className={buttonVariants({ className: 'mt-4' })}
+          aria-label="Iniciar sesión"
           href='/sign-in'>
           Iniciar sesión
         </Link>

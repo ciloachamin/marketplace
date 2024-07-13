@@ -82,6 +82,7 @@ const Page = async ({ params }: PageProps) => {
                   <div className='flex items-center text-sm'>
                     <Link
                       href={breadcrumb.href}
+                      aria-label="Inicio"
                       className='font-medium text-sm text-muted-foreground hover:text-gray-900'>
                       {breadcrumb.name}
                     </Link>

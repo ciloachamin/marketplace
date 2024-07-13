@@ -26,7 +26,7 @@ const NavItem = ({
   return (
     <div className='flex'>
       <div className='relative flex items-center w-full '>
-        <Link href={category.href} className='w-full'>
+        <Link href={category.href} className='w-full' aaria-label={category.label}>
             <Button
               className='gap-1.5 hover:bg-primary w-full flex  justify-between'
               onClick={handleOpen}

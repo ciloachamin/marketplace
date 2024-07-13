@@ -66,8 +66,9 @@ const ProductReel = (props: ProductReelProps) => {
                 {href ? (
                     <Link
                         href={href}
+                        aria-label="Ver productos simulares"
                         className='hidden text-sm font-medium text-primary hover:text-green-400 md:block'>
-                        Compre la colección {' '}
+                        Productos similares {' '}
                         <span aria-hidden='true'>&rarr;</span>
                     </Link>
                 ) : null}

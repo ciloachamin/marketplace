@@ -38,6 +38,7 @@ const MobileNav = ({ user }: { user: User | null }) => {
     return (
       <button
         type='button'
+        aria-label="menu"
         onClick={() => setIsOpen(true)}
         className='lg:hidden relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400'
       >
@@ -81,7 +82,7 @@ const MobileNav = ({ user }: { user: User | null }) => {
             <div className='mt-2'>
               <ul>
                 {PRODUCT_CATEGORIES.map((category) => (
-                  <Link key={category.label} href={category.href}>
+                  <Link key={category.label} href={category.href} aria-label={category.label}>
                     <li
                       onClick={() => setIsOpen(false)}
                       className='border-b border hover:bg-secondary hover:bg-opacity-10 cursor-pointer'
@@ -110,11 +111,11 @@ const MobileNav = ({ user }: { user: User | null }) => {
                     <>
                       <p className='flex gap-2 py-4 px-6 font-medium hover:bg-secondary'>
 
-                        <Link href='/sell' target='_blank' className='h-full w-full'>Panel de vendedor</Link>
+                        <Link aria-label="Panel de vendedor" href='/sell' target='_blank' className='h-full w-full'>Panel de vendedor </Link>
                       </p>
                       <p className='flex gap-2 py-4 px-6 font-medium hover:bg-secondary'>
 
-                        <Link href='/sell/collections/products/create' target='_blank' className='h-full w-full'>Subir Producto</Link>
+                        <Link aria-label="Subir Productos" href='/sell/collections/products/create' target='_blank' className='h-full w-full'>Subir Producto</Link>
                       </p>
                     </>
                   ) : null}
@@ -127,6 +128,7 @@ const MobileNav = ({ user }: { user: User | null }) => {
                     closeOnCurrent('/sign-in');
                     setIsOpen(false);
                   }}
+                  araria-label="Inicia sesión"
                   href='/sign-in'
                   className='flex gap-2 py-4 px-6 justify-between font-medium hover:bg-secondary'
                 >
@@ -141,6 +143,7 @@ const MobileNav = ({ user }: { user: User | null }) => {
                     signOut()
                     setIsOpen(false);
                   }}
+                  aria-label="Cerrar sesión"
                   href={"/"}
                   className='flex gap-2 py-4 px-6 justify-between font-medium hover:bg-secondary'
                 >
@@ -153,6 +156,7 @@ const MobileNav = ({ user }: { user: User | null }) => {
                     closeOnCurrent('/sign-up');
                     setIsOpen(false);
                   }}
+                  aria-label="Registrarse"
                   href='/sign-up'
                   className='flex gap-2 py-4 px-6 justify-between font-medium hover:bg-secondary'
                 >

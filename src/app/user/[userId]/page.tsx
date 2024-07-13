@@ -1,14 +1,7 @@
-import AddToCartButton from '@/components/AddToCartButton';
-import CarrucelProgress from '@/components/CarrucelProgress';
-import ImageSlider from '@/components/ImageSlider';
+
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
-import ProductListing from '@/components/ProductListing';
 import ProductUser from '@/components/ProductUser';
-import { PRODUCT_CATEGORIES } from '@/config';
 import { getPayloadClient } from '@/get-payload';
-import { formatPrice } from '@/lib/utils';
-import { Check, Shield } from 'lucide-react';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 interface PageProps {

@@ -60,7 +60,7 @@ export default function App() {
             alt='Product image'
           /></SwiperSlide> */}
         <SwiperSlide >
-          <Link href={process.env.NEXT_PUBLIC_SERVER_URL + '/user/665755a1726102b284a68cf2'}>
+          <Link aria-label="Mas informacion del producto" href={process.env.NEXT_PUBLIC_SERVER_URL + '/user/665755a1726102b284a68cf2'}>
             <Image
               height={680}
               width={1920}
@@ -72,7 +72,7 @@ export default function App() {
 
         </SwiperSlide>
         <SwiperSlide>
-          <Link href={process.env.NEXT_PUBLIC_SERVER_URL + '/user/6657550f726102b284a68c5a'}>
+          <Link aria-label="Mas informacion del producto" href={process.env.NEXT_PUBLIC_SERVER_URL + '/user/6657550f726102b284a68c5a'}>
             <Image
               height={680}
               width={1920}
@@ -83,7 +83,7 @@ export default function App() {
           </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <Link href={process.env.NEXT_PUBLIC_SERVER_URL + '/user/66576690726102b284a6921d'}>
+          <Link aria-label="Mas informacion del producto" href={process.env.NEXT_PUBLIC_SERVER_URL + '/user/66576690726102b284a6921d'}>
             <Image
               height={680}
               width={1920}
@@ -94,7 +94,7 @@ export default function App() {
           </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <Link href={process.env.NEXT_PUBLIC_SERVER_URL + '/product/65fa26c72ff1b68aa13c187d'}>
+          <Link  aria-label="Mas informacion del producto" href={process.env.NEXT_PUBLIC_SERVER_URL + '/product/65fa26c72ff1b68aa13c187d'}>
           <video
             autoPlay
             loop

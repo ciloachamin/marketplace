@@ -46,7 +46,9 @@ const Card = ({
                         'visible animate-in fade-in-5': isVisible,
                     }
                 )}
-                href={`/product/${product.id}`}>
+                href={`/product/${product.id}`}
+                aria-label="Productos"
+                >
 
 
                 <div className="max-w-sm  h-full bg-secondary overflow-hidden shadow-lg">
@@ -67,7 +69,7 @@ const Card = ({
 
                     <div className="px-6 pt-4  max-sm:py-0 ">
                         <div className="font-bold text-xl mb-2">{product.name}</div>
-                        <p className="text-secondary-foreground text-base overflow-y-auto h-16" >
+                        <p className="text-secondary-foreground text-base overflow-y-auto h-16" tabIndex={0} role="region" aria-label="Scrollable content" >
                             {product.description}
                         </p>
                     </div>

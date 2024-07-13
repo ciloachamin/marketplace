@@ -54,6 +54,7 @@ const ProductListing = ({
             'visible animate-in fade-in-5': isVisible,
           },
         )}
+        aria-label="Productos"
         href={linkHref}
       >
 
@@ -74,9 +75,9 @@ const ProductListing = ({
 
           <ImageSlider urls={validUrls} />
 
-          <h3 className='mt-4 font-medium text-sm '>
+          <h2 className='mt-4 font-medium text-sm '>
             {product.name}
-          </h3>
+          </h2>
           <p className='mt-1 text-sm text-gray-500'>
             {label}
           </p>

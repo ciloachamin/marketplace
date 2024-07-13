@@ -66,6 +66,7 @@ const ProductBusiness = (props: ProductReelProps) => {
                 {href ? (
                     <Link
                         href={href}
+                        aaria-label="Compre la colección"
                         className='hidden text-sm font-medium text-primary hover:text-green-400 md:block'>
                         Compre la colección {' '}
                         <span aria-hidden='true'>&rarr;</span>

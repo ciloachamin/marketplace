@@ -82,17 +82,22 @@ export default function Home() {
           <div className='flex flex-col sm:flex-row gap-4 mt-6'>
             <Link
               href='/products'
-              className={buttonVariants()}>
+              className={buttonVariants()}
+              aria-label="Ver Productos"
+            >
+
               Ver Productos
             </Link>
-            <Button variant='ghost'>
-              <a href='/seller-plan'>¿Quieres vender? &rarr;</a>
-            </Button>
+            <a aria-label="¿Quieres vender?" href="/seller-plan" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 mt-2 sm:mt-0">
+              ¿Quieres vender? &rarr;
+            </a>
 
-            <Button variant='ghost'>
-              <a href='https://api.whatsapp.com/send/?phone=5930983537312'> Trabaja con nosotros&rarr;</a>
-            </Button>
-            
+            <a aria-label="Ver Trabaja con nosotros" href='https://api.whatsapp.com/send/?phone=5930983537312' className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 mt-2 sm:mt-0">
+              Trabaja con nosotros&rarr;
+            </a>
+
+
+
           </div>
         </div>
 
@@ -127,6 +132,7 @@ export default function Home() {
         <div className='flex flex-col  gap-4 my-6'>
           <Link
             href='/products'
+            aria-label="Explorar mas productos"
             className={buttonVariants()}>
             Explorar mas productos
           </Link>
@@ -164,7 +170,7 @@ export default function Home() {
                     Acerca de nosotros
                   </h1>
                 </div>
-                <p className="mb-6 text-base leading-7 text-gray-500 dark:text-gray-400">
+                <p className="mb-6 text-base leading-7 text-gray-600 dark:text-gray-400">
                   En ESPE SHOP, nuestro compromiso es impulsar tus ambiciones comerciales ofreciendo una plataforma fácil de usar, conexiones clave en la industria y eventos exclusivos para fortalecer tu red. Desde productos hechos a mano hasta servicios únicos, ESPE SHOP es el lugar donde los emprendedores estudiantiles pueden destacar y prosperar.
                 </p>
                 <a href="/seller-plan"
@@ -193,9 +199,9 @@ export default function Home() {
               </div>
 
               <div className='mt-6 md:ml-4 md:mt-0 lg:ml-0 lg:mt-6'>
-                <h3 className='text-base font-medium text-primary'>
+                <div className='text-base font-medium text-primary'>
                   {perk.name}
-                </h3>
+                </div>
                 <p className='mt-3 text-sm text-muted-foreground'>
                   {perk.description}
                 </p>

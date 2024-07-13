@@ -44,10 +44,10 @@ const UserAccountNav = ({ user }: { user: User }) => {
         {['sell', 'admin', 'sellbasic', 'sellpremium', 'business'].includes(user.role) ? (
           <>
             <DropdownMenuItem asChild>
-              <Link href='/sell' target='_blank'>Panel de vendedor</Link>
+              <Link aria-label="Panel de vendedor" href='/sell' target='_blank'>Panel de vendedor</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-              <Link href='/sell/collections/products/create' target='_blank'>Subir Producto</Link>
+              <Link aria-label="Subir productos" href='/sell/collections/products/create' target='_blank'>Subir Producto</Link>
             </DropdownMenuItem>
           </>
         ) : null}

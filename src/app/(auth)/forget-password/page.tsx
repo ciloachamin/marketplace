@@ -85,7 +85,9 @@ const ResetPasswordPage = () => {
                                 variant: 'link',
                                 className: 'gap-1.5',
                             })}
-                            href='/sign-in'>
+                            href='/sign-in'
+                            aria-label=" ¿Recuerdas tu contraseña? Iniciar sesión"
+                            >
                             ¿Recuerdas tu contraseña? Iniciar sesión
                             <ArrowRight className='h-4 w-4' />
                         </Link>
