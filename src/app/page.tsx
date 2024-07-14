@@ -80,14 +80,15 @@ export default function Home() {
             Libera tu potencial emprendedor con nosotros. Proporcionamos recursos, conexiones y eventos exclusivos para estudiantes como usted. ¡Haz crecer tus ideas con nuestra comunidad!
           </p>
           <div className='flex flex-col sm:flex-row gap-4 mt-6'>
-            <Link
+            {/* <Link
               href='/products'
               className={buttonVariants()}
               aria-label="Ver Productos"
             >
 
               Ver Productos
-            </Link>
+            </Link> */}
+            <a className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2" aria-label="Ver Productos" href="/products">Ver Productos</a>
             <a aria-label="¿Quieres vender?" href="/seller-plan" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 mt-2 sm:mt-0">
               ¿Quieres vender? &rarr;
             </a>
@@ -130,12 +131,13 @@ export default function Home() {
 
 
         <div className='flex flex-col  gap-4 my-6'>
-          <Link
+          {/* <Link
             href='/products'
             aria-label="Explorar mas productos"
             className={buttonVariants()}>
             Explorar mas productos
-          </Link>
+          </Link> */}
+          <a aria-label="Explorar mas productos" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2" href="/products">Explorar mas productos</a>
         </div>
 
       </MaxWidthWrapper>
