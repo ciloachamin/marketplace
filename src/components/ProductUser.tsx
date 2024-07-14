@@ -42,7 +42,7 @@ const ProductReel = (props: ProductReelProps) => {
         map = products
     } else if (isLoading) {
         map = new Array<null>(
-            query.limit ?? FALLBACK_LIMIT
+            10 ?? FALLBACK_LIMIT
         ).fill(null)
     }
 

@@ -42,7 +42,12 @@ export const Media: CollectionConfig = {
     hidden: ({ user }) => user.role !== 'admin',
   },
   upload: {
-    
+    formatOptions: {
+      format: 'webp',
+      options: {
+        quality: 40,
+      },
+    },
     disableLocalStorage: true,
     imageSizes: [
       {
