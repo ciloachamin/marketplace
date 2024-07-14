@@ -37,7 +37,7 @@ const ProductReelBusiness = (props: ProductReelProps) => {
     map = products
   } else if (isLoading) {
     map = new Array<null>(
-      10 ?? FALLBACK_LIMIT
+      1 ?? FALLBACK_LIMIT
     ).fill(null)
   }
   return (
