@@ -26,6 +26,7 @@ export interface User {
   membership?: (string | Membership)[] | null;
   product_files?: (string | ProductFile)[] | null;
   role: 'admin' | 'user' | 'business' | 'sell' | 'sellbasic' | 'sellpremium';
+  campus: 'matriz' | 'latacunga' | 'iasa';
   firstName: string;
   lastName: string;
   phone: string;
