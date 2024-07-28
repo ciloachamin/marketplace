@@ -66,7 +66,9 @@ const Card = ({
                             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Precio: {formatPrice(product.price)}</span>
                         </div>
                         <div className="px-2  pt-1 absolute  right-0" >
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{product.user.campus}</span>
+                            {product.user && (
+                                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{product.user.campus}</span>
+                            )}
                         </div>
                     </div>
 
