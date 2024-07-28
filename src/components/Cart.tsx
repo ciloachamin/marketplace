@@ -62,7 +62,7 @@ const Cart = ({ user }: { user: User | null }) => {
   console.log(items);
 
   const shippingCosts = items.map(({ product }) => {
-    if (product.user?.campus === user.campus) {
+    if (product.user?.campus === user?.campus) {
       return 0;
     } else {
       return 1.50;
