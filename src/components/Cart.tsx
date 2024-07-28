@@ -18,9 +18,10 @@ import { ScrollArea } from './ui/scroll-area'
 import CartItem from './CartItem'
 import { useEffect, useState } from 'react'
 import { Icons } from './Icons'
+import { User } from '@/payload-types'
 
 
-const Cart = () => {
+const Cart = ({ user }: { user: User | null }) => {
   const { items } = useCart()
 
   const [itemCount, setItemCount] = useState(0);
@@ -58,6 +59,15 @@ const Cart = () => {
     0
   );
 
+  console.log(items);
+
+  const shippingCosts = items.map(({ product }) => {
+    if (product.user?.campus === user.campus) {
+      return 0;
+    } else {
+      return 1.50;
+    }
+  });
 
   const fee = 0
 
@@ -95,7 +105,7 @@ const Cart = () => {
               <div className='space-y-1.5 text-sm'>
                 <div className='flex'>
                   <span className='flex-1'>Envío</span>
-                  <span>Gratis</span>
+                  <span>{formatPrice(shippingCosts[0])}</span>
                 </div>
                 <div className='flex'>
                   <span className='flex-1'>
@@ -106,7 +116,7 @@ const Cart = () => {
                 <div className='flex'>
                   <span className='flex-1'>Total</span>
                   <span>
-                    {formatPrice(cartTotal + fee)}
+                    {formatPrice(cartTotal + fee +shippingCosts[0])}
                   </span>
                 </div>
               </div>

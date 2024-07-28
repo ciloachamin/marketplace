@@ -38,7 +38,7 @@ const Page = () => {
       onError: (err) => {
         if (err.data?.code === 'CONFLICT') {
           toast.error(
-            'This email is already in use. Sign in instead?'
+            'Este correo electrónico ya está en uso. ¿Prefieres iniciar sesión?'
           )
 
           return
@@ -51,12 +51,12 @@ const Page = () => {
         }
 
         toast.error(
-          'Something went wrong. Please try again.'
+          'Algo salió mal. Por favor, vuelva a intentarlo.'
         )
       },
       onSuccess: ({ sentToEmail }) => {
         toast.success(
-          `Verification email sent to ${sentToEmail}.`
+          `Correo electrónico de verificación enviado a ${sentToEmail}.`
         )
         router.push('/verify-email?to=' + sentToEmail)
       },
@@ -68,9 +68,10 @@ const Page = () => {
     firstName,
     lastName,
     phone,
+    campus,
 
   }: TUserCredentialsValidator) => {
-    mutate({ email, password, firstName, lastName, phone})
+    mutate({ email, password, firstName, lastName, phone, campus })
   }
 
   return (
@@ -134,6 +135,27 @@ const Page = () => {
                 </div>
 
                 <div className='grid gap-1 py-2'>
+                  <Label htmlFor='campus'>Campus</Label>
+                  <select
+                    {...register('campus')}
+                    className={cn('flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 focus-visible:ring-red-50', {
+                      'focus-visible:ring-red-500': errors.campus,
+                    })}
+                  >
+                    <option value=''>Seleccione un campus</option>
+                    <option value='matriz'>Matriz</option>
+                    <option value='iasa'>IASA</option>
+                    <option value='latacunga'>Latacunga</option>
+                  </select>
+                  {errors?.campus && (
+                    <p className='text-sm text-red-500'>
+                      {errors.campus.message}
+                    </p>
+                  )}
+                </div>
+
+
+                <div className='grid gap-1 py-2'>
                   <Label htmlFor='firstName'>Nombre</Label>
                   <Input
                     {...register('firstName')}
@@ -168,19 +190,24 @@ const Page = () => {
                 </div>
 
                 <div className='grid gap-1 py-2'>
-                    <Label htmlFor='phone'>Teléfono</Label>
+                  <Label htmlFor='phone'>Teléfono</Label>
                   <Input
                     {...register('phone')}
                     className={cn({
                       'focus-visible:ring-red-500': errors.phone,
                     })}
                     placeholder='0955555555'
-                    maxLength={10}
                     name="phone"
-                    onChange={(e) => {
-                      const inputValue = e.target.value;
-                      const numericValue = inputValue.replace(/[^0-9]/g, ''); // Elimina caracteres no numéricos
-                      e.target.value = numericValue;
+                    type='number'
+                    maxLength={10}
+                    onKeyDown={(e) => {
+                      // Permitir solo números, Backspace, Delete, flechas, tab y enter
+                      const allowedKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter'];
+                      const regex = /[0-9]/;
+                      
+                      if (!regex.test(e.key) && !allowedKeys.includes(e.key)) {
+                        e.preventDefault();
+                      }
                     }}
                   />
                   {errors?.phone && (

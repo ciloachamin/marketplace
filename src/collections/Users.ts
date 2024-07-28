@@ -107,6 +107,17 @@ export const Users: CollectionConfig = {
       },
       
     },
+    {
+      name: 'campus',
+      defaultValue: 'matriz',
+      required: true,
+      type: 'select',
+      options: [
+        { label: 'Matriz', value: 'matriz' },
+        { label: 'Latacunga', value: 'latacunga' },
+        { label: 'IASA', value: 'iasa' },
+      ],
+    },
      {
       name: 'firstName',
       label: 'Nombre',

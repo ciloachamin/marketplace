@@ -79,6 +79,9 @@ export default function Home() {
           <p className='mt-6 text-lg max-w-prose text-muted-foreground'>
             Libera tu potencial emprendedor con nosotros. Proporcionamos recursos, conexiones y eventos exclusivos para estudiantes como usted. ¡Haz crecer tus ideas con nuestra comunidad!
           </p>
+          <p className='mt-6 text-lg max-w-prose text-muted-foreground'>
+            Tenemos Envios a distintas sedes de la Universidad.
+          </p>
           <div className='flex flex-col sm:flex-row gap-4 mt-6'>
             {/* <Link
               href='/products'
@@ -140,77 +143,6 @@ export default function Home() {
           <a aria-label="Explorar mas productos" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2" href="/products">Explorar mas productos</a>
         </div>
 
-      </MaxWidthWrapper>
-
-      <MaxWidthWrapper className='py-0  md:px-20 '>
-        <section id="quality-section" className="py-20 flex items-center bg-stone-100 xl:h-screen font-poppins dark:bg-secondary">
-
-          <div className="justify-center flex-1 max-w-6xl py-4 mx-auto lg:py-6 md:px-6">
-            <div className="flex flex-wrap ">
-              <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
-                <div className="relative lg:max-w-md">
-                  <Icons.logo className='h-50 w-80 ' />
-                  <div
-                    className="absolute bottom-0 right-0 z-10 p-8 bg-white border-4 border-primary rounded shadow dark:border-primary lg:-mb-8 lg:-mr-11 sm:p-8 dark:text-gray-300 dark:bg-gray-700 ">
-                    <p className="text-lg font-semibold md:w-72">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                        className="absolute top-0 left-0 w-16 h-16 text-primary dark:text-gray-300 opacity-10"
-                        viewBox="0 0 16 16">
-                        <path
-                          d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z">
-                        </path>
-                      </svg>
-                      Proveemos soluciones empresariales exitosamente desde 1999
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full px-6 mb-10 lg:w-1/2 lg:mb-0 ">
-                <div className="pl-4 mb-6 border-l-4 border-primary ">
-                  <span className="text-sm text-gray-600 uppercase dark:text-gray-400">¿Quiénes somos?</span>
-                  <h1 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl dark:text-gray-300">
-                    Acerca de nosotros
-                  </h1>
-                </div>
-                <p className="mb-6 text-base leading-7 text-gray-600 dark:text-gray-400">
-                  En ESPE SHOP, nuestro compromiso es impulsar tus ambiciones comerciales ofreciendo una plataforma fácil de usar, conexiones clave en la industria y eventos exclusivos para fortalecer tu red. Desde productos hechos a mano hasta servicios únicos, ESPE SHOP es el lugar donde los emprendedores estudiantiles pueden destacar y prosperar.
-                </p>
-                <a href="/seller-plan"
-                  className={buttonVariants()}>
-                  Comenzar
-                </a>
-              </div>
-            </div>
-          </div>
-
-        </section>
-
-
-      </MaxWidthWrapper>
-
-      <MaxWidthWrapper className='py-20  md:px-20 '>
-        <div className='grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0'>
-          {perks.map((perk) => (
-            <div
-              key={perk.name}
-              className='text-center md:flex md:items-start md:text-left lg:block lg:text-center mt-3'>
-              <div className='md:flex-shrink-0 flex justify-center'>
-                <div className='h-16 w-16 flex items-center justify-center rounded-full bg-green-100 text-primary'>
-                  {<perk.Icon className='w-1/3 h-1/3' />}
-                </div>
-              </div>
-
-              <div className='mt-6 md:ml-4 md:mt-0 lg:ml-0 lg:mt-6'>
-                <div className='text-base font-medium text-primary'>
-                  {perk.name}
-                </div>
-                <p className='mt-3 text-sm text-muted-foreground'>
-                  {perk.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
       </MaxWidthWrapper>
 
     </>

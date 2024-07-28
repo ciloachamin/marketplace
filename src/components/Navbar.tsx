@@ -11,6 +11,7 @@ import MobileNav from './MobileNav'
 import { ModeToggle } from './ModeToggle'
 import Search from './Search'
 import { Plus, Upload } from 'lucide-react'
+import NavItemsHorizon from './NavItemsHorizon'
 
 
 const Navbar = async () => {
@@ -101,15 +102,19 @@ const Navbar = async () => {
                   </>
                 ) : null}
                 <div className='ml-4 flow-root lg:ml-6'>
-                  <Cart />
+                  <Cart user={user} />
                 </div>
                 <div className='ml-4 flow-root lg:ml-6 '>
                   <ModeToggle />
                 </div>
               </div>
             </div>
+            <NavItemsHorizon></NavItemsHorizon>
+            
           </div>
+          
         </MaxWidthWrapper>
+
       </header>
     </div>
   )

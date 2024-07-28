@@ -76,7 +76,7 @@ const ImageSlider = (props: ProductReelProps) => {
         }}
         autoplay={{
           delay: 2500,
-          disableOnInteraction: false,
+          disableOnInteraction: true,
         }}
         modules={[Autoplay, EffectCoverflow, Pagination, Navigation]}
         id="swiper_container-carrucel"

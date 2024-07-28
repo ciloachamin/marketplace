@@ -72,7 +72,7 @@ export const appRouter = router({
   getInfiniteProducts: publicProcedure
     .input(
       z.object({
-        limit: z.number().min(1).max(300),
+        limit: z.number().min(1).max(500),
         cursor: z.number().nullish(),
         query: QueryValidator,
         productExcept: z.array(z.string()).optional(),
@@ -186,7 +186,7 @@ export const appRouter = router({
       // console.log('items', items);
 
 
-      const shuffledItems = shuffle(items);
+      // const shuffledItems = shuffle(items);
 
       // console.log('shuffledItems', shuffledItems);
 
@@ -254,7 +254,7 @@ export const appRouter = router({
         page,
       });
 
-      const shuffledItems = shuffle(items);
+      // const shuffledItems = shuffle(items);
 
       // console.log('shuffledItems', shuffledItems);
 
@@ -309,14 +309,17 @@ export const appRouter = router({
 })
 
 export type AppRouter = typeof appRouter
-function shuffle(items: import("../payload-types").Product[]) {
-  // Recorre el arreglo de atrás hacia adelante
-  for (let i = items.length - 1; i > 0; i--) {
-    // Genera un índice aleatorio entre 0 y i
-    const j = Math.floor(Math.random() * (i + 1));
-    // Intercambia los elementos en las posiciones i y j
-    [items[i], items[j]] = [items[j], items[i]];
-  }
-  return items;
-}
+
+
+
+// function shuffle(items: import("../payload-types").Product[]) {
+//   // Recorre el arreglo de atrás hacia adelante
+//   for (let i = items.length - 1; i > 0; i--) {
+//     // Genera un índice aleatorio entre 0 y i
+//     const j = Math.floor(Math.random() * (i + 1));
+//     // Intercambia los elementos en las posiciones i y j
+//     [items[i], items[j]] = [items[j], items[i]];
+//   }
+//   return items;
+// }
 
