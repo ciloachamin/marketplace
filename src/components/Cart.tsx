@@ -61,13 +61,13 @@ const Cart = ({ user }: { user: User | null }) => {
 
   console.log(items);
 
-  const shippingCosts = items.map(({ product }) => {
-    if ((product.user as User)?.campus === (user as User)?.campus) {
-      return 0;
-    } else {
-      return 1.50;
-    }
-  });
+  // const shippingCosts = items.map(({ product }) => {
+  //   if ((product.user as User)?.campus === (user as User)?.campus) {
+  //     return 0;
+  //   } else {
+  //     return 1.50;
+  //   }
+  // });
 
   const fee = 0
 
@@ -105,7 +105,7 @@ const Cart = ({ user }: { user: User | null }) => {
               <div className='space-y-1.5 text-sm'>
                 <div className='flex'>
                   <span className='flex-1'>Envío</span>
-                  <span>{formatPrice(shippingCosts[0])}</span>
+                  <span>{formatPrice(0.00)}</span>
                 </div>
                 <div className='flex'>
                   <span className='flex-1'>
@@ -116,7 +116,7 @@ const Cart = ({ user }: { user: User | null }) => {
                 <div className='flex'>
                   <span className='flex-1'>Total</span>
                   <span>
-                    {formatPrice(cartTotal + fee +shippingCosts[0])}
+                    {formatPrice(cartTotal + fee +0)}
                   </span>
                 </div>
               </div>
