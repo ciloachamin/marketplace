@@ -63,7 +63,8 @@ export interface Product {
     | 'sports'
     | 'beverages'
     | 'art_and_accessories'
-    | 'tasks';
+    | 'tasks'
+    | 'car';
   product_files?: (string | null) | ProductFile;
   approvedForSale?: ('pending' | 'approved' | 'denied') | null;
   priceId?: string | null;

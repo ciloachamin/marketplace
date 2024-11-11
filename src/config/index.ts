@@ -242,5 +242,27 @@ export const PRODUCT_CATEGORIES = [
       },
     ],
   },
+  {
+    label: 'Vehículos',
+    value: 'car' as const,
+    href: '/products?category=rentals',
+    destacados: [
+      {
+        name: 'Selecciones del Editor',
+        href: `/products?category=rentals`,
+        imageSrc: '/nav/rentals/editor_picks.jpg',
+      },
+      {
+        name: 'Nuevos Lanzamientos',
+        href: '/products?category=rentals&sort=desc',
+        imageSrc: '/nav/rentals/new_arrivals.jpg',
+      },
+      {
+        name: 'Más Solicitados',
+        href: '/products?category=rentals&sort=popular',
+        imageSrc: '/nav/rentals/most_requested.jpg',
+      },
+    ],
+  },
 
 ];
