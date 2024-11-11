@@ -245,22 +245,22 @@ export const PRODUCT_CATEGORIES = [
   {
     label: 'Vehículos',
     value: 'car' as const,
-    href: '/products?category=rentals',
+    href: '/products?category=car',
     destacados: [
       {
         name: 'Selecciones del Editor',
-        href: `/products?category=rentals`,
-        imageSrc: '/nav/rentals/editor_picks.jpg',
+        href: `/products?category=car`,
+        imageSrc: '/nav/car/editor_picks.jpg',
       },
       {
         name: 'Nuevos Lanzamientos',
-        href: '/products?category=rentals&sort=desc',
-        imageSrc: '/nav/rentals/new_arrivals.jpg',
+        href: '/products?category=car&sort=desc',
+        imageSrc: '/nav/car/new_arrivals.jpg',
       },
       {
         name: 'Más Solicitados',
-        href: '/products?category=rentals&sort=popular',
-        imageSrc: '/nav/rentals/most_requested.jpg',
+        href: '/products?category=car&sort=popular',
+        imageSrc: '/nav/car/most_requested.jpg',
       },
     ],
   },
