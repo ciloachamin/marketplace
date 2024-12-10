@@ -69,6 +69,7 @@ const Cart = ({ user }: { user: User | null }) => {
   //   }
   // });
 
+  
   const fee = 0
 
   return (
